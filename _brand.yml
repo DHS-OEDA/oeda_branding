@@ -8,7 +8,7 @@ typography:
 
 # Color palette
 color:
-  # Oregon brand colors as standard color names
+  # Oregon brand colors
   primary: "#2B4C8C"     # North Star Indigo
   secondary: "#5CB85C"   # Willamette Spring  
   success: "#5CB85C"     # Willamette Spring
@@ -18,22 +18,6 @@ color:
   light: "#F8F9FA"       # Light gray
   dark: "#2B4C8C"        # North Star Indigo
 
-# Logo
+# Logo configuration
 logo:
-  images:
-    primary:
-      path: "assets/oeda-logo-light.svg"
-      alt: "Oregon Enterprise Data Analytics Logo"
-    primary-dark:
-      path: "assets/oeda-logo-light.svg" # TODO: Get dark image here
-      alt: "Oregon Enterprise Data Analytics Logo"
-    icon:
-      path: "assets/oeda-logo-light.svg" # TODO: Get favicon hex from Jason and put here
-      alt: "OEDA Icon"
-  small: icon
-  medium: 
-    light: primary
-    dark: primary-dark
-  large:
-    light: primary
-    dark: primary-dark
+  path: "assets/oeda-logo-light.svg"

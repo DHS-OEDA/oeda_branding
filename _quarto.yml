@@ -7,5 +7,5 @@ editor: visual
 
 format:
   html:
-    theme: _brand.yml
+    toc: true
 
