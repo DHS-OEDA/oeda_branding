@@ -7,9 +7,5 @@ editor: visual
 
 format:
   html:
-<<<<<<< HEAD
     theme: _brand.yml
 
-=======
-    default
->>>>>>> 1745c1a (file path for brand fixed -- still not working)
