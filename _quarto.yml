@@ -5,5 +5,5 @@ editor: visual
 
 format:
   html:
-    theme: brand/_brand.yml
+    theme: _brand.yml
 
