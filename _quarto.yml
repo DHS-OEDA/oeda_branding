@@ -1,0 +1,9 @@
+project:
+  title: "oeda_brand"
+
+editor: visual
+
+format:
+  html:
+    theme: brand/_brand.yml
+
