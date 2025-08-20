@@ -20,4 +20,6 @@ color:
 
 # Logo configuration
 logo:
-  path: "assets/oeda-logo-light.svg"
+  small: "assets/oeda-logo-light.svg"
+  medium: "assets/oeda-logo-light.svg" 
+  large: "assets/oeda-logo-wide-light.svg"
