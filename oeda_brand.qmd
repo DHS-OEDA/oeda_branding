@@ -1,7 +1,13 @@
 ---
 title: "Branding Test Page"
-format: 
+format:
   html:
+    # This "theme" block is the main change to fix scss import error
+    theme:
+      - default    # A clean, standard theme to use as a base
+      - theme.scss # Brand customizations are layered on top
+    
+    #title-block-banner: /assets/oeda-logo-primary.png
     toc: true
     grid:
       body-width: 800px
@@ -19,7 +25,7 @@ If you can see the wide OEDA logo below, it confirms that the path is correct an
 
 ## Testing Logo Path
 
-![Test embed of the wide logo](/assets/oeda-logo-wide-light.svg)
+![Test embed of the new cleaned up logo](/assets/oeda-logo-primary-clean.svg)
 
 ------------------------------------------------------------------------
 

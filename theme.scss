@@ -4,4 +4,18 @@
 /*-- scss:rules --*/
 // Import Quarto's default Bootstrap theme.
 // The branding variables will be automatically applied to this.
-@import "quarto/theme/bootstrap";
+// TODO: Figure out why the import fails. For now it's fixed in yaml header of test qmd file.
+//@import "quarto/theme/bootstrap";
+
+.quarto-title-block .quarto-title-banner {
+  /* Add padding to the top and bottom of the banner itself */
+  padding-top: 25px;
+  padding-bottom: 15px;
+
+  background-image: url(assets/oeda-logo-horizontal-dark-clean.svg);
+  background-size: 300px; /* original size might work now */
+  background-position: left center; /* Vertically centering works if there's enough space */
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  background-origin: content-box;
+}

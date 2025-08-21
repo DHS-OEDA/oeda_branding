@@ -5,7 +5,7 @@ format:
     theme: theme.scss
 
     # 2. Use title-block-banner to place the logo at the top
-    title-block-banner: /assets/oeda-logo-wide-light.svg
+    title-block-banner: /assets/oeda-logo-horizontal-dark-clean.svg
     toc: true
     grid:
       body-width: 800px

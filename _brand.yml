@@ -15,8 +15,8 @@ logo:
   images:
     logo-color: /assets/oeda-logo-light.svg
     logo-dark: /assets/oeda-logo-dark.svg
-    wide-color: /assets/oeda-logo-wide-light.svg
-    wide-dark: /assets/oeda-logo-wide-dark.svg
+    wide-color: /assets/oeda-logo-primary-clean.svg
+    wide-dark: /assets/oeda-logo-horizontal-dark-clean.svg
     icon-light: /assets/oeda-icon.svg
     icon-dark: /assets/oeda-icon-dark.svg
 
