@@ -1,11 +1,34 @@
-project:
-  title: "oeda_brand"
-
-brand: _brand.yml
-
-editor: visual
-
+title: "Branding Test: Single Document"
 format:
   html:
-    toc: true
+    # 1. Point to your new theme file to apply colors and fonts
+    theme: theme.scss
 
+    # 2. Use title-block-banner to place the logo at the top
+    title-block-banner: /assets/oeda-logo-wide-light.svg
+    toc: true
+    grid:
+      body-width: 800px
+
+
+
+# # 1. Ensure the project is defined as a website
+# project:
+#   type: website
+
+# # 2. Define the website structure, including the navbar logo
+# website:
+#   title: "Oregon Enterprise Data Analytics" 
+#   navbar:
+#     logo: /assets/oeda-logo-light.svg
+#     logo-alt: "Oregon Enterprise Data Analytics Logo"
+    
+# # 3. Define the output format. CRITICALLY, there is no "theme:" key here.
+# #    The absence of a theme tells Quarto to use the _brand.yml file.
+# format:
+#   html:
+#     toc: true
+#     #css: /assets/styles.css # Optional: for any custom CSS overrides
+    
+# 4. Optional but recommended editor setting
+editor: visual

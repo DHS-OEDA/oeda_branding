@@ -1,15 +1,60 @@
 ---
-title: "OEDA Brand Demo"
+title: "Branding Test Page"
+format: 
+  html:
+    toc: true
+    grid:
+      body-width: 800px
 ---
 
-# Main Heading
+## Testing Typography
 
-This is some sample text to test the Noto Sans typography.
+This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from `_brand.yml` is working as expected.
 
-## Secondary Heading
+### This is a Sub-Heading
 
-More content here to see the brand colors and fonts in action.
+This section will test if we can embed one of the logos directly into the document body using the same path defined in `_brand.yml`.
 
-::: {.alert .alert-primary}
-This is a primary alert to test brand colors.
+If you can see the wide OEDA logo below, it confirms that the path is correct and Quarto can find your assets folder.
+
+## Testing Logo Path
+
+![Test embed of the wide logo](/assets/oeda-logo-wide-light.svg)
+
+------------------------------------------------------------------------
+
+## Testing Brand Colors
+
+The colored boxes below are styled using the semantic color names from your `_brand.yml` file (e.g., `primary`, `success`, `danger`). If they appear with your brand's specific colors, then the color palette is being applied correctly.
+
+::: {.p-2 .my-2 .text-light style="background-color: var(--bs-primary); border-radius: 5px;"}
+**Primary:** This should be North Star Indigo (`#2E3192`).
+:::
+
+::: {.p-2 .my-2 .text-light style="background-color: var(--bs-secondary); border-radius: 5px;"}
+**Secondary:** This should be Ashland Charcoal (`#414042`).
+:::
+
+::: {.p-2 .my-2 .text-light style="background-color: var(--bs-success); border-radius: 5px;"}
+**Success:** This should be Forest Green (`#184E49`).
+:::
+
+::: {.p-2 .my-2 .text-light style="background-color: var(--bs-danger); border-radius: 5px;"}
+**Danger:** This should be Marionberry Red (`#A91F50`).
+:::
+
+::: {.p-2 .my-2 .text-dark style="background-color: var(--bs-warning); border-radius: 5px;"}
+**Warning:** This should be Harvest Gold (`#ECD263`).
+:::
+
+::: {.p-2 .my-2 .text-dark style="background-color: var(--bs-info); border-radius: 5px;"}
+**Info:** This should be Glacial Blue (`#B4DCF5`).
+:::
+
+::: {.p-2 .my-2 .text-dark style="background-color: var(--bs-light); border-radius: 5px;"}
+**Light:** This should be Fog Gray (`#F4F2ED`).
+:::
+
+::: {.p-2 .my-2 .text-light style="background-color: var(--bs-dark); border-radius: 5px;"}
+**Dark:** This should be Ashland Charcoal (`#414042`).
 :::

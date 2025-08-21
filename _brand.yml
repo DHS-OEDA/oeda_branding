@@ -1,25 +1,96 @@
-# Oregon Enterprise Data Analytics - Quarto Brand Configuration
+# _brand.yml
+# Brand identity for the Oregon Enterprise Data Analytics team.
+# A joint effort of the Oregon Department of Human Services (ODHS) 
+# and the Oregon Health Authority (OHA).
+# Last Updated: August 21, 2025
 
-# Typography
-typography:
-  base: "Noto Sans, Arial, sans-serif"
-  headings: "Noto Sans, Arial, sans-serif"
-  monospace: "Noto Sans Mono, Consolas, Monaco, monospace"
+meta:
+  name: "Oregon Enterprise Data Analytics"
+  address: "500 Summer St NE, Salem, OR 97301"
+  links:
+    home: https://www.oregon.gov/odhs/data/Pages/orrai.aspx
+    github: https://github.com/orgs/ODHS-ORRAI/
 
-# Color palette
-color:
-  # Oregon brand colors
-  primary: "#2B4C8C"     # North Star Indigo
-  secondary: "#5CB85C"   # Willamette Spring  
-  success: "#5CB85C"     # Willamette Spring
-  info: "#7BB3F0"        # Glacial Blue
-  warning: "#E8D5B7"     # High Desert Sand
-  danger: "#DC3545"      # Standard red
-  light: "#F8F9FA"       # Light gray
-  dark: "#2B4C8C"        # North Star Indigo
-
-# Logo configuration
 logo:
-  small: "assets/oeda-logo-light.svg"
-  medium: "assets/oeda-logo-light.svg" 
-  large: "assets/oeda-logo-wide-light.svg"
+  images:
+    logo-color: /assets/oeda-logo-light.svg
+    logo-dark: /assets/oeda-logo-dark.svg
+    wide-color: /assets/oeda-logo-wide-light.svg
+    wide-dark: /assets/oeda-logo-wide-dark.svg
+    icon-light: /assets/oeda-icon.svg
+    icon-dark: /assets/oeda-icon-dark.svg
+
+  small: icon-light
+  medium: wide-color
+  large: wide-color
+
+color:
+  # Palette based on the OEDA brand guide
+  palette:
+    # Primary Palette
+    north-star-indigo: "#2E3192"
+    glacial-blue: "#B4DCF5"
+    fog-gray: "#F4F2ED"
+    
+    # Secondary Palette
+    forest-green: "#184E49"
+    willamette-green: "#86C679"
+    mist-grey: "#D8E1E5"
+    
+    # Tertiary Palette
+    marionberry-red: "#A91F50"
+    harvest-gold: "#ECD263"
+    desert-sand: "#EDDFD4"
+    ashland-charcoal: "#414042"
+    white: "#FFFFFF"
+    black: "#000000"
+
+  primary: north-star-indigo
+  secondary: ashland-charcoal
+  success: forest-green
+  warning: harvest-gold
+  danger: marionberry-red
+  info: glacial-blue
+  light: fog-gray
+  dark: ashland-charcoal
+
+typography:
+  fonts:
+    - family: "Noto Sans"
+      source: google
+    - family: "Noto Serif"
+      source: google
+    - family: "Noto Sans Mono"
+      source: google
+
+  base:
+    family: "'Noto Sans', Aptos, sans-serif"
+    line-height: 1.7
+    size: 1.1rem
+
+  headings:
+    family: "'Noto Sans', Aptos, sans-serif"
+    weight: 700 # Noto Sans Bold for H1
+    # FIX 1: 'letter-spacing' is not a valid property here.
+    # It has been moved to the 'defaults:bootstrap' section below.
+
+  link:
+    color: primary
+    # FIX 2: 'hover-color' is not a valid property here.
+    # It has been moved to the 'defaults:bootstrap' section below.
+
+  monospace:
+    family: "'Noto Sans Mono', 'Aptos Mono', monospace"
+    size: 0.95em
+
+
+# Default settings for various Quarto and Shiny outputs
+defaults:
+  bootstrap:
+    # You can override Bootstrap SASS variables here
+    # FIX 1 ADDED HERE: Set the SASS variable for heading letter-spacing
+    "$headings-letter-spacing": "-0.02rem"
+    
+    # FIX 2 ADDED HERE: Set the SASS variable for link hover color.
+    # We use '$dark' which refers to the 'dark' color defined in our palette.
+    "$link-hover-color": $dark

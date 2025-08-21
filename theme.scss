@@ -1,0 +1,7 @@
+/*-- scss:defaults --*/
+// This is where Quarto injects the variables from _brand.yml
+
+/*-- scss:rules --*/
+// Import Quarto's default Bootstrap theme.
+// The branding variables will be automatically applied to this.
+@import "quarto/theme/bootstrap";
