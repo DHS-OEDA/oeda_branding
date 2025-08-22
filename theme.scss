@@ -8,14 +8,20 @@
 //@import "quarto/theme/bootstrap";
 
 .quarto-title-block .quarto-title-banner {
-  /* Add padding to the top and bottom of the banner itself */
-  padding-top: 25px;
-  padding-bottom: 25px;
+/*  background-image: url(assets/oeda-logo-primary-dark-fixed.svg); */
+    background-image: url(assets/oeda-logo-horizontal-dark-clean.svg);
+/*  background-image: url(assets/oeda-logo-primary-dark-fixed.svg);*/
+/* background-image: url(assets/oeda-logo-primary-dark-fixed.svg);*/
+/*  background-image: url(assets/oeda-logo-primary-dark-fixed.svg);*/
 
-  background-image: url(assets/oeda-logo-horizontal-dark-clean.svg);
-  background-size: 200px; /* original size might work now */
-  background-position: left center; /* Vertically centering works if there's enough space */
+  /* Make the logo fit entirely inside the banner, maintaining aspect ratio */
+  background-size: contain; 
+  
+  /* Position it 20px from the left and centered vertically */
+  background-position: 20px center; 
+  
   background-repeat: no-repeat;
-  padding-left: 10px;
-  background-origin: content-box;
+  
+  /* This padding is now for the text, not the logo position */
+  padding-left: 10px; 
 }
