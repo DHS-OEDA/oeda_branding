@@ -1,0 +1,6 @@
+/*-- scss:rules --*/
+
+// Using the correct selector for your version of Quarto
+body.quarto-dark {
+  background-color: red !important;
+}

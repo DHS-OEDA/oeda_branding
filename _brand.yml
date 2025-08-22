@@ -32,10 +32,52 @@ color:
     glacial-blue: "#B4DCF5"
     fog-gray: "#F4F2ED"
     
+    # --- Tints for north-star-indigo ---
+    north-star-indigo-80: "#585AA8"  # 80% of original
+    north-star-indigo-60: "#8283BE"  # 60% of original
+    north-star-indigo-40: "#ACADD3"  # 40% of original
+    north-star-indigo-20: "#D6D6E9"  # 20% of original
+    north-star-indigo-10: "#EBEBF0"  # 10% of original
+
+    # --- Tints for glacial-blue ---
+    glacial-blue-80: "#C3E3F7"
+    glacial-blue-60: "#D1EAF9"
+    glacial-blue-40: "#E0F1FB"
+    glacial-blue-20: "#EFF8FE"
+    glacial-blue-10: "#F7FCFE"
+
+    # --- Tints for fog-gray ---
+    fog-gray-80: "#F6F5F0"
+    fog-gray-60: "#F9F7F4"
+    fog-gray-40: "#FBFAF8"
+    fog-gray-20: "#FDFDFB"
+    fog-gray-10: "#FEFEFD"
+    
     # Secondary Palette
     forest-green: "#184E49"
     willamette-green: "#86C679"
     mist-grey: "#D8E1E5"
+    
+    # --- Generated Tints for forest-green ---  
+    forest-green-80: "#46716D"
+    forest-green-60: "#749592"
+    forest-green-40: "#A2B8B6"
+    forest-green-20: "#D0DBDA"
+    forest-green-10: "#E8EDEC"
+
+# --- Generated Tints for willamette-green ---
+    willamette-green-80: "#9ED194"
+    willamette-green-60: "#B5DDAE"
+    willamette-green-40: "#CEE8C9"
+    willamette-green-20: "#E7F4E4"
+    willamette-green-10: "#F3FAF1"
+
+# --- Generated Tints for mist-grey ---
+    mist-grey-80: "#DFE7EA"
+    mist-grey-60: "#E7EDEF"
+    mist-grey-40: "#EEF3F5"
+    mist-grey-20: "#F6F9FA"
+    mist-grey-10: "#FBFDFD"
     
     # Tertiary Palette
     marionberry-red: "#A91F50"
@@ -44,6 +86,34 @@ color:
     ashland-charcoal: "#414042"
     white: "#FFFFFF"
     black: "#000000"
+    
+    # --- Generated Tints for marionberry-red ---
+    marionberry-red-80: "#BA4773"
+    marionberry-red-60: "#CB6996"
+    marionberry-red-40: "#DB8EB8"
+    marionberry-red-20: "#EBB3DA"
+    marionberry-red-10: "#F5D9EC"
+
+# --- Generated Tints for harvest-gold ---
+    harvest-gold-80: "#EFDA82"
+    harvest-gold-60: "#F3E2A1"
+    harvest-gold-40: "#F7EBC0"
+    harvest-gold-20: "#FBF3DF"
+    harvest-gold-10: "#FDF9EF"
+
+# --- Generated Tints for desert-sand ---
+    desert-sand-80: "#F0E5DB"
+    desert-sand-60: "#F4EBE2"
+    desert-sand-40: "#F8F2E9"
+    desert-sand-20: "#FCF8F4"
+    desert-sand-10: "#FEFCFA"
+
+# --- Generated Tints for ashland-charcoal ---
+    ashland-charcoal-80: "#676668"
+    ashland-charcoal-60: "#8D8C8E"
+    ashland-charcoal-40: "#B3B3B4"
+    ashland-charcoal-20: "#D9D9D9"
+    ashland-charcoal-10: "#E9E9EA"
 
   primary: north-star-indigo
   secondary: ashland-charcoal

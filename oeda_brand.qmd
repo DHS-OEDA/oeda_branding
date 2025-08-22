@@ -2,16 +2,28 @@
 title: "Branding Test Page"
 format:
   html:
-    # This "theme" block is the main change to fix scss import error
+    # IMPORTANT: The 'theme' key MUST be indented under 'html'
     theme:
-      - default    # A clean, standard theme to use as a base
-      - theme.scss # Brand customizations are layered on top
+      light: 
+        - default
+        - theme.scss
+      dark: 
+        - darkly
+        - theme.scss
+    
+    # We will solve the font issue here, as it's part of the header
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+          
     embed-resources: true
-    #title-block-banner: /assets/oeda-logo-horizontal-dark-clean.svg
     toc: true
     grid:
       body-width: 800px
 ---
+# OEDA Branding Tests
 
 ## Testing Typography
 
@@ -29,38 +41,85 @@ If you can see the wide OEDA logo below, it confirms that the path is correct an
 
 ------------------------------------------------------------------------
 
-## Testing Brand Colors
+## Testing Color Palettes
 
-The colored boxes below are styled using the semantic color names from your `_brand.yml` file (e.g., `primary`, `success`, `danger`). If they appear with your brand's specific colors, then the color palette is being applied correctly.
 
-::: {.p-2 .my-2 .text-light style="background-color: var(--bs-primary); border-radius: 5px;"}
-**Primary:** This should be North Star Indigo (`#2E3192`).
-:::
+```{r}
+#| label: fig-swatches
+#| fig-cap: "Brand Color Swatches and Tints"
+#| echo: false
+#| warning: false
+#| message: false
 
-::: {.p-2 .my-2 .text-light style="background-color: var(--bs-secondary); border-radius: 5px;"}
-**Secondary:** This should be Ashland Charcoal (`#414042`).
-:::
+# Load necessary libraries
+library(yaml)
+library(ggplot2)
+library(dplyr)
 
-::: {.p-2 .my-2 .text-light style="background-color: var(--bs-success); border-radius: 5px;"}
-**Success:** This should be Forest Green (`#184E49`).
-:::
+# Function to determine text color for contrast
+get_text_color <- function(hex_color) {
+  if (is.na(hex_color) || !grepl("^#[0-9A-Fa-f]{6}$", hex_color, ignore.case = TRUE)) {
+    return("black")
+  }
+  rgb_vals <- grDevices::col2rgb(hex_color)
+  luminance <- 0.2126 * rgb_vals[1,] + 0.7152 * rgb_vals[2,] + 0.0722 * rgb_vals[3,]
+  ifelse(luminance > 140, "black", "white")
+}
 
-::: {.p-2 .my-2 .text-light style="background-color: var(--bs-danger); border-radius: 5px;"}
-**Danger:** This should be Marionberry Red (`#A91F50`).
-:::
+# --- Data Preparation ---
+# Ensure your _brand.yml file is in the project directory
+all_colors <- read_yaml("_brand.yml")
+color_list <- all_colors[!grepl("font", names(all_colors))]
+color_list <- color_list[!sapply(color_list, is.null)]
+flat_colors <- unlist(color_list)
 
-::: {.p-2 .my-2 .text-dark style="background-color: var(--bs-warning); border-radius: 5px;"}
-**Warning:** This should be Harvest Gold (`#ECD263`).
-:::
+color_df <- tibble(
+  name = names(flat_colors),
+  hex = as.character(unname(flat_colors))
+)
 
-::: {.p-2 .my-2 .text-dark style="background-color: var(--bs-info); border-radius: 5px;"}
-**Info:** This should be Glacial Blue (`#B4DCF5`).
-:::
+# Validation and filtering step
+is_valid_hex <- grepl("^#[0-9A-Fa-f]{6}$", color_df$hex, ignore.case = TRUE)
+plot_df <- color_df |>
+  filter(is_valid_hex) |>
+  mutate(
+    base_color = sub("-\\d{2}$", "", name),
+    tint_level = ifelse(grepl("-\\d{2}$", name), as.numeric(sub(".*-", "", name)), 100)
+  ) |>
+  rowwise() |>
+  mutate(text_color = get_text_color(hex)) |>
+  ungroup()
 
-::: {.p-2 .my-2 .text-dark style="background-color: var(--bs-light); border-radius: 5px;"}
-**Light:** This should be Fog Gray (`#F4F2ED`).
-:::
+palette_order <- c(
+  "north-star-indigo", "glacial-blue", "fog-gray",
+  "forest-green", "willamette-green", "mist-grey",
+  "marionberry-red", "harvest-gold", "desert-sand", "ashland-charcoal"
+)
 
-::: {.p-2 .my-2 .text-light style="background-color: var(--bs-dark); border-radius: 5px;"}
-**Dark:** This should be Ashland Charcoal (`#414042`).
-:::
+plot_df <- plot_df |>
+  mutate(
+    short_name = sub(".*\\.", "", base_color),
+    short_name = factor(short_name, levels = palette_order)
+  ) |>
+  arrange(short_name, desc(tint_level)) |>
+  mutate(base_color_ordered = factor(base_color, levels = unique(base_color)))
+
+# --- Plotting ---
+if (nrow(plot_df) > 0) {
+  ggplot(plot_df, aes(x = factor(tint_level, levels = c(100, 80, 60, 40, 20, 10)), 
+                       y = base_color_ordered, fill = hex)) +
+    geom_tile(color = "white", linewidth = 2) +
+    geom_text(aes(label = hex, color = text_color), size = 3, family = "sans") +
+    scale_fill_identity() +
+    scale_color_identity() +
+    scale_y_discrete(limits = rev) +
+    labs(x = "Tint Level (% of Original Color)", y = NULL, title = "Brand Color Palette") +
+    theme_minimal(base_family = "sans") +
+    theme(
+      panel.grid = element_blank(),
+      axis.text.x = element_text(angle = 0, hjust = 0.5),
+      plot.title = element_text(hjust = 0.5, face = "bold", margin = margin(b = 10))
+    )
+}
+```
+
