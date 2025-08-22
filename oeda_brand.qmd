@@ -6,8 +6,8 @@ format:
     theme:
       - default    # A clean, standard theme to use as a base
       - theme.scss # Brand customizations are layered on top
-    
-    #title-block-banner: /assets/oeda-logo-primary.png
+    embed-resources: true
+    #title-block-banner: /assets/oeda-logo-horizontal-dark-clean.svg
     toc: true
     grid:
       body-width: 800px
