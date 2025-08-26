@@ -4,12 +4,8 @@ format:
   html:
     # IMPORTANT: The 'theme' key MUST be indented under 'html'
     theme:
-      light: 
-        - default
-        - theme.scss
-      dark: 
-        - darkly
-        - theme.scss
+      light: [default, theme.scss]
+      dark: [darkly, theme.scss]
     
     # We will solve the font issue here, as it's part of the header
     include-in-header:
