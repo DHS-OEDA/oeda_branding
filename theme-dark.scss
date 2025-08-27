@@ -1,0 +1,68 @@
+/*-- scss:defaults --*/
+
+//
+// THEME-DARK.SCSS
+// Oregon Enterprise Data Analytics - Dark Theme Overrides
+//
+
+// Note: We don't redefine the base SASS variables here (e.g., $primary).
+// Instead, we override the final CSS custom properties that Bootstrap uses.
+
+// Define lighter tints for use in the dark theme.
+// You can pull these from your _brand.yml file.
+$north-star-indigo-40: #ACADD3;
+$north-star-indigo-60: #8283BE;
+$forest-green-60: #749592;
+$harvest-gold-60: #F3E2A1;
+$marionberry-red-60: #CB6996;
+$glacial-blue-60: #D1EAF9;
+$fog-gray: #F4F2ED;
+$ashland-charcoal: #414042;
+$ashland-charcoal-80: #676668;
+$ashland-charcoal-20: #D9D9D9;
+
+
+/*-- scss:rules --*/
+
+[data-bs-theme="dark"] {
+
+  // 1. SEMANTIC COLOR OVERRIDES (DARK THEME)
+  // -----------------------------------------------------
+  // Remap the CSS custom properties for the dark theme.
+  
+  // Body colors
+  --bs-body-color: #{$fog-gray};
+  --bs-body-bg: #{$ashland-charcoal};
+  
+  // Heading and border colors
+  --bs-headings-color: #{$north-star-indigo-40};
+  --bs-border-color: #{$ashland-charcoal-80};
+  
+  // Theme colors
+  --bs-primary: #{$north-star-indigo-60};
+  --bs-secondary: #{$ashland-charcoal-20};
+  --bs-success: #{$forest-green-60};
+  --bs-warning: #{$harvest-gold-60};
+  --bs-danger: #{$marionberry-red-60};
+  --bs-info: #{$glacial-blue-60};
+  --bs-light: #{$ashland-charcoal}; // Dark mode 'light' is the dark background
+  --bs-dark: #{$fog-gray};         // Dark mode 'dark' is the light text
+  
+  // Links
+  --bs-link-color: #{$north-star-indigo-40};
+  --bs-link-hover-color: #{$fog-gray};
+  
+  // Background for cards, callouts, etc.
+  --bs-tertiary-bg: #{$ashland-charcoal-80};
+
+
+  // 2. LOGO SWAPPING (DARK THEME)
+  // -----------------------------------------------------
+  // Hide the light-theme logo and show the dark-theme one.
+  .logo-light {
+    display: none;
+  }
+  .logo-dark {
+    display: inline-block;
+  }
+}

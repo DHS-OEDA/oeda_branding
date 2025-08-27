@@ -1,34 +1,62 @@
-title: "Branding Test: Single Document"
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "OEDA Analytics"
+  navbar:
+    left:
+      - href: oeda_brand.qmd # Or whatever your main page is
+        text: Branding
+logo:
+  light: /assets/oeda-logo-primary-clean.svg
+  dark: /assets/oeda-logo-horizontal-dark-clean.svg
+  alt: "OEDA Logo"
+
+# trying theme at top level 
+theme:
+  light: [flatly, theme.scss]
+  dark: [darkly, theme-dark.scss]
+
 format:
   html:
-    # 1. Point to your new theme file to apply colors and fonts
-    theme: theme.scss
-
-    # 2. Use title-block-banner to place the logo at the top
-    title-block-banner: /assets/oeda-logo-horizontal-dark-clean.svg
     toc: true
-    grid:
-      body-width: 800px
-
-
-
-# # 1. Ensure the project is defined as a website
-# project:
-#   type: website
-
-# # 2. Define the website structure, including the navbar logo
-# website:
-#   title: "Oregon Enterprise Data Analytics" 
-#   navbar:
-#     logo: /assets/oeda-logo-light.svg
-#     logo-alt: "Oregon Enterprise Data Analytics Logo"
-    
-# # 3. Define the output format. CRITICALLY, there is no "theme:" key here.
-# #    The absence of a theme tells Quarto to use the _brand.yml file.
+    toc-float: true
+    code-copy: true
+# title: "Branding Test: Single Document"
 # format:
 #   html:
+#     # 1. Point to your new theme file to apply colors and fonts
+#     theme: 
+#       - theme.scss
+#       - theme-dark.scss
+#   
+#     # 2. Use title-block-banner to place the logo at the top
+#     # title-block-banner: /assets/oeda-logo-horizontal-dark-clean.svg
 #     toc: true
-#     #css: /assets/styles.css # Optional: for any custom CSS overrides
-    
-# 4. Optional but recommended editor setting
-editor: visual
+#     grid:
+#       body-width: 800px
+#     logo:
+#       light: /assets/oeda-logo-wide-light.svg # need to fix
+#       dark: /assets/oeda-logo-horizontal-dark-clean.svg  # fixed already
+#       alt: "Oregon Enterprise Data Analytics Logo"
+# # # 1. Ensure the project is defined as a website
+# # project:
+# #   type: website
+# 
+# # # 2. Define the website structure, including the navbar logo
+# # website:
+# #   title: "Oregon Enterprise Data Analytics" 
+# #   navbar:
+# #     logo: /assets/oeda-logo-light.svg
+# #     logo-alt: "Oregon Enterprise Data Analytics Logo"
+#     
+# # # 3. Define the output format. CRITICALLY, there is no "theme:" key here.
+# # #    The absence of a theme tells Quarto to use the _brand.yml file.
+# # format:
+# #   html:
+# #     toc: true
+# #     #css: /assets/styles.css # Optional: for any custom CSS overrides
+#     
+# # 4. Optional but recommended editor setting
+# editor: visual

@@ -1,41 +1,90 @@
-/*-- scss:vars --*/
+/*-- scss:defaults --*/
 
-// --- 1. Brand Color Definitions ---
+//
+// THEME.SCSS
+// Oregon Enterprise Data Analytics - Light Theme
+//
+
+// 1. FONT IMPORTS
+// -----------------------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Serif:wght@400;700&family=Noto+Sans+Mono&display=swap');
+
+// 2. BRAND COLOR PALETTE
+// -----------------------------------------------------
+// Primary Palette
 $north-star-indigo: #2E3192;
-$fog-gray: #F4F2ED;
-$ashland-charcoal: #414042;
 $glacial-blue: #B4DCF5;
+$fog-gray: #F4F2ED;
+
+// Secondary Palette
+$forest-green: #184E49;
+$willamette-green: #86C679;
+$mist-grey: #D8E1E5;
+
+// Tertiary Palette
 $marionberry-red: #A91F50;
+$harvest-gold: #ECD263;
+$desert-sand: #EDDFD4;
+$ashland-charcoal: #414042;
+$white: #FFFFFF;
+$black: #000000;
 
-// --- 2. Light Mode Theme (Default) ---
+// Tints (useful for hover states, backgrounds, etc.)
+$north-star-indigo-60: #8283BE;
+$ashland-charcoal-80: #676668;
+$ashland-charcoal-20: #D9D9D9;
+
+
+// 3. SEMANTIC COLOR MAPPING (LIGHT THEME)
+// -----------------------------------------------------
+// These variables override Bootstrap's defaults.
 $primary:       $north-star-indigo;
+$secondary:     $ashland-charcoal;
+$success:       $forest-green;
+$warning:       $harvest-gold;
 $danger:        $marionberry-red;
-$body-bg:       #ffffff;
-$body-color:    $ashland-charcoal;
-$link-color:    $primary;
+$info:          $glacial-blue;
+$light:         $fog-gray;
+$dark:          $ashland-charcoal;
 
-// --- 3. Base Typography ---
-$font-family-sans-serif: "Noto Sans", sans-serif;
-$headings-font-family:   "Noto Sans", sans-serif;
-$headings-font-weight:   700;
+// Body colors
+$body-bg:       $white; // Use pure white or $fog-gray for a slightly off-white background
+$body-color:    $ashland-charcoal;
+$text-muted:    $ashland-charcoal-80;
+
+// Component colors
+$border-color:  $ashland-charcoal-20;
+$headings-color: $north-star-indigo;
+
+
+// 4. TYPOGRAPHY MAPPING
+// -----------------------------------------------------
+$font-family-sans-serif: 'Noto Sans', 'Aptos', sans-serif;
+$font-family-serif: 'Noto Serif', serif;
+$font-family-monospace: 'Noto Sans Mono', 'Aptos Mono', monospace;
+
+$font-size-base: 1.1rem;
+$line-height-base: 1.7;
+
+$headings-font-family: 'Noto Sans', 'Aptos', sans-serif;
+$headings-font-weight: 700;
+$headings-letter-spacing: -0.02rem;
+
+// Link colors
+$link-color: $primary;
+$link-hover-color: $dark;
 
 
 /*-- scss:rules --*/
 
-// --- 4. Dark Mode Overrides ---
-// These rules apply when the .quarto-dark class is added to the body
-body.quarto-dark {
-  /* Using hard-coded hex values to test the variable scope theory */
-  --bs-body-bg: #414042;
-  --bs-body-color: #F4F2ED;
-  --bs-link-color: #B4DCF5;
-  --bs-link-hover-color: #cde6f7; /* Calculated lighten value */
-  
-  --bs-primary: #B4DCF5;
-  --bs-danger: #c05379; /* Calculated lighten value */
+//
+// CUSTOM CSS RULES
+//
 
-  .blockquote {
-    border-left: 4px solid #B4DCF5;
-    color: #ffffff; /* Calculated lighten value */
-  }
+// Hide the dark-theme logo by default
+.logo-dark {
+  display: none;
+}
+.logo-light {
+  display: inline-block;
 }

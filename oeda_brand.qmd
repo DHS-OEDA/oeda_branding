@@ -1,24 +1,9 @@
 ---
-title: "Branding Test Page"
-format:
-  html:
-    # IMPORTANT: The 'theme' key MUST be indented under 'html'
-    theme:
-      light: [default, theme.scss]
-      dark: [darkly, theme.scss]
-    
-    # We will solve the font issue here, as it's part of the header
-    include-in-header:
-      - text: |
-          <link rel="preconnect" href="https://fonts.googleapis.com">
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-          
-    embed-resources: true
-    toc: true
-    grid:
-      body-width: 800px
+title: "OEDA Brand Theme Demo"
+author: "Oregon Enterprise Data Analytics"
+date: "today"
 ---
+
 # OEDA Branding Tests
 
 ## Testing Typography
@@ -38,7 +23,6 @@ If you can see the wide OEDA logo below, it confirms that the path is correct an
 ------------------------------------------------------------------------
 
 ## Testing Color Palettes
-
 
 ```{r}
 #| label: fig-swatches
@@ -119,3 +103,30 @@ if (nrow(plot_df) > 0) {
 }
 ```
 
+## Single HTML file
+
+::: {.callout-warning title="Single HTML Files are different"}
+Single HTML files do not render a navbar by default. If you don't use the website project, you must copy the following code block into your `.qmd` file's YAML header for each file. Because of this, it is recommended you create content in quarto as a website, instead of a single html file.
+:::
+
+```
+---
+title: "OEDA Brand Theme Demo"
+author: "Oregon Enterprise Data Analytics"
+date: "today"
+format: 
+  html:
+    # --- Add this entire navbar section ---
+    navbar:
+      title: "Theme Demo"
+      logo: /assets/oeda-logo-primary-clean.svg
+      logo-alt: "OEDA Logo"
+    # --- End of navbar section ---
+    theme:
+      - theme.scss
+      - theme-dark.scss
+    toc: true
+    toc-float: true
+    code-copy: true
+---
+```
