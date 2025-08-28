@@ -6,7 +6,9 @@ website:
   title: "OEDA Analytics"
   navbar:
     left:
-      - href: oeda_brand.qmd # Or whatever your main page is
+      - href: index.qmd # Or whatever your main page is
+        text: Home
+      - href: oeda_brand.qmd 
         text: Branding
 logo:
   light: /assets/oeda-logo-primary-clean.svg

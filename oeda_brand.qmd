@@ -20,14 +20,6 @@ If you can see the wide OEDA logo below, it confirms that the path is correct an
 
 ### Logos
 
-::: {.callout-important title="ggplot2 is not working with dark mode toggles"}
-
-I'm trying to get this working without bringing in the `quartoExtra` package, but having difficulty. 
-
-:::
-
-
-
 ::: {.light-content}
 
 Here's some text that should only appear in light mode, and the light wide logo.
@@ -50,6 +42,13 @@ This is the dark mode text, and the dark wide logo.
 
 
 ## Testing Color Palettes
+
+::: {.callout-important title="ggplot2 is not working with dark mode toggles"}
+
+I'm trying to get this working without bringing in the `quartoExtra` package, but having difficulty. The solution may be to just
+use conditional logic and two versions of the plot, but that is excessive effort for the researcher.
+
+:::
 
 ```{r}
 #| label: fig-swatches
