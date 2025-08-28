@@ -77,9 +77,18 @@ $link-hover-color: $dark;
 
 /*-- scss:rules --*/
 
-//
-// CUSTOM CSS RULES
-//
+// Rules for mode-specific content
+// -----------------------------------------------------
+
+// Hide dark-content when in light mode
+.quarto-light .dark-content {
+  display: none;
+}
+
+// Hide light-content when in dark mode
+.quarto-dark .light-content {
+  display: none;
+}
 
 // Hide the dark-theme logo by default
 .logo-dark {
