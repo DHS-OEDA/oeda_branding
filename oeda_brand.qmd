@@ -16,10 +16,24 @@ This section will test if we can embed one of the logos directly into the docume
 
 If you can see the wide OEDA logo below, it confirms that the path is correct and Quarto can find your assets folder.
 
-## Testing Logo Path
+## Testing Logo Darkmode Toggle
 
-![Test embed of the new cleaned up logo](/assets/oeda-logo-primary-clean.svg)
+::: {.callout-warning title="Dark Mode Images"}
+To enable switching to dark mode images in the body of the website document, you need to use HTML to toggle between the images, rather than quarto's native functionality.
+:::
 
+```
+<p>
+  <img src="/assets/oeda-logo-horizontal-light.svg" alt="OEDA Light Logo Test" class="logo-light" style="max-width: 400px; background-color: #F4F2ED; padding: 10px; border-radius: 5px;">
+  <img src="/assets/oeda-logo-horizontal-dark-clean.svg" alt="OEDA Dark Logo Test" class="logo-dark" style="max-width: 400px;">
+</p>
+```
+
+<p>
+  <img src="/assets/oeda-logo-wide-light.svg" alt="OEDA Light Logo Test" class="logo-light" style="max-width: 400px; background-color: #F4F2ED; padding: 10px; border-radius: 5px;">
+
+  <img src="/assets/oeda-logo-horizontal-dark-clean.svg" alt="OEDA Dark Logo Test" class="logo-dark" style="max-width: 400px;">
+</p>
 ------------------------------------------------------------------------
 
 ## Testing Color Palettes
@@ -30,11 +44,21 @@ If you can see the wide OEDA logo below, it confirms that the path is correct an
 #| echo: false
 #| warning: false
 #| message: false
+#| fig-showtext: true  
 
 # Load necessary libraries
 library(yaml)
 library(ggplot2)
 library(dplyr)
+library(thematic)
+library(showtext)
+
+# --- Font & Theme Setup ---
+showtext_auto() # Enables custom fonts in plots
+showtext_opts(dpi = 300) # <-- Optional: Improves text rendering quality
+
+# Let thematic automatically handle the theme based on the Quarto theme
+thematic_on(font = "auto")
 
 # Function to determine text color for contrast
 get_text_color <- function(hex_color) {
@@ -47,7 +71,6 @@ get_text_color <- function(hex_color) {
 }
 
 # --- Data Preparation ---
-# Ensure your _brand.yml file is in the project directory
 all_colors <- read_yaml("_brand.yml")
 color_list <- all_colors[!grepl("font", names(all_colors))]
 color_list <- color_list[!sapply(color_list, is.null)]
@@ -86,7 +109,7 @@ plot_df <- plot_df |>
 
 # --- Plotting ---
 if (nrow(plot_df) > 0) {
-  ggplot(plot_df, aes(x = factor(tint_level, levels = c(100, 80, 60, 40, 20, 10)), 
+  p <- ggplot(plot_df, aes(x = factor(tint_level, levels = c(100, 80, 60, 40, 20, 10)),
                        y = base_color_ordered, fill = hex)) +
     geom_tile(color = "white", linewidth = 2) +
     geom_text(aes(label = hex, color = text_color), size = 3, family = "sans") +
@@ -100,7 +123,12 @@ if (nrow(plot_df) > 0) {
       axis.text.x = element_text(angle = 0, hjust = 0.5),
       plot.title = element_text(hjust = 0.5, face = "bold", margin = margin(b = 10))
     )
+  print(p)
 }
+
+# --- Cleanup ---
+thematic_off()
+showtext_auto(FALSE) 
 ```
 
 ## Single HTML file
