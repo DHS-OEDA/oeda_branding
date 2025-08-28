@@ -16,25 +16,38 @@ This section will test if we can embed one of the logos directly into the docume
 
 If you can see the wide OEDA logo below, it confirms that the path is correct and Quarto can find your assets folder.
 
-## Testing Logo Darkmode Toggle
+## Testing Light and Dark Mode
 
-::: {.callout-warning title="Dark Mode Images"}
-To enable switching to dark mode images in the body of the website document, you need to use HTML to toggle between the images, rather than quarto's native functionality.
+### Logos
+
+::: {.callout-important title="ggplot2 is not working with dark mode toggles"}
+
+I'm trying to get this working without bringing in the `quartoExtra` package, but having difficulty. 
+
 :::
 
-```
-<p>
-  <img src="/assets/oeda-logo-horizontal-light.svg" alt="OEDA Light Logo Test" class="logo-light" style="max-width: 400px; background-color: #F4F2ED; padding: 10px; border-radius: 5px;">
-  <img src="/assets/oeda-logo-horizontal-dark-clean.svg" alt="OEDA Dark Logo Test" class="logo-dark" style="max-width: 400px;">
-</p>
-```
 
-<p>
-  <img src="/assets/oeda-logo-wide-light.svg" alt="OEDA Light Logo Test" class="logo-light" style="max-width: 400px; background-color: #F4F2ED; padding: 10px; border-radius: 5px;">
 
-  <img src="/assets/oeda-logo-horizontal-dark-clean.svg" alt="OEDA Dark Logo Test" class="logo-dark" style="max-width: 400px;">
-</p>
+::: {.light-content}
+
+Here's some text that should only appear in light mode, and the light wide logo.
+
+![OEDA logo](/assets/oeda-logo-wide-light.svg)
+
+:::
+
+::: {.dark-content}
+
+This is the dark mode text, and the dark wide logo.
+
+![OEDA logo](/assets/oeda-logo-horizontal-dark-clean.svg)
+
+:::
+
+
 ------------------------------------------------------------------------
+
+
 
 ## Testing Color Palettes
 
@@ -44,7 +57,8 @@ To enable switching to dark mode images in the body of the website document, you
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-showtext: true  
+#| fig-showtext: true
+#| classes: light
 
 # Load necessary libraries
 library(yaml)
@@ -137,7 +151,7 @@ showtext_auto(FALSE)
 Single HTML files do not render a navbar by default. If you don't use the website project, you must copy the following code block into your `.qmd` file's YAML header for each file. Because of this, it is recommended you create content in quarto as a website, instead of a single html file.
 :::
 
-```
+```yaml
 ---
 title: "OEDA Brand Theme Demo"
 author: "Oregon Enterprise Data Analytics"
