@@ -1,6 +1,6 @@
 ---
 title: "OEDA Brand Theme Demo"
-author: "Oregon Enterprise Data Analytics"
+author: "Aaron Cochran"
 date: "today"
 ---
 
