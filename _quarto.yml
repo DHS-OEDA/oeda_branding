@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "OEDA Analytics"
+  title: "Oregon Enterprise Data Analytics"
   navbar:
     left:
       - href: index.qmd # Or whatever your main page is
@@ -25,3 +25,5 @@ format:
     toc: true
     toc-float: true
     code-copy: true
+    code-fold: true
+    code-summary: "Show the code"

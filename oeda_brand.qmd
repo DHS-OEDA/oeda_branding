@@ -14,7 +14,7 @@ This is a paragraph using the base font (Noto Sans Regular). If this text and th
 
 This section will test if we can embed one of the logos directly into the document body using the same path defined in `_brand.yml`.
 
-If you can see the wide OEDA logo below, it confirms that the path is correct and Quarto can find your assets folder.
+
 
 ## Testing Light and Dark Mode
 
@@ -150,7 +150,8 @@ showtext_auto(FALSE)
 Single HTML files do not render a navbar by default. If you don't use the website project, you must copy the following code block into your `.qmd` file's YAML header for each file. Because of this, it is recommended you create content in quarto as a website, instead of a single html file.
 :::
 
-```yaml
+```{yaml}
+
 ---
 title: "OEDA Brand Theme Demo"
 author: "Oregon Enterprise Data Analytics"
@@ -170,4 +171,5 @@ format:
     toc-float: true
     code-copy: true
 ---
+
 ```
