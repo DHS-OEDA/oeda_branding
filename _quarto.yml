@@ -4,20 +4,21 @@ project:
 
 website:
   title: "Oregon Enterprise Data Analytics"
+
   navbar:
+    search: true
     left:
-      - href: index.qmd # Or whatever your main page is
+      - href: index.qmd
         text: Home
-      - href: oeda_brand.qmd 
+      - href: oeda_brand.qmd
         text: Web Branding
       - href: issues.qmd
         text: Issues and Bugs
       - href: brand-pdf.qmd
         text: PDF Branding
-logo:
-  light: /assets/oeda-icon-lighter.svg
-  dark: /assets/oeda-icon-dark.svg
-  alt: "OEDA Logo"
+    logo: /assets/oeda-icon-lighter.svg
+    logo-alt: "OEDA Logo"
+
 
 # Keep the theme at the top level (unindented).
 theme:
