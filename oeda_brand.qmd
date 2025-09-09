@@ -4,6 +4,33 @@ author: "Aaron Cochran"
 date: "today"
 ---
 
+```{r setup}
+#| include: false
+
+# Load libraries
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(svglite)
+
+# Source your theme file (assuming you save the themes as oeda_themes.R)
+source("oeda_themes.R")
+
+# Setup for dual output
+darksvglite <- function(file, width = 7, height = 7, pointsize = 12, ...) {
+  svglite(file = file, width = width, height = height, 
+          pointsize = pointsize, bg = "#414042")
+}
+# Set default chunk options
+opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 8,
+  fig.height = 6
+)
+```
+
 # OEDA Branding Tests
 
 ## Testing Typography
@@ -43,12 +70,7 @@ This is the dark mode text, and the dark wide logo.
 
 ## Testing Color Palettes
 
-::: {.callout-important title="ggplot2 is not working with dark mode toggles"}
 
-I'm trying to get this working without bringing in the `quartoExtra` package, but having difficulty. The solution may be to just
-use conditional logic and two versions of the plot, but that is excessive effort for the researcher.
-
-:::
 
 ```{r}
 #| label: fig-swatches
@@ -142,6 +164,123 @@ if (nrow(plot_df) > 0) {
 # --- Cleanup ---
 thematic_off()
 showtext_auto(FALSE) 
+```
+
+
+::: {.callout-important title="Using manual ggplot2 themes"}
+
+I've created a `oeda_themes.R` file which is sourced in the setup chunk of this website. This should give svg images of both versions of the plot using `svglite` and then will automatically toggle them when the dark mode is toggled. 
+
+:::
+
+# Example 1: Scatter Plot with Manual Theme Application
+```{r scatter-example}
+#| dev: !expr c("svglite", "darksvglite")
+#| fig-ext: !expr c(".light.svg", ".dark.svg") 
+#| fig-cap: "Fuel efficiency vs weight by cylinder count"
+
+# Create base plot without theme
+base_plot <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1) +
+  labs(
+    title = "Vehicle Fuel Efficiency Analysis",
+    subtitle = "Weight vs MPG colored by cylinder count",
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon", 
+    color = "Cylinders",
+    caption = "Data: Motor Trend Car Road Tests (mtcars)"
+  ) +
+  scale_color_oeda_discrete(palette = "primary")
+
+# The knitr setup will automatically create both versions
+# Light version
+base_plot + theme_oeda_light()
+
+# Dark version (this will be the second output)
+base_plot + theme_oeda_dark()
+```
+
+# Example 2: Bar Chart
+```{r bar-example}
+#| dev: !expr c("svglite", "darksvglite")
+#| fig-ext: !expr c(".light.svg", ".dark.svg")
+#| fig-cap: "Average MPG by cylinder count"
+
+# Prepare data
+mpg_summary <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(
+    avg_mpg = mean(mpg),
+    se = sd(mpg) / sqrt(n()),
+    .groups = "drop"
+  )
+
+# Create base plot
+bar_plot <- ggplot(mpg_summary, aes(x = factor(cyl), y = avg_mpg, fill = factor(cyl))) +
+  geom_col(alpha = 0.8, width = 0.7) +
+  geom_errorbar(aes(ymin = avg_mpg - se, ymax = avg_mpg + se), 
+                width = 0.2, alpha = 0.7) +
+  labs(
+    title = "Average Fuel Efficiency by Engine Type", 
+    subtitle = "Error bars show standard error",
+    x = "Number of Cylinders",
+    y = "Average Miles per Gallon",
+    fill = "Cylinders",
+    caption = "Data: Motor Trend Car Road Tests"
+  ) +
+  scale_fill_oeda_discrete(palette = "cool") +
+  guides(fill = "none")  # Remove redundant legend
+
+# Light version
+bar_plot + theme_oeda_light()
+
+# Dark version  
+bar_plot + theme_oeda_dark()
+```
+
+# Example 3: Faceted Plot
+```{r facet-example}
+#| dev: !expr c("svglite", "darksvglite") 
+#| fig-ext: !expr c(".light.svg", ".dark.svg")
+#| fig-cap: "Distribution of MPG by transmission type and cylinders"
+
+# Create faceted plot
+facet_plot <- ggplot(mtcars, aes(x = mpg, fill = factor(cyl))) +
+  geom_histogram(bins = 8, alpha = 0.8, position = "identity") +
+  facet_wrap(~ ifelse(am == 0, "Automatic", "Manual"), 
+             labeller = label_both) +
+  labs(
+    title = "Fuel Efficiency Distribution",
+    subtitle = "By transmission type and cylinder count",
+    x = "Miles per gallon",
+    y = "Count",
+    fill = "Cylinders",
+    caption = "Data: Motor Trend Car Road Tests"
+  ) +
+  scale_fill_oeda_discrete(palette = "warm")
+
+# Light version
+facet_plot + theme_oeda_light()
+
+# Dark version
+facet_plot + theme_oeda_dark()
+```
+
+# Alternative Method: Using save_dual_plots function
+```{r save-function-example}
+#| eval: false
+#| echo: true
+
+# If you prefer more control, use the save function approach:
+my_plot <- ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point(aes(color = factor(cyl)), size = 3) +
+  labs(title = "Horsepower vs MPG", color = "Cylinders") +
+  scale_color_oeda_discrete()
+
+# This saves both versions and returns the light version for display
+displayed_plot <- save_dual_plots(my_plot, "custom-plot", width = 10, height = 6)
+displayed_plot
 ```
 
 ## Single HTML file

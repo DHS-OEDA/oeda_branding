@@ -90,6 +90,16 @@ $link-hover-color: $dark;
   display: none;
 }
 
+// Display the correct version of the plot when light and dark mode are toggled. 
+  
+  .quarto-light .dark-plot {
+  display: none;
+}
+
+.quarto-dark .light-plot {
+  display: none;
+}
+
 // Hide the dark-theme logo by default
 .logo-dark {
   display: none;
