@@ -9,10 +9,14 @@ website:
       - href: index.qmd # Or whatever your main page is
         text: Home
       - href: oeda_brand.qmd 
-        text: Branding
+        text: Web Branding
+      - href: issues.qmd
+        text: Issues and Bugs
+      - href: brand-pdf.qmd
+        text: PDF Branding
 logo:
-  light: /assets/oeda-logo-primary-clean.svg
-  dark: /assets/oeda-logo-horizontal-dark-clean.svg
+  light: /assets/oeda-icon-lighter.svg
+  dark: /assets/oeda-icon-dark.svg
   alt: "OEDA Logo"
 
 # Keep the theme at the top level (unindented).

@@ -1,5 +1,5 @@
 ---
-title: "OEDA Brand Theme Demo"
+title: "OEDA HTML Branding Demo"
 author: "Aaron Cochran"
 date: "today"
 ---
