@@ -5,4 +5,5 @@ title: "Issues and Bugs to Fix"
 1.  Dark mode caption text color not updating with rest of text.
 2.  ggplot2 not automatically changing themes with `thematic` package. 
 3.  Themes not switching with `quartoExtra` either. 
-4. Dark-light switching of icon in navbar not working.
+4. Icon colors for light mode need lightening.
+5. The `oeda-logo-wide-light.svg` needs to have whitespace removed from `.svg` file
