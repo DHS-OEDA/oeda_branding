@@ -2,6 +2,10 @@
 title: "OEDA HTML Branding Demo"
 author: "Aaron Cochran"
 date: "today"
+knitr: 
+  opts_chunk: 
+    dev: !expr c("svglite", "darksvglite")
+    fig.ext: !expr c(".light.svg", ".dark.svg")
 ---
 
 ```{r setup}
@@ -13,21 +17,18 @@ library(dplyr)
 library(knitr)
 library(svglite)
 
-# Source your theme file (assuming you save the themes as oeda_themes.R)
+# Source your theme file
 source("oeda_themes.R")
 
-# Setup for dual output
-darksvglite <- function(file, width = 7, height = 7, pointsize = 12, ...) {
-  svglite(file = file, width = width, height = height, 
-          pointsize = pointsize, bg = "#414042")
-}
 # Set default chunk options
 opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
   message = FALSE,
   fig.width = 8,
-  fig.height = 6
+  fig.height = 6,
+  dev = c("svglite", "darksvglite"),
+  fig.ext = c(".light.svg", ".dark.svg")
 )
 ```
 
@@ -40,8 +41,6 @@ This is a paragraph using the base font (Noto Sans Regular). If this text and th
 ### This is a Sub-Heading
 
 This section will test if we can embed one of the logos directly into the document body using the same path defined in `_brand.yml`.
-
-
 
 ## Testing Light and Dark Mode
 
@@ -63,14 +62,9 @@ This is the dark mode text, and the dark wide logo.
 
 :::
 
-
 ------------------------------------------------------------------------
 
-
-
 ## Testing Color Palettes
-
-
 
 ```{r}
 #| label: fig-swatches
@@ -78,22 +72,11 @@ This is the dark mode text, and the dark wide logo.
 #| echo: false
 #| warning: false
 #| message: false
-#| fig-showtext: true
-#| classes: light
 
 # Load necessary libraries
 library(yaml)
 library(ggplot2)
 library(dplyr)
-library(thematic)
-library(showtext)
-
-# --- Font & Theme Setup ---
-showtext_auto() # Enables custom fonts in plots
-showtext_opts(dpi = 300) # <-- Optional: Improves text rendering quality
-
-# Let thematic automatically handle the theme based on the Quarto theme
-thematic_on(font = "auto")
 
 # Function to determine text color for contrast
 get_text_color <- function(hex_color) {
@@ -142,30 +125,29 @@ plot_df <- plot_df |>
   arrange(short_name, desc(tint_level)) |>
   mutate(base_color_ordered = factor(base_color, levels = unique(base_color)))
 
-# --- Plotting ---
-if (nrow(plot_df) > 0) {
-  p <- ggplot(plot_df, aes(x = factor(tint_level, levels = c(100, 80, 60, 40, 20, 10)),
-                       y = base_color_ordered, fill = hex)) +
-    geom_tile(color = "white", linewidth = 2) +
-    geom_text(aes(label = hex, color = text_color), size = 3, family = "sans") +
-    scale_fill_identity() +
-    scale_color_identity() +
-    scale_y_discrete(limits = rev) +
-    labs(x = "Tint Level (% of Original Color)", y = NULL, title = "Brand Color Palette") +
-    theme_minimal(base_family = "sans") +
-    theme(
-      panel.grid = element_blank(),
-      axis.text.x = element_text(angle = 0, hjust = 0.5),
-      plot.title = element_text(hjust = 0.5, face = "bold", margin = margin(b = 10))
-    )
-  print(p)
-}
+# Create base plot
+base_plot <- ggplot(plot_df, aes(x = factor(tint_level, levels = c(100, 80, 60, 40, 20, 10)),
+                     y = base_color_ordered, fill = hex)) +
+  geom_tile(color = "white", linewidth = 2) +
+  geom_text(aes(label = hex, color = text_color), size = 3, family = "sans") +
+  scale_fill_identity() +
+  scale_color_identity() +
+  scale_y_discrete(limits = rev) +
+  labs(x = "Tint Level (% of Original Color)", y = NULL, title = "Brand Color Palette") +
+  theme_minimal(base_family = "sans") +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.x = element_text(angle = 0, hjust = 0.5),
+    plot.title = element_text(hjust = 0.5, face = "bold", margin = margin(b = 10))
+  )
 
-# --- Cleanup ---
-thematic_off()
-showtext_auto(FALSE) 
+# The knitr setup will automatically create both versions
+# Light version  
+base_plot + theme_oeda_light()
+
+# Dark version (this will be the second output)
+base_plot + theme_oeda_dark()
 ```
-
 
 ::: {.callout-important title="Using manual ggplot2 themes"}
 
@@ -175,8 +157,6 @@ I've created a `oeda_themes.R` file which is sourced in the setup chunk of this 
 
 # Example 1: Scatter Plot with Manual Theme Application
 ```{r scatter-example}
-#| dev: !expr c("svglite", "darksvglite")
-#| fig-ext: !expr c(".light.svg", ".dark.svg") 
 #| fig-cap: "Fuel efficiency vs weight by cylinder count"
 
 # Create base plot without theme
@@ -203,8 +183,6 @@ base_plot + theme_oeda_dark()
 
 # Example 2: Bar Chart
 ```{r bar-example}
-#| dev: !expr c("svglite", "darksvglite")
-#| fig-ext: !expr c(".light.svg", ".dark.svg")
 #| fig-cap: "Average MPG by cylinder count"
 
 # Prepare data
@@ -241,8 +219,6 @@ bar_plot + theme_oeda_dark()
 
 # Example 3: Faceted Plot
 ```{r facet-example}
-#| dev: !expr c("svglite", "darksvglite") 
-#| fig-ext: !expr c(".light.svg", ".dark.svg")
 #| fig-cap: "Distribution of MPG by transmission type and cylinders"
 
 # Create faceted plot
@@ -290,7 +266,6 @@ Single HTML files do not render a navbar by default. If you don't use the websit
 :::
 
 ```{yaml}
-
 ---
 title: "OEDA Brand Theme Demo"
 author: "Oregon Enterprise Data Analytics"
@@ -310,5 +285,4 @@ format:
     toc-float: true
     code-copy: true
 ---
-
 ```

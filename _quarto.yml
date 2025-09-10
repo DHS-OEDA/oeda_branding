@@ -4,7 +4,6 @@ project:
 
 website:
   title: "Oregon Enterprise Data Analytics"
-
   navbar:
     search: true
     left:
@@ -18,15 +17,8 @@ website:
         text: PDF Branding
     logo: /assets/oeda-icon-lighter.svg
     logo-alt: "OEDA Logo"
-knitr: 
-  opts_chunk: 
-    dev: [svglite, darksvglite]
-    fig.ext: [.light.svg, .dark.svg]
-include-after-body:
-  text: |
-    <script type="application/javascript" src="light-dark.js"></script>
 
-# Keep the theme at the top level (unindented).
+# Theme configuration
 theme:
   light: [flatly, theme.scss]
   dark: [darkly, theme-dark.scss]
@@ -38,3 +30,15 @@ format:
     code-copy: true
     code-fold: true
     code-summary: "Show the code"
+    include-after-body:
+      text: |
+        <script type="application/javascript" src="light-dark.js"></script>
+
+# Knitr configuration for dual plot generation
+knitr: 
+  opts_chunk: 
+    echo: false
+    warning: false
+    message: false
+    fig.width: 8
+    fig.height: 6
