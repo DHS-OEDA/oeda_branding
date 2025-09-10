@@ -80,15 +80,46 @@ $link-hover-color: $dark;
 // Rules for mode-specific content
 // -----------------------------------------------------
 
+// This may replace light-dark.js
+body.quarto-light .plot-dark { display: none !important; }
+body.quarto-light .plot-light { display: block !important; }
+body.quarto-dark .plot-light { display: none !important; }
+body.quarto-dark .plot-dark { display: block !important; }
+
+
 // LIGHT MODE: Hide dark content and dark plots
-html:not([data-bs-theme="dark"]) .dark-content,
-html:not([data-bs-theme="dark"]) .dark-plot {
+body.quarto-light .dark-content,
+body.quarto-light .dark-plot,
+body.quarto-light .plot-dark {
   display: none !important;
 }
 
 // DARK MODE: Hide light content and light plots  
+body.quarto-dark .light-content,
+body.quarto-dark .light-plot,
+body.quarto-dark .plot-light {
+  display: none !important;
+}
+
+// Show appropriate plots based on theme
+body.quarto-light .plot-light {
+  display: block !important;
+}
+
+body.quarto-dark .plot-dark {
+  display: block !important;
+}
+
+// Fallback for other theme systems
+html:not([data-bs-theme="dark"]) .dark-content,
+html:not([data-bs-theme="dark"]) .dark-plot,
+html:not([data-bs-theme="dark"]) .plot-dark {
+  display: none !important;
+}
+
 html[data-bs-theme="dark"] .light-content,
-html[data-bs-theme="dark"] .light-plot {
+html[data-bs-theme="dark"] .light-plot,
+html[data-bs-theme="dark"] .plot-light {
   display: none !important;
 }
 

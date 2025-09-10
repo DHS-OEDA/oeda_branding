@@ -1,0 +1,70 @@
+---
+title: "OEDA Plot Toggle Test"
+author: "Test"
+date: today
+format:
+  html:
+    theme:
+      light: [flatly, theme.scss]
+      dark: [darkly, theme-dark.scss]
+    include-after-body:
+      text: |
+        <script type="application/javascript" src="light-dark.js"></script>
+---
+
+```{r setup}
+#| include: false
+library(ggplot2)
+library(dplyr)
+
+# Source the updated themes file
+source("oeda_themes.R")
+```
+
+# Test Plot with Custom knit_print Method
+
+This should automatically generate both light and dark versions and toggle between them:
+
+```{r test-plot}
+#| label: test-scatter
+#| fig-cap: "Test scatter plot"
+
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  labs(
+    title = "Test Plot - Should Toggle Between Light and Dark",
+    x = "Weight", 
+    y = "MPG",
+    color = "Cylinders"
+  ) +
+  scale_color_manual(values = c("#2E3192", "#86C679", "#A91F50"))
+```
+
+# Manual Test (Alternative if above doesn't work)
+
+If the automatic method doesn't work, here's a manual approach:
+
+```{r manual-light}
+#| output: asis
+#| echo: false
+
+# Create the plot
+p <- ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point(aes(color = factor(cyl)), size = 3) +
+  labs(title = "Manual Light Version", color = "Cylinders") +
+  scale_color_manual(values = c("#2E3192", "#86C679", "#A91F50"))
+
+# Save light version
+ggsave("manual-test-light.svg", p + theme_oeda_light(), 
+       width = 8, height = 6, bg = "white")
+
+# Save dark version  
+ggsave("manual-test-dark.svg", p + theme_oeda_dark(),
+       width = 8, height = 6, bg = "#414042")
+
+# Output HTML with both images
+cat('<div class="plot-container">
+  <img src="manual-test-light.svg" class="plot-light" style="width: 100%; height: auto;" />
+  <img src="manual-test-dark.svg" class="plot-dark" style="width: 100%; height: auto; display: none;" />
+</div>')
+```

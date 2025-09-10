@@ -3,6 +3,7 @@
 
 library(ggplot2)
 library(svglite)
+library(knitr)
 
 # Color palette definitions
 oeda_colors <- list(
@@ -193,3 +194,55 @@ save_dual_plots <- function(plot_obj, base_name, width = 8, height = 6, path = "
   # Return the light version for display
   plot_obj + theme_oeda_light()
 }
+
+
+## Alternative approach to the knitr-only approach taken from https://mickael.canouil.fr/posts/2023-05-30-quarto-light-dark/
+# Custom knit_print method for ggplot objects
+knit_print.ggplot <- function(x, options, ...) {
+  
+  # Get the current chunk label for unique naming
+  chunk_label <- options$label %||% "unnamed-chunk"
+  
+  # Create light version
+  light_plot <- x + theme_oeda_light()
+  
+  # Create dark version  
+  dark_plot <- x + theme_oeda_dark()
+  
+  # Generate unique filenames
+  light_file <- paste0(chunk_label, "-light.svg")
+  dark_file <- paste0(chunk_label, "-dark.svg")
+  
+  # Save light version
+  ggsave(
+    filename = light_file,
+    plot = light_plot,
+    device = "svg",
+    width = options$fig.width %||% 8,
+    height = options$fig.height %||% 6,
+    bg = "white"
+  )
+  
+  # Save dark version
+  ggsave(
+    filename = dark_file,
+    plot = dark_plot, 
+    device = "svg",
+    width = options$fig.width %||% 8,
+    height = options$fig.height %||% 6,
+    bg = oeda_colors$ashland_charcoal
+  )
+  
+  # Create HTML output with both images
+  html_output <- paste0(
+    '<div class="plot-container">\n',
+    '  <img src="', light_file, '" class="plot-light" style="width: 100%; height: auto;" />\n',
+    '  <img src="', dark_file, '" class="plot-dark" style="width: 100%; height: auto; display: none;" />\n',
+    '</div>\n'
+  )
+  
+  knitr::asis_output(html_output)
+}
+
+# Register the method
+registerS3method("knit_print", "ggplot", knit_print.ggplot)

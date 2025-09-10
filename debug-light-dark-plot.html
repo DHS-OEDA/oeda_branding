@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Theme Toggle</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-info { 
+            background: #f0f0f0; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .plot-light { border: 2px solid blue; }
+        .plot-dark { border: 2px solid red; }
+        button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Theme Toggle Debugging</h1>
+    
+    <div class="debug-info">
+        <strong>Current Theme:</strong> <span id="current-theme">Loading...</span><br>
+        <strong>HTML data-bs-theme:</strong> <span id="html-theme">Loading...</span><br>
+        <strong>Body classes:</strong> <span id="body-classes">Loading...</span>
+    </div>
+    
+    <button onclick="toggleTheme()">Toggle Theme Manually</button>
+    <button onclick="checkQuartoToggle()">Check for Quarto Toggle</button>
+    <button onclick="updateDebugInfo()">Refresh Debug Info</button>
+    
+    <h2>Test Plots</h2>
+    <div class="plot-container">
+        <div class="plot-light" style="width: 200px; height: 100px; background: lightblue; text-align: center; line-height: 100px;">
+            LIGHT PLOT
+        </div>
+        <div class="plot-dark" style="width: 200px; height: 100px; background: darkgray; color: white; text-align: center; line-height: 100px; display: none;">
+            DARK PLOT
+        </div>
+    </div>
+    
+    <div class="debug-info" id="event-log">
+        <strong>Event Log:</strong><br>
+    </div>
+
+    <script>
+        let eventCount = 0;
+        
+        function logEvent(message) {
+            eventCount++;
+            const log = document.getElementById('event-log');
+            log.innerHTML += `${eventCount}. ${new Date().toLocaleTimeString()}: ${message}<br>`;
+            console.log(message);
+        }
+        
+        function updateDebugInfo() {
+            const htmlTheme = document.documentElement.getAttribute('data-bs-theme') || 'none';
+            const bodyClasses = document.body.className || 'none';
+            
+            document.getElementById('current-theme').textContent = htmlTheme;
+            document.getElementById('html-theme').textContent = htmlTheme;
+            document.getElementById('body-classes').textContent = bodyClasses;
+            
+            logEvent(`Debug info updated - Theme: ${htmlTheme}`);
+        }
+        
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-bs-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-bs-theme', newTheme);
+            logEvent(`Manual toggle: ${current || 'none'} -> ${newTheme}`);
+            updatePlotVisibility();
+        }
+        
+        function checkQuartoToggle() {
+            const toggles = document.querySelectorAll('[data-bs-theme-value], .btn, .navbar .btn');
+            logEvent(`Found ${toggles.length} potential toggle elements`);
+            toggles.forEach((toggle, i) => {
+                logEvent(`Toggle ${i}: ${toggle.tagName} - ${toggle.className}`);
+            });
+        }
+        
+        function updatePlotVisibility() {
+            const isDarkMode = document.documentElement.getAttribute('data-bs-theme') === 'dark';
+            const lightPlots = document.querySelectorAll('.plot-light');
+            const darkPlots = document.querySelectorAll('.plot-dark');
+            
+            lightPlots.forEach(plot => {
+                plot.style.display = isDarkMode ? 'none' : 'block';
+            });
+            
+            darkPlots.forEach(plot => {
+                plot.style.display = isDarkMode ? 'block' : 'none';
+            });
+            
+            logEvent(`Plot visibility updated - Dark mode: ${isDarkMode}, Light plots: ${lightPlots.length}, Dark plots: ${darkPlots.length}`);
+            updateDebugInfo();
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            logEvent('Page loaded');
+            updateDebugInfo();
+            updatePlotVisibility();
+            
+            // Set up all the observers
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes') {
+                        logEvent(`Attribute changed: ${mutation.attributeName} on ${mutation.target.tagName}`);
+                        if (mutation.attributeName === 'data-bs-theme') {
+                            updatePlotVisibility();
+                        }
+                    }
+                });
+            });
+            
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-bs-theme', 'class']
+            });
+            
+            // Listen for clicks everywhere
+            document.addEventListener('click', function(e) {
+                logEvent(`Click detected on: ${e.target.tagName}.${e.target.className}`);
+                setTimeout(updatePlotVisibility, 100);
+            });
+            
+            logEvent('Event listeners set up');
+        });
+    </script>
+</body>
+</html>
