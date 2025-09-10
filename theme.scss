@@ -110,18 +110,6 @@ body.quarto-dark .plot-dark {
   display: block !important;
 }
 
-// Fallback for other theme systems
-html:not([data-bs-theme="dark"]) .dark-content,
-html:not([data-bs-theme="dark"]) .dark-plot,
-html:not([data-bs-theme="dark"]) .plot-dark {
-  display: none !important;
-}
-
-html[data-bs-theme="dark"] .light-content,
-html[data-bs-theme="dark"] .light-plot,
-html[data-bs-theme="dark"] .plot-light {
-  display: none !important;
-}
 
 // Logo switching (keeping your existing logic)
 .logo-dark {

@@ -1,3 +1,4 @@
+
 project:
   type: website
   output-dir: _site
@@ -5,40 +6,29 @@ project:
 website:
   title: "Oregon Enterprise Data Analytics"
   navbar:
+    logo: /assets/oeda-icon-lighter.svg
     search: true
     left:
       - href: index.qmd
         text: Home
       - href: oeda_brand.qmd
-        text: Web Branding
+        text: Branding Intro
       - href: issues.qmd
         text: Issues and Bugs
-      - href: brand-pdf.qmd
-        text: PDF Branding
-    logo: /assets/oeda-icon-lighter.svg
-    logo-alt: "OEDA Logo"
 
-# Theme configuration
 theme:
-  light: [flatly, theme.scss]
+  light: [flatly, theme.scss] 
   dark: [darkly, theme-dark.scss]
 
 format:
   html:
     toc: true
-    toc-float: true
-    code-copy: true
     code-fold: true
-    code-summary: "Show the code"
-    include-after-body:
-      text: |
-        <script type="application/javascript" src="light-dark.js"></script>
 
-# Knitr configuration for dual plot generation
-knitr: 
-  opts_chunk: 
+# Simple knitr setup - no special devices needed!
+knitr:
+  opts_chunk:
     echo: false
-    warning: false
+    warning: false 
     message: false
-    fig.width: 8
-    fig.height: 6
+    dev: "svglite"
