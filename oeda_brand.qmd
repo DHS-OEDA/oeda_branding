@@ -60,7 +60,7 @@ This is the dark mode text, and the dark wide logo.
 ## Testing Color Palettes
 
 ```{r color-swatches}
-#| label: fig-swatches
+
 #| fig-cap: "Brand Color Swatches and Tints"
 #| renderings: [light, dark]
 
@@ -162,7 +162,7 @@ color_swatch_plot + theme_oeda_dark() # for dark theme
 ## Example Plots with Renderings
 
 ```{r scatter-plot}
-#| label: fig-scatter
+
 #| fig-cap: "Vehicle efficiency analysis"
 #| renderings: [light, dark]
 
@@ -184,7 +184,7 @@ scatter_example + theme_oeda_dark() # dark theme
 ```
 
 ```{r bar-chart}
-#| label: fig-bars
+
 #| fig-cap: "Average MPG by cylinder count"
 #| renderings: [light, dark]
 

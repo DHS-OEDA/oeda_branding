@@ -77,44 +77,29 @@ $link-hover-color: $dark;
 
 /*-- scss:rules --*/
 
-// Rules for mode-specific content
-// -----------------------------------------------------
-
-// This may replace light-dark.js
-body.quarto-light .plot-dark { display: none !important; }
-body.quarto-light .plot-light { display: block !important; }
-body.quarto-dark .plot-light { display: none !important; }
-body.quarto-dark .plot-dark { display: block !important; }
-
-
-// LIGHT MODE: Hide dark content and dark plots
-body.quarto-light .dark-content,
-body.quarto-light .dark-plot,
-body.quarto-light .plot-dark {
-  display: none !important;
+// Keep ONLY these for content divs and logos
+.light-content {
+  display: block;
 }
 
-// DARK MODE: Hide light content and light plots  
-body.quarto-dark .light-content,
-body.quarto-dark .light-plot,
-body.quarto-dark .plot-light {
-  display: none !important;
+.dark-content {
+  display: none;
 }
 
-// Show appropriate plots based on theme
-body.quarto-light .plot-light {
-  display: block !important;
+[data-bs-theme="dark"] .light-content {
+  display: none;
 }
 
-body.quarto-dark .plot-dark {
-  display: block !important;
+[data-bs-theme="dark"] .dark-content {
+  display: block;
 }
 
-
-// Logo switching (keeping your existing logic)
+// Logo switching
 .logo-dark {
   display: none;
 }
 .logo-light {
   display: inline-block;
 }
+
+// Quarto 1.7 handles all plots now, so no need to .plot css.

@@ -1,0 +1,14 @@
+---
+title: "Minimal Renderings Test"
+format: html
+---
+
+```{r}
+
+#| renderings: [light, dark]
+
+plot(1:10, col = "red", main = "LIGHT")
+
+plot(1:10, col = "blue", main = "DARK")
+
+```

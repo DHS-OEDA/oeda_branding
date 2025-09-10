@@ -1,0 +1,100 @@
+---
+title: "Clean Renderings Test"
+format:
+  html:
+    theme:
+      light: [flatly, theme.scss]
+      dark: [darkly, theme-dark.scss]
+---
+
+```{r setup}
+#| include: false
+library(ggplot2)
+library(dplyr)
+source("oeda_themes.R")
+```
+
+## Step 1: Create Base Plot
+
+```{r create-base-plot}
+#| echo: true
+
+# Create a simple base plot
+base_scatter <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3, alpha = 0.8) +
+  labs(
+    title = "Vehicle Weight vs MPG",
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon",
+    color = "Cylinders"
+  ) +
+  scale_color_manual(values = c("red", "blue", "green"))
+
+print("Base plot created successfully")
+```
+
+## Step 2: Test Basic Renderings (No Custom Themes)
+
+```{r test-basic-renderings}
+#| fig-cap: "Basic renderings test - should show different colors"
+#| renderings: [light, dark]
+#| echo: true
+
+# Light version - red points
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "red", size = 3) +
+  labs(title = "LIGHT MODE - Red Points") +
+  theme_minimal()
+
+# Dark version - blue points  
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "DARK MODE - Blue Points") +
+  theme_minimal()
+```
+
+## Step 3: Test With OEDA Themes
+
+```{r test-oeda-themes}
+#| fig-cap: "OEDA themes test"
+#| renderings: [light, dark]
+#| echo: true
+
+# Light version with OEDA light theme
+base_scatter + theme_oeda_light()
+
+# Dark version with OEDA dark theme
+base_scatter + theme_oeda_dark()
+```
+
+## Step 4: Test Simple R Base Graphics
+
+```{r test-base-graphics}
+#| fig-cap: "Base R graphics test"
+#| renderings: [light, dark]
+#| echo: true
+
+# Light version
+par(bg = "white", fg = "black")
+plot(mtcars$wt, mtcars$mpg, main = "LIGHT MODE", col = "red", pch = 16)
+
+# Dark version
+par(bg = "black", fg = "white", col.main = "white", col.lab = "white", col.axis = "white")
+plot(mtcars$wt, mtcars$mpg, main = "DARK MODE", col = "cyan", pch = 16)
+```
+
+## What Should Happen:
+
+- **Step 2**: You should see RED points in light mode, BLUE points in dark mode
+- **Step 3**: You should see the same plot with different OEDA themes
+- **Step 4**: You should see a white background plot in light mode, black background in dark mode
+
+## Debugging Information:
+
+Toggle between light and dark modes using the theme switcher. If you see:
+
+1. **Both plots showing**: `renderings` isn't working at all
+2. **No plots showing**: There's a CSS conflict hiding everything  
+3. **Same plot in both modes**: `renderings` is working but not switching
+4. **Correct behavior**: `renderings` is working perfectly!
+
