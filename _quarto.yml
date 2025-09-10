@@ -18,7 +18,13 @@ website:
         text: PDF Branding
     logo: /assets/oeda-icon-lighter.svg
     logo-alt: "OEDA Logo"
-
+knitr: 
+  opts_chunk: 
+    dev: [svglite, darksvglite]
+    fig.ext: [.light.svg, .dark.svg]
+include-after-body:
+  text: |
+    <script type="application/javascript" src="light-dark.js"></script>
 
 # Keep the theme at the top level (unindented).
 theme:

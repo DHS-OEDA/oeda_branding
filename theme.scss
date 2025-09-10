@@ -80,27 +80,19 @@ $link-hover-color: $dark;
 // Rules for mode-specific content
 // -----------------------------------------------------
 
-// Hide dark-content when in light mode
-.quarto-light .dark-content {
-  display: none;
+// LIGHT MODE: Hide dark content and dark plots
+html:not([data-bs-theme="dark"]) .dark-content,
+html:not([data-bs-theme="dark"]) .dark-plot {
+  display: none !important;
 }
 
-// Hide light-content when in dark mode
-.quarto-dark .light-content {
-  display: none;
+// DARK MODE: Hide light content and light plots  
+html[data-bs-theme="dark"] .light-content,
+html[data-bs-theme="dark"] .light-plot {
+  display: none !important;
 }
 
-// Display the correct version of the plot when light and dark mode are toggled. 
-  
-  .quarto-light .dark-plot {
-  display: none;
-}
-
-.quarto-dark .light-plot {
-  display: none;
-}
-
-// Hide the dark-theme logo by default
+// Logo switching (keeping your existing logic)
 .logo-dark {
   display: none;
 }
