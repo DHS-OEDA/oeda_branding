@@ -7,9 +7,6 @@ format:
     theme:
       light: [flatly, theme.scss]
       dark: [darkly, theme-dark.scss]
-    include-after-body:
-      text: |
-        <script type="application/javascript" src="light-dark.js"></script>
 ---
 
 ```{r setup}

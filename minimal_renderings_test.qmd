@@ -1,14 +1,12 @@
 ---
-title: "Minimal Renderings Test"
+title: "Dark Mode Debug Test"
 format: html
 ---
 
 ```{r}
-
 #| renderings: [light, dark]
 
-plot(1:10, col = "red", main = "LIGHT")
+plot(1:10, col = "red", main = "LIGHT MODE", cex = 2, pch = 16)
 
-plot(1:10, col = "blue", main = "DARK")
-
+plot(1:10, col = "blue", main = "DARK MODE", cex = 2, pch = 16)
 ```

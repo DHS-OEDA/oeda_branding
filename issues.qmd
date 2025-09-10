@@ -2,8 +2,6 @@
 title: "Issues and Bugs to Fix"
 ---
 
-1.  Dark mode caption text color not updating with rest of text.
-2.  ggplot2 not automatically changing themes with `thematic` package. 
-3.  Themes not switching with `quartoExtra` either. 
-4. Icon colors for light mode need lightening.
-5. The `oeda-logo-wide-light.svg` needs to have whitespace removed from `.svg` file
+1. Dark mode caption text color not updating with rest of text. This is done with `#| fig-cap: "Title"` chunk option. 
+2. Icon colors for light mode need lightening.
+3. The `oeda-logo-wide-light.svg` needs to have whitespace removed from `.svg` file

@@ -52,18 +52,22 @@ Here's some text that should only appear in light mode, and the light wide logo.
 ::: {.dark-content}
 This is the dark mode text, and the dark wide logo.
 
-![OEDA logo](/assets/oeda-logo-horizontal-dark-clean.svg)
+![OEDA logo](/assets/oeda-logo-wide-dark.svg)
 :::
 
 ---
 
 ## Testing Color Palettes
 
+::: {.callout-important}
+
+### Custom CSS and Quarto 1.7+
+
+When using Quarto version 1.7 or higher, the `renderings` option replaces all need for custom css when it comes to dark and light mode content. Using custom CSS causes `renderings` to break most of the time. You must choose one approach or the other.
+
+:::
+
 ```{r color-swatches}
-
-#| fig-cap: "Brand Color Swatches and Tints"
-#| renderings: [light, dark]
-
 # Complete function to determine text color for contrast
 determine_text_color <- function(hex_color) {
   if (is.na(hex_color) || !grepl("^#[0-9A-Fa-f]{6}$", hex_color, ignore.case = TRUE)) {
@@ -154,17 +158,21 @@ color_swatch_plot <- ggplot(final_plot_data,
     plot.title = element_text(hjust = 0.5, face = "bold", margin = margin(b = 10))
   )
 
-color_swatch_plot + theme_oeda_light() # for light theme
-
-color_swatch_plot + theme_oeda_dark() # for dark theme
 ```
 
+```{r render-swatch-plots}
+#| fig-cap: "Brand Color Swatches and Tints"
+#| renderings: [light, dark]
+
+color_swatch_plot + theme_oeda_light()
+
+color_swatch_plot + theme_oeda_dark()
+```
 ## Example Plots with Renderings
 
 ```{r scatter-plot}
 
-#| fig-cap: "Vehicle efficiency analysis"
-#| renderings: [light, dark]
+
 
 scatter_example <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
   geom_point(size = 3, alpha = 0.8) +
@@ -179,14 +187,19 @@ scatter_example <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
   ) +
   scale_color_oeda_discrete(palette = "primary")
 
-scatter_example + theme_oeda_light() # for light theme
-scatter_example + theme_oeda_dark() # dark theme
+
 ```
 
+```{r render-scatter-plot}
+#| fig-cap: "Vehicle efficiency analysis"
+#| renderings: [light, dark]
+
+scatter_example + theme_oeda_light() # for light theme
+scatter_example + theme_oeda_dark() # dark theme
+
+```
 ```{r bar-chart}
 
-#| fig-cap: "Average MPG by cylinder count"
-#| renderings: [light, dark]
 
 mpg_summary <- mtcars %>%
   group_by(cyl) %>%
@@ -211,6 +224,15 @@ bar_example <- ggplot(mpg_summary, aes(x = factor(cyl), y = avg_mpg, fill = fact
   scale_fill_oeda_discrete(palette = "cool") +
   guides(fill = "none")
 
+
+```
+
+
+```{r render-bar-plot}
+#| fig-cap: "Average MPG by cylinder count"
+#| renderings: [light, dark]
+
 bar_example + theme_oeda_light() # for light theme
 bar_example + theme_oeda_dark() # for dark theme
+
 ```

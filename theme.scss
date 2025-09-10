@@ -77,22 +77,6 @@ $link-hover-color: $dark;
 
 /*-- scss:rules --*/
 
-// Keep ONLY these for content divs and logos
-.light-content {
-  display: block;
-}
-
-.dark-content {
-  display: none;
-}
-
-[data-bs-theme="dark"] .light-content {
-  display: none;
-}
-
-[data-bs-theme="dark"] .dark-content {
-  display: block;
-}
 
 // Logo switching
 .logo-dark {
