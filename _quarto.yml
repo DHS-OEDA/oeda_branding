@@ -6,7 +6,7 @@ project:
 website:
   title: "Oregon Enterprise Data Analytics"
   navbar:
-    logo: /assets/oeda-icon-lighter.svg
+    logo: /assets/oeda-icon-fixed.svg
     search: true
     left:
       - href: index.qmd

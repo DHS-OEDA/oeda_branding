@@ -5,3 +5,5 @@ title: "Issues and Bugs to Fix"
 1. Dark mode caption text color not updating with rest of text. This is done with `#| fig-cap: "Title"` chunk option. 
 2. Icon colors for light mode need lightening.
 3. The `oeda-logo-wide-light.svg` needs to have whitespace removed from `.svg` file
+4. Font matching from primary and wide logos need to be done. Fix in Affinity.
+5. New icon files failing. Investigate. No icon in navbar. 

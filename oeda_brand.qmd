@@ -46,13 +46,13 @@ This section will test if we can embed one of the logos directly into the docume
 ::: {.light-content}
 Here's some text that should only appear in light mode, and the light wide logo.
 
-![OEDA logo](/assets/oeda-logo-wide-light.svg)
+![OEDA logo](/assets/oeda-logo-wide-light-fixed.svg)
 :::
 
 ::: {.dark-content}
 This is the dark mode text, and the dark wide logo.
 
-![OEDA logo](/assets/oeda-logo-wide-dark.svg)
+![OEDA logo](/assets/oeda-logo-wide-dark-fixed.svg)
 :::
 
 ---
@@ -171,9 +171,6 @@ color_swatch_plot + theme_oeda_dark()
 ## Example Plots with Renderings
 
 ```{r scatter-plot}
-
-
-
 scatter_example <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
   geom_point(size = 3, alpha = 0.8) +
   geom_smooth(method = "lm", se = FALSE, linewidth = 1) +
@@ -185,9 +182,7 @@ scatter_example <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
     color = "Cylinders",
     caption = "Data: Motor Trend Car Road Tests"
   ) +
-  scale_color_oeda_discrete(palette = "primary")
-
-
+  scale_color_oeda_discrete(palette = "warm")
 ```
 
 ```{r render-scatter-plot}
