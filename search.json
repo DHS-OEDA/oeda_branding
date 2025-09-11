@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "plot-toggle-test.html",
+    "href": "plot-toggle-test.html",
+    "title": "OEDA Plot Toggle Test",
+    "section": "",
+    "text": "Test Plot with Custom knit_print Method\nThis should automatically generate both light and dark versions and toggle between them:\n\n\n\n\n\nTest scatter plot\n\n\n\n\n\n\nManual Test (Alternative if above doesn’t work)\nIf the automatic method doesn’t work, here’s a manual approach:"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "OEDA Standards Guide",
+    "section": "",
+    "text": "Website Under Construction"
+  },
+  {
+    "objectID": "clean_renderings_test.html",
+    "href": "clean_renderings_test.html",
+    "title": "Clean Renderings Test",
+    "section": "",
+    "text": "Code\n# Create a simple base plot\nbase_scatter &lt;- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point(size = 3, alpha = 0.8) +\n  labs(\n    title = \"Vehicle Weight vs MPG\",\n    x = \"Weight (1000 lbs)\",\n    y = \"Miles per gallon\",\n    color = \"Cylinders\"\n  ) +\n  scale_color_manual(values = c(\"red\", \"blue\", \"green\"))\n\nprint(\"Base plot created successfully\")\n\n\n[1] \"Base plot created successfully\""
+  },
+  {
+    "objectID": "clean_renderings_test.html#step-1-create-base-plot",
+    "href": "clean_renderings_test.html#step-1-create-base-plot",
+    "title": "Clean Renderings Test",
+    "section": "",
+    "text": "Code\n# Create a simple base plot\nbase_scatter &lt;- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +\n  geom_point(size = 3, alpha = 0.8) +\n  labs(\n    title = \"Vehicle Weight vs MPG\",\n    x = \"Weight (1000 lbs)\",\n    y = \"Miles per gallon\",\n    color = \"Cylinders\"\n  ) +\n  scale_color_manual(values = c(\"red\", \"blue\", \"green\"))\n\nprint(\"Base plot created successfully\")\n\n\n[1] \"Base plot created successfully\""
+  },
+  {
+    "objectID": "clean_renderings_test.html#step-2-test-basic-renderings-no-custom-themes",
+    "href": "clean_renderings_test.html#step-2-test-basic-renderings-no-custom-themes",
+    "title": "Clean Renderings Test",
+    "section": "Step 2: Test Basic Renderings (No Custom Themes)",
+    "text": "Step 2: Test Basic Renderings (No Custom Themes)\n\n\nCode\n# Light version - red points\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"red\", size = 3) +\n  labs(title = \"LIGHT MODE - Red Points\") +\n  theme_minimal()\n\n# Dark version - blue points  \nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(color = \"blue\", size = 3) +\n  labs(title = \"DARK MODE - Blue Points\") +\n  theme_minimal()\n\n\n\n\n\nBasic renderings test - should show different colors\n\n\n\n\n\n\n\nBasic renderings test - should show different colors"
+  },
+  {
+    "objectID": "clean_renderings_test.html#step-3-test-with-oeda-themes",
+    "href": "clean_renderings_test.html#step-3-test-with-oeda-themes",
+    "title": "Clean Renderings Test",
+    "section": "Step 3: Test With OEDA Themes",
+    "text": "Step 3: Test With OEDA Themes\n\n\nCode\n# Light version with OEDA light theme\nbase_scatter + theme_oeda_light()\n\n# Dark version with OEDA dark theme\nbase_scatter + theme_oeda_dark()\n\n\n\n\n\nOEDA themes test\n\n\n\n\n\n\n\nOEDA themes test"
+  },
+  {
+    "objectID": "clean_renderings_test.html#step-4-test-simple-r-base-graphics",
+    "href": "clean_renderings_test.html#step-4-test-simple-r-base-graphics",
+    "title": "Clean Renderings Test",
+    "section": "Step 4: Test Simple R Base Graphics",
+    "text": "Step 4: Test Simple R Base Graphics\n\n\nCode\n# Light version\npar(bg = \"white\", fg = \"black\")\nplot(mtcars$wt, mtcars$mpg, main = \"LIGHT MODE\", col = \"red\", pch = 16)\n\n# Dark version\npar(bg = \"black\", fg = \"white\", col.main = \"white\", col.lab = \"white\", col.axis = \"white\")\nplot(mtcars$wt, mtcars$mpg, main = \"DARK MODE\", col = \"cyan\", pch = 16)\n\n\n\n\n\nBase R graphics test\n\n\n\n\n\n\n\nBase R graphics test"
+  },
+  {
+    "objectID": "clean_renderings_test.html#what-should-happen",
+    "href": "clean_renderings_test.html#what-should-happen",
+    "title": "Clean Renderings Test",
+    "section": "What Should Happen:",
+    "text": "What Should Happen:\n\nStep 2: You should see RED points in light mode, BLUE points in dark mode\nStep 3: You should see the same plot with different OEDA themes\nStep 4: You should see a white background plot in light mode, black background in dark mode"
+  },
+  {
+    "objectID": "clean_renderings_test.html#debugging-information",
+    "href": "clean_renderings_test.html#debugging-information",
+    "title": "Clean Renderings Test",
+    "section": "Debugging Information:",
+    "text": "Debugging Information:\nToggle between light and dark modes using the theme switcher. If you see:\n\nBoth plots showing: renderings isn’t working at all\nNo plots showing: There’s a CSS conflict hiding everything\n\nSame plot in both modes: renderings is working but not switching\nCorrect behavior: renderings is working perfectly!"
+  },
+  {
+    "objectID": "issues.html",
+    "href": "issues.html",
+    "title": "Issues and Bugs to Fix",
+    "section": "",
+    "text": "Dark mode caption text color not updating with rest of text. This is done with #| fig-cap: \"Title\" chunk option.\nIcon colors for light mode need lightening.\nThe oeda-logo-wide-light.svg needs to have whitespace removed from .svg file\nFont matching from primary and wide logos need to be done. Fix in Affinity.\nNew icon files failing. Investigate. No icon in navbar."
+  },
+  {
+    "objectID": "oeda_brand.html",
+    "href": "oeda_brand.html",
+    "title": "OEDA HTML Branding Demo",
+    "section": "",
+    "text": "This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from _brand.yml is working as expected.\n\n\nThis section will test if we can embed one of the logos directly into the document body using the same path defined in _brand.yml.\n\n\n\n\n\n\n\nHere’s some text that should only appear in light mode, and the light wide logo.\n\n\n\nOEDA logo\n\n\n\n\nThis is the dark mode text, and the dark wide logo.\n\n\n\nOEDA logo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportantCustom CSS and Quarto 1.7+\n\n\n\nWhen using Quarto version 1.7 or higher, the renderings option replaces all need for custom css when it comes to dark and light mode content. Using custom CSS causes renderings to break most of the time. You must choose one approach or the other.\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\n\n\nAverage MPG by cylinder count\n\n\n\n\n\n\n\nAverage MPG by cylinder count"
+  },
+  {
+    "objectID": "oeda_brand.html#testing-typography",
+    "href": "oeda_brand.html#testing-typography",
+    "title": "OEDA HTML Branding Demo",
+    "section": "",
+    "text": "This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from _brand.yml is working as expected.\n\n\nThis section will test if we can embed one of the logos directly into the document body using the same path defined in _brand.yml."
+  },
+  {
+    "objectID": "oeda_brand.html#testing-light-and-dark-mode",
+    "href": "oeda_brand.html#testing-light-and-dark-mode",
+    "title": "OEDA HTML Branding Demo",
+    "section": "",
+    "text": "Here’s some text that should only appear in light mode, and the light wide logo.\n\n\n\nOEDA logo\n\n\n\n\nThis is the dark mode text, and the dark wide logo.\n\n\n\nOEDA logo"
+  },
+  {
+    "objectID": "oeda_brand.html#testing-color-palettes",
+    "href": "oeda_brand.html#testing-color-palettes",
+    "title": "OEDA HTML Branding Demo",
+    "section": "",
+    "text": "ImportantCustom CSS and Quarto 1.7+\n\n\n\nWhen using Quarto version 1.7 or higher, the renderings option replaces all need for custom css when it comes to dark and light mode content. Using custom CSS causes renderings to break most of the time. You must choose one approach or the other.\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\nBrand Color Swatches and Tints"
+  },
+  {
+    "objectID": "oeda_brand.html#example-plots-with-renderings",
+    "href": "oeda_brand.html#example-plots-with-renderings",
+    "title": "OEDA HTML Branding Demo",
+    "section": "",
+    "text": "Vehicle efficiency analysis\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\n\n\nAverage MPG by cylinder count\n\n\n\n\n\n\n\nAverage MPG by cylinder count"
+  }
+]
