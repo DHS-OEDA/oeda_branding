@@ -1,6 +1,6 @@
 ---
-title: "OEDA Brand Theme Demo"
+title: "OEDA Standards Guide"
 
 ---
 
-This is the index page, where you should land first. 
+![Website Under Construction](assets/under-construction-website.gif)
