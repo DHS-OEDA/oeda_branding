@@ -7,6 +7,8 @@ project:
     
 website:
   title: "Oregon Enterprise Data Analytics"
+  site-url: "https://dhs-oeda-github.io/"
+  repo-url: "https://github.com/DHS-OEDA/oeda_branding"
   navbar:
     logo: /assets/oeda-icon-light-header.png
     search: true
