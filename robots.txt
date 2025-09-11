@@ -1,1 +1,1 @@
-Sitemap: https://DHS-OEDA.github.io/oeda_branding/sitemap.xml
+Sitemap: https://dhs-oeda-github.io/sitemap.xml
