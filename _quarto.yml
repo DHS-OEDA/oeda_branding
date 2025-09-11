@@ -8,15 +8,23 @@ project:
 website:
   title: "Oregon Enterprise Data Analytics"
   navbar:
-    logo: /assets/oeda-icon-fixed.svg
+    logo: /assets/oeda-icon-light-header.png
     search: true
-    left:
+    right:
       - href: index.qmd
         text: Home
       - href: oeda_brand.qmd
-        text: Branding Intro
+        text: Branding
       - href: issues.qmd
         text: Issues and Bugs
+      - icon: github
+        href: https://github.com/DHS-OEDA/oeda_branding
+  sidebar:
+    - title: "OEDA Branding"
+      style: "floating"
+      contents:
+        - oeda_brand.qmd
+    
 
 theme:
   light: [flatly, theme.scss] 
@@ -26,6 +34,8 @@ format:
   html:
     toc: true
     toc-depth: 2
+    toc-title: Contents
+    toc-location: left
     code-fold: true
 
 # Simple knitr setup - no special devices needed!

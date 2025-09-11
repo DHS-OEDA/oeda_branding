@@ -17,12 +17,12 @@ logo:
     logo-dark: /assets/oeda-logo-dark.svg
     wide-color: /assets/oeda-logo-wide-light-fixed.svg
     wide-dark: /assets/oeda-logo-wide-dark-fixed.svg
-    icon-light: /assets/oeda-icon-fixed.svg
-    icon-dark: /assets/oeda-icon-dark-fixed.svg
+    icon-light: /assets/oeda-icon-light-header.png
+    icon-dark: /assets/oeda-icon-dark-fixed.png
 
   small: icon-light
   medium: wide-color
-  large: wide-color
+  large: logo-color
 
 color:
   # Palette based on the OEDA brand guide

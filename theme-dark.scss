@@ -60,15 +60,15 @@ $ashland-charcoal-20: #D9D9D9;
 // -----------------------------------------------------
   // Hide the light version
   .navbar-logo.light-content,
-  img[src*="oeda-icon-fixed.svg"].light-content {
-    display: none !important;
+  img[src*="oeda-icon-fixed-whiteoutline.png"].light-content {
+    display: none;
   }
   
   // Show and modify the dark version
   .navbar-logo.dark-content,
-  img[src*="oeda-icon-fixed.svg"].dark-content {
-    display: inline-block !important;
-    content: url("/assets/oeda-icon-dark-fixed.svg");
+  img[src*="oeda-icon-dark-fixed.png"].dark-content {
+    display: inline-block;
+    content: url("/assets/oeda-icon-dark-fixed.png");
   }
 
 }
