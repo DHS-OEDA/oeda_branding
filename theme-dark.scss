@@ -58,6 +58,22 @@ $ashland-charcoal-20: #D9D9D9;
 
 // 2. LOGO SWAPPING (DARK THEME)
 // -----------------------------------------------------
+// Sidebar  
+// Hide the light version
+
+  .sidebar-logo.light-content,
+  img[src*="oeda-logo-primary-fixed.png"].light-content {
+    display: none !important;
+  }
+  
+  // Show and modify the dark version
+  .sidebar-logo.dark-content,
+  img[src*="oeda-logo-primary-fixed.png"].dark-content {
+    display: inline-block !important;
+    content: url("/assets/oeda-logo-primary-dark-fixed.png");
+  }
+
+  // Top navbar
   // Hide the light version
   .navbar-logo.light-content,
   img[src*="oeda-icon-fixed-whiteoutline.png"].light-content {

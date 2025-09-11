@@ -145,7 +145,7 @@ final_plot_data <- plot_data |>
 color_swatch_plot <- ggplot(final_plot_data, 
                            aes(x = factor(tint_percent, levels = c(100, 80, 60, 40, 20, 10)),
                                y = ordered_base, fill = hex)) +
-  geom_tile(color = "white", linewidth = 2) +
+  geom_tile(color = NA) +
   geom_text(aes(label = hex, color = text_color), size = 3, family = "sans") +
   scale_fill_identity() +
   scale_color_identity() +

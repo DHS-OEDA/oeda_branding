@@ -19,11 +19,7 @@ website:
         text: Issues and Bugs
       - icon: github
         href: https://github.com/DHS-OEDA/oeda_branding
-  sidebar:
-    - title: "OEDA Branding"
-      style: "floating"
-      contents:
-        - oeda_brand.qmd
+
     
 
 theme:
@@ -35,7 +31,7 @@ format:
     toc: true
     toc-depth: 2
     toc-title: Contents
-    toc-location: left
+    toc-location: right
     code-fold: true
 
 # Simple knitr setup - no special devices needed!
