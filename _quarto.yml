@@ -2,7 +2,9 @@
 project:
   type: website
   output-dir: _site
-
+  resources:
+    - "assets/"
+    
 website:
   title: "Oregon Enterprise Data Analytics"
   navbar:
@@ -23,6 +25,7 @@ theme:
 format:
   html:
     toc: true
+    toc-depth: 2
     code-fold: true
 
 # Simple knitr setup - no special devices needed!

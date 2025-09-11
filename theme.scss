@@ -78,12 +78,13 @@ $link-hover-color: $dark;
 /*-- scss:rules --*/
 
 
-// Logo switching
-.logo-dark {
-  display: none;
-}
-.logo-light {
+
+// Logo visibility for light theme
+.navbar-logo.light-content {
   display: inline-block;
+}
+.navbar-logo.dark-content {
+  display: none;
 }
 
 // Quarto 1.7 handles all plots now, so no need to .plot css.

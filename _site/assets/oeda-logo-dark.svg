@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="6.7410555in"
+   height="7.6922483in"
+   viewBox="0 0 171.22281 195.38311"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="OEDA Logo Primary Dark.svg"
+   inkscape:export-filename="OEDA Logo Primary.png"
+   inkscape:export-xdpi="59.337887"
+   inkscape:export-ydpi="59.337887"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#414042"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showguides="true"
+     inkscape:zoom="1.1055804"
+     inkscape:cx="212.55804"
+     inkscape:cy="395.71975"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-53.950407,-3.8428104)">
+    <text
+       xml:space="preserve"
+       style="font-size:16.9333px;line-height:0.9;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ecd263;stroke-width:5.29167;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       x="80.144043"
+       y="151.54871"
+       id="text47"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;line-height:0.9;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Bold';text-align:start;letter-spacing:2.79929px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.29167"
+         sodipodi:role="line"
+         id="tspan21"
+         x="80.144043"
+         y="151.54871">OREGON ENTERPRISE</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:800;font-stretch:normal;font-size:16.2278px;line-height:0.9;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Ultra-Bold';text-align:start;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.29167"
+         x="80.144043"
+         y="166.78868"
+         id="tspan5">Data Analytics</tspan></text>
+    <path
+       id="path3"
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#ffffff;stroke-width:0.651537;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;fill-opacity:1"
+       d="m 139.56151,23.470919 a 2.6460986,2.6460986 0 0 0 -1.32292,0.3545 l -25.6558,14.812016 a 2.6460986,2.6460986 0 0 0 -1.32343,2.29185 v 29.624548 a 2.6460986,2.6460986 0 0 0 1.32343,2.29185 l 3.96462,2.288749 v -8.99325 l 0.004,0.0021 V 42.456323 l 23.01099,-13.284977 23.00997,13.284977 v 26.570471 l -6.78512,3.917591 5.29167,3.05511 5.46272,-3.153812 a 2.6460986,2.6460986 0 0 0 1.32343,-2.29185 V 40.929285 a 2.6460986,2.6460986 0 0 0 -1.32343,-2.29185 L 140.88442,23.825419 a 2.6460986,2.6460986 0 0 0 -1.32291,-0.3545 z m -17.72244,48.608919 v 6.110221 l 16.39952,9.468156 a 2.6460986,2.6460986 0 0 0 2.64583,0 l 14.90349,-8.604642 -5.29115,-3.054594 -10.93474,6.313309 z" />
+    <path
+       id="path13"
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#b4dcf5;stroke-width:0.651537;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;fill-opacity:1"
+       d="m 108.96699,75.690987 a 2.6460986,2.6460986 0 0 0 -1.3224,0.3545 L 81.988794,90.857503 a 2.6460986,2.6460986 0 0 0 -1.323433,2.29185 V 122.7739 a 2.6460986,2.6460986 0 0 0 1.323433,2.29185 l 25.655796,14.81253 a 2.6460986,2.6460986 0 0 0 2.64532,0 l 25.65683,-14.81253 a 2.6460986,2.6460986 0 0 0 1.32343,-2.29185 v -4.56561 l -8.14524,4.70255 v -0.0165 l -20.1569,11.63805 -23.01152,-13.2855 V 94.676392 l 23.01152,-13.284978 7.57938,4.375961 v -6.109188 l -6.2575,-3.6127 a 2.6460986,2.6460986 0 0 0 -1.32292,-0.3545 z m 12.87208,7.021794 v 6.109704 l 10.13892,5.853907 v 20.477298 l 5.29218,-3.05562 V 93.149353 a 2.6460986,2.6460986 0 0 0 -1.32343,-2.29185 z" />
+    <path
+       id="path15"
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;fill:#57c679;stroke-width:0.651537;stroke-linejoin:round;enable-background:accumulate;stop-color:#000000;fill-opacity:1"
+       d="m 170.43197,75.667216 a 2.6460986,2.6460986 0 0 0 -1.32291,0.3545 l -3.99562,2.306836 5.29115,3.055111 0.0279,-0.01602 23.00997,13.284977 v 26.57047 l -23.00997,13.2855 -23.011,-13.2855 v -8.87491 l -5.29115,3.0546 v 7.34735 a 2.6460986,2.6460986 0 0 0 1.32344,2.29185 l 25.65528,14.81253 a 2.6460986,2.6460986 0 0 0 2.64583,0 l 25.65683,-14.81253 a 2.6460986,2.6460986 0 0 0 1.32344,-2.29185 V 93.125582 a 2.6460986,2.6460986 0 0 0 -1.32344,-2.29185 L 171.75489,76.021716 a 2.6460986,2.6460986 0 0 0 -1.32292,-0.3545 z m -10.60917,5.71593 -16.36902,9.450586 a 2.6460986,2.6460986 0 0 0 -1.32344,2.29185 v 16.166458 l 5.29115,-3.05511 V 94.65262 l 17.69246,-10.214363 z" />
+  </g>
+</svg>
