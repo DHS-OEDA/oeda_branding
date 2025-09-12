@@ -1,0 +1,494 @@
+---
+title: "Value Box Cards"
+subtitle: "Bootstrap cards styled like Quarto Dashboard value boxes for websites"
+format:
+  html:
+    theme:
+      light: [flatly, theme.scss]
+      dark: [darkly, theme-dark.scss]
+---
+
+# Value Box Style Cards
+
+Since Quarto value boxes only work in Dashboard format, this page shows how to create **value box-style components using Bootstrap cards** that work in regular Quarto websites while maintaining the same visual design and functionality.
+
+
+## Why Use Value Box Style Cards?
+
+These cards replicate the look and feel of Quarto Dashboard value boxes but work in:
+- ✅ **Quarto Websites** (like this site)
+- ✅ **Regular HTML pages**
+- ✅ **R Markdown documents**
+- ✅ **Any Bootstrap-based project**
+
+## Basic Value Box Card
+
+<div class="card value-box-card">
+  <div class="card-body">
+    <div class="value-box-icon">
+      <i class="bi bi-currency-dollar"></i>
+    </div>
+    <div class="value-box-content">
+      <div class="value-box-title">Revenue</div>
+      <div class="value-box-value">$2.4M</div>
+      <div class="value-box-subtitle">Q4 2024 Total</div>
+    </div>
+  </div>
+</div>
+
+```{r basic-value-box}
+#| echo: false
+#| output: asis
+
+cat('<div class="demo-section">
+<h3>Live Example</h3>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card value-box-card">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-currency-dollar"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Revenue</div>
+          <div class="value-box-value">$2.4M</div>
+          <div class="value-box-subtitle">Q4 2024 Total</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>')
+```
+
+### HTML Code
+```html
+<div class="card value-box-card">
+  <div class="card-body">
+    <div class="value-box-icon">
+      <i class="bi bi-currency-dollar"></i>
+    </div>
+    <div class="value-box-content">
+      <div class="value-box-title">Revenue</div>
+      <div class="value-box-value">$2.4M</div>
+      <div class="value-box-subtitle">Q4 2024 Total</div>
+    </div>
+  </div>
+</div>
+```
+
+## Value Box Cards with Change Indicators
+
+The key feature your team wanted - showing positive/negative changes with appropriate colors.
+
+```{r change-indicator-cards}
+#| echo: false
+#| output: asis
+
+cat('<div class="demo-section">
+<h3>Live Example</h3>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card value-box-card value-box-success">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-currency-dollar"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Revenue</div>
+          <div class="value-box-value">$2.4M</div>
+          <div class="value-box-change positive">
+            <i class="bi bi-arrow-up"></i> +12.5% vs last quarter
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card value-box-card value-box-danger">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-people"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Active Users</div>
+          <div class="value-box-value">847</div>
+          <div class="value-box-change negative">
+            <i class="bi bi-arrow-down"></i> -3.2% vs last week
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card value-box-card value-box-info">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-bar-chart"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Conversion Rate</div>
+          <div class="value-box-value">4.2%</div>
+          <div class="value-box-change neutral">
+            <i class="bi bi-dash"></i> No change vs target
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>')
+```
+
+### HTML Code
+```html
+<!-- Positive Change -->
+<div class="card value-box-card value-box-success">
+  <div class="card-body">
+    <div class="value-box-icon">
+      <i class="bi bi-currency-dollar"></i>
+    </div>
+    <div class="value-box-content">
+      <div class="value-box-title">Revenue</div>
+      <div class="value-box-value">$2.4M</div>
+      <div class="value-box-change positive">
+        <i class="bi bi-arrow-up"></i> +12.5% vs last quarter
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Negative Change -->
+<div class="card value-box-card value-box-danger">
+  <div class="card-body">
+    <div class="value-box-icon">
+      <i class="bi bi-people"></i>
+    </div>
+    <div class="value-box-content">
+      <div class="value-box-title">Active Users</div>
+      <div class="value-box-value">847</div>
+      <div class="value-box-change negative">
+        <i class="bi bi-arrow-down"></i> -3.2% vs last week
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Color Variants
+
+Different background colors to match the semantic meaning of your metrics.
+
+```{r color-variants}
+#| echo: false
+#| output: asis
+
+cat('<div class="demo-section">
+<h3>Live Example</h3>
+<div class="row">
+  <div class="col-md-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-primary">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-graph-up"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Growth</div>
+          <div class="value-box-value">15.7%</div>
+          <div class="value-box-subtitle">Primary Theme</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-success">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-check-circle"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Success</div>
+          <div class="value-box-value">98.5%</div>
+          <div class="value-box-subtitle">Success Theme</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-warning">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-exclamation-triangle"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Warnings</div>
+          <div class="value-box-value">3</div>
+          <div class="value-box-subtitle">Warning Theme</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-danger">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-x-circle"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Errors</div>
+          <div class="value-box-value">0</div>
+          <div class="value-box-subtitle">Danger Theme</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>')
+```
+
+### HTML Code for Color Variants
+```html
+<!-- Primary (Blue) -->
+<div class="card value-box-card value-box-primary">
+  <!-- content -->
+</div>
+
+<!-- Success (Green) -->
+<div class="card value-box-card value-box-success">
+  <!-- content -->
+</div>
+
+<!-- Warning (Yellow) -->
+<div class="card value-box-card value-box-warning">
+  <!-- content -->
+</div>
+
+<!-- Danger (Red) -->
+<div class="card value-box-card value-box-danger">
+  <!-- content -->
+</div>
+```
+
+## Dashboard Layout Example
+
+How to arrange multiple value box cards in a dashboard-style layout.
+
+```{r dashboard-layout}
+#| echo: false
+#| output: asis
+
+cat('<div class="demo-section">
+<h3>Dashboard Layout Example</h3>
+<div class="row mb-4">
+  <div class="col-sm-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-primary">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-currency-dollar"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Total Revenue</div>
+          <div class="value-box-value">$2.4M</div>
+          <div class="value-box-change positive">
+            <i class="bi bi-arrow-up"></i> +12.5%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-info">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-people"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Active Users</div>
+          <div class="value-box-value">1,247</div>
+          <div class="value-box-change negative">
+            <i class="bi bi-arrow-down"></i> -3.2%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-success">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-graph-up"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Conversion</div>
+          <div class="value-box-value">4.2%</div>
+          <div class="value-box-change positive">
+            <i class="bi bi-arrow-up"></i> +0.8%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3 mb-3">
+    <div class="card value-box-card value-box-warning">
+      <div class="card-body">
+        <div class="value-box-icon">
+          <i class="bi bi-clock"></i>
+        </div>
+        <div class="value-box-content">
+          <div class="value-box-title">Response Time</div>
+          <div class="value-box-value">124ms</div>
+          <div class="value-box-change negative">
+            <i class="bi bi-arrow-up"></i> +15ms
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>')
+```
+
+## Usage Guidelines
+
+### When to Use Each Color
+
+- **`value-box-primary`** - Main KPIs, revenue, primary metrics
+- **`value-box-success`** - Positive trends, goals achieved, systems healthy
+- **`value-box-danger`** - Negative trends, errors, alerts, problems
+- **`value-box-warning`** - Caution states, approaching limits, maintenance
+- **`value-box-info`** - Neutral information, general metrics, informational data
+
+### Change Indicator Best Practices
+
+- **Always include direction**: Use arrows (↑↓) or icons (bi-arrow-up/down)
+- **Provide context**: "vs last quarter", "vs target", "vs last week"
+- **Use consistent formatting**: Same decimal places, same comparison periods
+- **Color coding**: Green for positive, red for negative, gray for neutral
+
+### Layout Recommendations
+
+- **Mobile-first**: Use responsive grid classes (col-sm-6 col-lg-3)
+- **Consistent spacing**: Add margin-bottom (mb-3) for proper spacing
+- **Group related metrics**: Place similar metrics together
+- **Logical order**: Most important metrics first (left to right, top to bottom)
+
+## Add to your theme.scss
+
+Add this comprehensive styling to the `/*-- scss:rules --*/` section of your `theme.scss` file:
+
+```scss
+/*-- scss:rules --*/
+
+// =====================================================
+// VALUE BOX CARDS
+// =====================================================
+
+.value-box-card {
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.value-box-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.value-box-card .card-body {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.value-box-icon {
+  font-size: 2.5rem;
+  opacity: 0.8;
+  flex-shrink: 0;
+  width: 60px;
+  text-align: center;
+}
+
+.value-box-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.value-box-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.value-box-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.value-box-subtitle {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.value-box-change {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.value-box-change.positive {
+  color: var(--bs-success);
+}
+
+.value-box-change.negative {
+  color: var(--bs-danger);
+}
+
+.value-box-change.neutral {
+  color: var(--bs-secondary);
+}
+
+// Color variants
+.value-box-primary {
+  background: linear-gradient(135deg, var(--bs-primary) 0%, rgba(var(--bs-primary-rgb), 0.8) 100%);
+  color: white;
+}
+
+.value-box-success {
+  background: linear-gradient(135deg, var(--bs-success) 0%, rgba(var(--bs-success-rgb), 0.8) 100%);
+  color: white;
+}
+
+.value-box-danger {
+  background: linear-gradient(135deg, var(--bs-danger) 0%, rgba(var(--bs-danger-rgb), 0.8) 100%);
+  color: white;
+}
+
+.value-box-warning {
+  background: linear-gradient(135deg, var(--bs-warning) 0%, rgba(var(--bs-warning-rgb), 0.8) 100%);
+  color: white;
+}
+
+.value-box-info {
+  background: linear-gradient(135deg, var(--bs-info) 0%, rgba(var(--bs-info-rgb), 0.8) 100%);
+  color: white;
+}
+
+// Dark mode adjustments
+[data-bs-theme="dark"] .value-box-card {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+[data-bs-theme="dark"] .value-box-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+```
+
+This approach gives you all the visual appeal and functionality of Quarto Dashboard value boxes, but works perfectly in your Quarto website!

@@ -7,3 +7,4 @@ title: "Issues and Bugs to Fix"
 3. The `oeda-logo-wide-light.svg` needs to have whitespace removed from `.svg` file
 4. Font matching from primary and wide logos need to be done. Fix in Affinity.
 5. New icon files failing. Investigate. No icon in navbar. 
+6. `cards` page has non-working value box cards.
