@@ -1,11 +1,7 @@
 ---
 title: "Buttons"
 subtitle: "Interactive button components with OEDA branding"
-format:
-  html:
-    theme:
-      light: [flatly, theme.scss]
-      dark: [darkly, theme-dark.scss]
+format: html
 ---
 
 # Button Components
@@ -19,21 +15,13 @@ Use primary buttons for the main action on a page or section.
 ```{r primary-buttons}
 #| echo: false
 #| output: asis
-#| renderings: [light, dark]
 
-# Light mode version
 cat('<div class="demo-section">
 <h3>Live Example</h3>
 <button type="button" class="btn btn-primary">Primary Action</button>
 <button type="button" class="btn btn-primary" disabled>Disabled Primary</button>
 </div>')
 
-# Dark mode version  
-cat('<div class="demo-section">
-<h3>Live Example</h3>
-<button type="button" class="btn btn-primary">Primary Action</button>
-<button type="button" class="btn btn-primary" disabled>Disabled Primary</button>
-</div>')
 ```
 
 ### HTML Code
@@ -70,21 +58,15 @@ Use secondary buttons for supporting actions or when you need multiple buttons i
 ```{r secondary-buttons}
 #| echo: false
 #| output: asis
-#| renderings: [light, dark]
 
-# Light mode
+
 cat('<div class="demo-section">
 <h3>Live Example</h3>
 <button type="button" class="btn btn-secondary">Secondary Action</button>
 <button type="button" class="btn btn-outline-primary">Outlined Button</button>
 </div>')
 
-# Dark mode
-cat('<div class="demo-section">
-<h3>Live Example</h3>
-<button type="button" class="btn btn-secondary">Secondary Action</button>
-<button type="button" class="btn btn-outline-primary">Outlined Button</button>
-</div>')
+
 ```
 
 ### HTML Code
@@ -100,9 +82,8 @@ Different button sizes for various contexts.
 ```{r button-sizes}
 #| echo: false
 #| output: asis
-#| renderings: [light, dark]
 
-# Light mode
+
 cat('<div class="demo-section">
 <h3>Live Example</h3>
 <button type="button" class="btn btn-primary btn-lg">Large Button</button>
@@ -110,13 +91,6 @@ cat('<div class="demo-section">
 <button type="button" class="btn btn-primary btn-sm">Small Button</button>
 </div>')
 
-# Dark mode
-cat('<div class="demo-section">
-<h3>Live Example</h3>
-<button type="button" class="btn btn-primary btn-lg">Large Button</button>
-<button type="button" class="btn btn-primary">Regular Button</button>
-<button type="button" class="btn btn-primary btn-sm">Small Button</button>
-</div>')
 ```
 
 ### HTML Code
@@ -133,9 +107,8 @@ Specialized buttons for common actions in data analytics contexts.
 ```{r action-buttons}
 #| echo: false
 #| output: asis
-#| renderings: [light, dark]
 
-# Light mode
+
 cat('<div class="demo-section">
 <h3>Live Example</h3>
 <button type="button" class="btn btn-success">
@@ -152,22 +125,6 @@ cat('<div class="demo-section">
 </button>
 </div>')
 
-# Dark mode
-cat('<div class="demo-section">
-<h3>Live Example</h3>
-<button type="button" class="btn btn-success">
-  <i class="bi bi-download"></i> Download Report
-</button>
-<button type="button" class="btn btn-info">
-  <i class="bi bi-bar-chart"></i> View Chart
-</button>
-<button type="button" class="btn btn-warning">
-  <i class="bi bi-exclamation-triangle"></i> Alert
-</button>
-<button type="button" class="btn btn-danger">
-  <i class="bi bi-trash"></i> Delete
-</button>
-</div>')
 ```
 
 ### HTML Code
@@ -193,19 +150,8 @@ Group related buttons together for cleaner interfaces.
 ```{r button-groups}
 #| echo: false
 #| output: asis
-#| renderings: [light, dark]
 
-# Light mode
-cat('<div class="demo-section">
-<h3>Live Example</h3>
-<div class="btn-group" role="group" aria-label="Data view options">
-  <button type="button" class="btn btn-outline-primary active">Table</button>
-  <button type="button" class="btn btn-outline-primary">Chart</button>
-  <button type="button" class="btn btn-outline-primary">Export</button>
-</div>
-</div>')
 
-# Dark mode
 cat('<div class="demo-section">
 <h3>Live Example</h3>
 <div class="btn-group" role="group" aria-label="Data view options">
