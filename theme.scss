@@ -455,3 +455,26 @@ $link-hover-color: $dark;
   display: none;
 }
 
+// =====================================================
+// DASHBOARDS
+// =====================================================
+
+// Hide website navbar elements on dashboard pages
+.quarto-dashboard #quarto-header > nav.navbar {
+  display: none !important;
+}
+
+// Keep the dashboard header intact
+.quarto-dashboard #quarto-dashboard-header {
+  display: block !important;
+}
+
+// Adjust padding for dashboard pages since we're removing the website navbar
+.quarto-dashboard body.nav-fixed {
+  padding-top: 0 !important;
+}
+
+// Ensure dashboard content is visible
+.quarto-dashboard .quarto-dashboard-content {
+  display: block !important;
+}

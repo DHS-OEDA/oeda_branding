@@ -35,7 +35,8 @@ website:
             text: Cards
       - href: issues.qmd
         text: Issues and Bugs
-    
+
+ 
 
 theme:
   light: [flatly, theme.scss] 
@@ -48,6 +49,15 @@ format:
     toc-title: Contents
     toc-location: right
     code-fold: true
+dashboard:
+  theme:
+    light: [flatly, theme.scss] 
+    dark: [darkly, theme-dark.scss]
+  logo: /assets/oeda-icon-light-header.png
+    # You can also set dashboard-specific navigation
+  nav-buttons:
+    - icon: github
+      href: https://github.com/DHS-OEDA/oeda_branding  
 
 # Simple knitr setup - no special devices needed!
 knitr:

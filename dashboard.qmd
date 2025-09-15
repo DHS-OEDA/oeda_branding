@@ -1,0 +1,362 @@
+---
+title: "OEDA Interactive Dashboard"
+format: dashboard
+---
+
+```{r setup}
+#| include: false
+library(plotly)
+library(ggplot2)
+library(dplyr)
+library(yaml)
+source("oeda_themes.R")
+
+# Load brand colors for plotly
+if (file.exists("_brand.yml")) {
+  brand_data <- read_yaml("_brand.yml")
+  brand_colors <- brand_data$color$palette
+} else {
+  # Fallback colors
+  brand_colors <- list(
+    `north-star-indigo` = "#2E3192",
+    `glacial-blue` = "#B4DCF5", 
+    `fog-gray` = "#F4F2ED",
+    `forest-green` = "#184E49",
+    `willamette-green` = "#86C679",
+    `mist-grey` = "#D8E1E5",
+    `marionberry-red` = "#A91F50",
+    `harvest-gold` = "#ECD263",
+    `desert-sand` = "#EDDFD4",
+    `ashland-charcoal` = "#414042",
+    `white` = "#FFFFFF",
+    `black` = "#000000"
+  )
+}
+
+# Create OEDA color palettes for plotly
+oeda_colors_primary <- c(
+  brand_colors$`north-star-indigo`,
+  brand_colors$`glacial-blue`,
+  brand_colors$`forest-green`, 
+  brand_colors$`marionberry-red`,
+  brand_colors$`harvest-gold`,
+  brand_colors$`willamette-green`
+)
+
+oeda_colors_cool <- c(
+  brand_colors$`north-star-indigo`,
+  brand_colors$`glacial-blue`,
+  brand_colors$`forest-green`,
+  brand_colors$`mist-grey`
+)
+
+oeda_colors_warm <- c(
+  brand_colors$`marionberry-red`,
+  brand_colors$`harvest-gold`,
+  brand_colors$`desert-sand`, 
+  brand_colors$`willamette-green`
+)
+
+# Sample data for demonstrations
+set.seed(123)
+oregon_counties <- data.frame(
+  county = c("Multnomah", "Washington", "Clackamas", "Marion", "Jackson", 
+             "Lane", "Polk", "Yamhill", "Columbia", "Lincoln"),
+  population = c(815428, 595741, 421401, 345920, 223259, 
+                 382971, 87433, 107722, 52589, 50395),
+  median_income = c(71306, 84292, 79167, 56447, 52902, 
+                    58670, 65781, 73152, 68904, 52285),
+  region = c("Metro", "Metro", "Metro", "Valley", "Southern",
+             "Valley", "Valley", "Metro", "Metro", "Coast")
+)
+
+# Time series data
+quarters <- rep(c("Q1 2023", "Q2 2023", "Q3 2023", "Q4 2023", 
+                  "Q1 2024", "Q2 2024", "Q3 2024", "Q4 2024"), 3)
+services <- rep(c("Child Welfare", "Food Assistance", "Healthcare"), each = 8)
+values <- c(
+  # Child Welfare
+  15420, 16890, 18230, 19100, 20150, 21400, 22800, 24200,
+  # Food Assistance  
+  45600, 47200, 43800, 48900, 51200, 53400, 49800, 52100,
+  # Healthcare
+  28400, 29800, 31200, 33600, 35100, 37200, 39400, 41800
+)
+
+service_data <- data.frame(
+  quarter = quarters,
+  service = services,
+  cases = values
+)
+```
+
+## Oregon County Demographics {.tabset}
+
+### Population Overview
+
+```{r county-scatter}
+#| title: "County Population vs Median Income"
+
+# Create ggplot with OEDA theme
+p1 <- ggplot(oregon_counties, aes(x = population/1000, y = median_income, 
+                                  color = region, text = county)) +
+  geom_point(size = 4, alpha = 0.8) +
+  scale_color_manual(values = oeda_colors_cool) +
+  labs(
+    title = "Oregon County Demographics",
+    subtitle = "Population vs Median Household Income",
+    x = "Population (thousands)",
+    y = "Median Household Income ($)",
+    color = "Region",
+    caption = "Data: Oregon Employment Department"
+  ) +
+  theme_oeda_light()
+
+# Convert to interactive plotly
+plotly_scatter <- ggplotly(p1, tooltip = c("text", "x", "y")) %>%
+  layout(
+    font = list(family = "Noto Sans", size = 12),
+    plot_bgcolor = brand_colors$white,
+    paper_bgcolor = brand_colors$white,
+    title = list(
+      text = "<b>Oregon County Demographics</b><br><sub>Population vs Median Household Income</sub>",
+      font = list(size = 16, color = brand_colors$`north-star-indigo`)
+    ),
+    xaxis = list(
+      title = list(text = "Population (thousands)", 
+                   font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`)
+    ),
+    yaxis = list(
+      title = list(text = "Median Household Income ($)",
+                   font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`)
+    ),
+    legend = list(
+      font = list(color = brand_colors$`ashland-charcoal`)
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+plotly_scatter
+```
+
+### Regional Breakdown
+
+```{r county-bars}
+#| title: "Population by Region"
+
+# Create bar chart data
+region_summary <- oregon_counties %>%
+  group_by(region) %>%
+  summarise(
+    total_pop = sum(population)/1000,
+    avg_income = mean(median_income),
+    counties = n(),
+    .groups = "drop"
+  )
+
+# Create interactive bar chart with plotly
+p2 <- plot_ly(
+  data = region_summary,
+  x = ~region,
+  y = ~total_pop,
+  type = 'bar',
+  marker = list(
+    color = oeda_colors_warm[1:nrow(region_summary)],
+    line = list(color = brand_colors$`ashland-charcoal`, width = 1)
+  ),
+  hovertemplate = paste0(
+    "<b>%{x}</b><br>",
+    "Population: %{y:.0f}K<br>",
+    "Counties: %{customdata[0]}<br>",
+    "Avg Income: $%{customdata[1]:,.0f}",
+    "<extra></extra>"
+  ),
+  customdata = ~cbind(counties, avg_income)
+) %>%
+  layout(
+    title = list(
+      text = "<b>Population by Region</b><br><sub>Total population in thousands</sub>",
+      font = list(size = 16, color = brand_colors$`north-star-indigo`, family = "Noto Sans")
+    ),
+    xaxis = list(
+      title = list(text = "Region", font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`)
+    ),
+    yaxis = list(
+      title = list(text = "Population (thousands)", 
+                   font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`)
+    ),
+    plot_bgcolor = brand_colors$white,
+    paper_bgcolor = brand_colors$white,
+    font = list(family = "Noto Sans"),
+    showlegend = FALSE
+  ) %>%
+  config(displayModeBar = FALSE)
+
+p2
+```
+
+## Service Delivery Trends {.tabset}
+
+### Quarterly Trends
+
+```{r service-trends}
+#| title: "Service Cases Over Time"
+
+# Create line chart with plotly
+p3 <- plot_ly(
+  data = service_data,
+  x = ~quarter,
+  y = ~cases,
+  color = ~service,
+  colors = oeda_colors_primary[1:3],
+  type = 'scatter',
+  mode = 'lines+markers',
+  line = list(width = 3),
+  marker = list(size = 8),
+  hovertemplate = paste0(
+    "<b>%{fullData.name}</b><br>",
+    "%{x}<br>",
+    "Cases: %{y:,.0f}",
+    "<extra></extra>"
+  )
+) %>%
+  layout(
+    title = list(
+      text = "<b>OEDA Service Delivery Trends</b><br><sub>Quarterly case volumes by service type</sub>",
+      font = list(size = 16, color = brand_colors$`north-star-indigo`, family = "Noto Sans")
+    ),
+    xaxis = list(
+      title = list(text = "Quarter", font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`),
+      tickangle = 45
+    ),
+    yaxis = list(
+      title = list(text = "Number of Cases", 
+                   font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`)
+    ),
+    plot_bgcolor = brand_colors$white,
+    paper_bgcolor = brand_colors$white,
+    font = list(family = "Noto Sans"),
+    legend = list(
+      font = list(color = brand_colors$`ashland-charcoal`),
+      orientation = "h",
+      x = 0.5,
+      xanchor = "center",
+      y = -0.2
+    )
+  ) %>%
+  config(displayModeBar = FALSE)
+
+p3
+```
+
+### Service Comparison
+
+```{r service-comparison}
+#| title: "Current Service Levels"
+
+# Create current quarter comparison
+current_data <- service_data %>%
+  filter(quarter == "Q4 2024")
+
+# Create horizontal bar chart
+p4 <- plot_ly(
+  data = current_data,
+  y = ~reorder(service, cases),
+  x = ~cases,
+  type = 'bar',
+  orientation = 'h',
+  marker = list(
+    color = oeda_colors_cool[1:3],
+    line = list(color = brand_colors$`ashland-charcoal`, width = 1)
+  ),
+  hovertemplate = paste0("<b>%{y}</b><br>",
+                         "Cases: %{x:,.0f}",
+                         "<extra></extra>")
+) %>%
+  layout(
+    title = list(
+      text = "<b>Current Service Volumes</b><br><sub>Q4 2024 case counts</sub>",
+      font = list(size = 16, color = brand_colors$`north-star-indigo`, family = "Noto Sans")
+    ),
+    xaxis = list(
+      title = list(text = "Number of Cases", 
+                   font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`)
+    ),
+    yaxis = list(
+      title = list(text = "", font = list(color = brand_colors$`ashland-charcoal`)),
+      tickfont = list(color = brand_colors$`ashland-charcoal`)
+    ),
+    plot_bgcolor = brand_colors$white,
+    paper_bgcolor = brand_colors$white,
+    font = list(family = "Noto Sans"),
+    showlegend = FALSE,
+    margin = list(l = 150)
+  ) %>%
+  config(displayModeBar = FALSE)
+
+p4
+```
+
+
+```{r}
+#| include: false
+#| echo: false
+#| message: false
+
+num_dist <- 16
+num_cases <- "118,100"
+resp_time <- 2.3
+serv_growth <- .124
+```
+
+```{r}
+#| content: valuebox
+#| title: Number of ODHS Districts
+
+list(
+  icon = "house-heart",
+  color = "primary",
+  value = num_dist
+)
+```
+
+```{r}
+#| content: valuebox
+#| title: Active Cases (Fake Data)
+#| color: info
+
+list(
+  icon = "folder",
+  value = num_cases
+)
+```
+
+
+```{r}
+#| content: valuebox
+#| title: Average Response Time
+#| color: danger
+
+list(
+  icon = "clock",
+  value = paste0(resp_time, " business days")
+)
+```
+
+```{r}
+#| content: valuebox
+#| color: warning
+#| title: Service Growth, Annual
+
+list(
+  icon = "graph-up",
+  value = paste0(round(serv_growth * 100,2),"%")
+)
+```
