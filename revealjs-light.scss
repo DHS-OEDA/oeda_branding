@@ -1,0 +1,229 @@
+/*-- scss:defaults --*/
+
+// revealjs-light.scss
+// OEDA Reveal.js Light Theme
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&family=Noto+Serif:wght@400;700&family=Noto+Sans+Mono&display=swap');
+
+// OEDA Brand Colors
+$oeda-primary: #2E3192;        // north-star-indigo
+$oeda-secondary: #414042;      // ashland-charcoal
+$oeda-accent: #B4DCF5;         // glacial-blue
+$oeda-success: #184E49;        // forest-green
+$oeda-warning: #ECD263;        // harvest-gold
+$oeda-danger: #A91F50;         // marionberry-red
+$oeda-light: #F4F2ED;          // fog-gray
+$oeda-dark: #414042;           // ashland-charcoal
+
+// Reveal.js Theme Variables
+$backgroundColor: #FFFFFF;
+$mainColor: $oeda-dark;
+$headingColor: $oeda-primary;
+$mainFontSize: 32px;
+$mainFont: 'Noto Sans', 'Aptos', sans-serif;
+$headingFont: 'Noto Sans', 'Aptos', sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: -0.02em;
+$headingTextTransform: none;
+$headingFontWeight: 700;
+$linkColor: $oeda-primary;
+$linkColorHover: lighten($linkColor, 15%);
+$selectionBackgroundColor: lighten($oeda-accent, 25%);
+
+// Code block styling
+$codeFont: 'Noto Sans Mono', 'Aptos Mono', monospace;
+
+/*-- scss:rules --*/
+
+// Root CSS variables for OEDA colors
+:root {
+  --oeda-primary: #{$oeda-primary};
+  --oeda-secondary: #{$oeda-secondary};
+  --oeda-accent: #{$oeda-accent};
+  --oeda-success: #{$oeda-success};
+  --oeda-warning: #{$oeda-warning};
+  --oeda-danger: #{$oeda-danger};
+  --oeda-light: #{$oeda-light};
+  --oeda-dark: #{$oeda-dark};
+}
+
+// Slide styling
+.reveal {
+  
+  // Title slide customization
+  .title-slide {
+    .title {
+      color: $oeda-primary;
+      font-size: 3.5em;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+    
+    .subtitle {
+      color: $oeda-secondary;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+    
+    .author {
+      color: $oeda-secondary;
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+    }
+    
+    .date {
+      color: darken($oeda-secondary, 20%);
+      font-size: 1em;
+    }
+  }
+  
+  // Section title slides
+  .section-title {
+    h1, h2 {
+      color: $oeda-light;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+  }
+  
+  // Regular slide headings
+  h1, h2, h3, h4, h5, h6 {
+    color: $oeda-primary;
+    font-family: $headingFont;
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+  }
+  
+  // Emphasis and strong text
+  strong, b {
+    color: $oeda-primary;
+    font-weight: 700;
+  }
+  
+  em, i {
+    color: darken($oeda-secondary, 10%);
+    font-style: italic;
+  }
+  
+  // Lists
+  ul, ol {
+    margin-left: 1em;
+    
+    li {
+      margin-bottom: 0.5em;
+      
+      &::marker {
+        color: $oeda-primary;
+      }
+    }
+  }
+  
+  // Code styling
+  code {
+    background-color: $oeda-light;
+    color: $oeda-dark;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: $codeFont;
+    font-size: 0.85em;
+  }
+  
+  pre {
+    background-color: $oeda-light;
+    border: 1px solid lighten($oeda-secondary, 40%);
+    border-radius: 5px;
+    
+    code {
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+  
+  // Tables
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+    
+    th {
+      background-color: $oeda-primary;
+      color: white;
+      font-weight: 700;
+      padding: 0.75em;
+      text-align: left;
+    }
+    
+    td {
+      padding: 0.75em;
+      border-bottom: 1px solid lighten($oeda-secondary, 50%);
+    }
+    
+    tr:nth-child(even) {
+      background-color: lighten($oeda-light, 2%);
+    }
+  }
+  
+  // Blockquotes
+  blockquote {
+    border-left: 4px solid $oeda-accent;
+    background-color: lighten($oeda-light, 3%);
+    margin: 1em 0;
+    padding: 1em 1.5em;
+    font-style: italic;
+    
+    cite {
+      color: $oeda-secondary;
+      font-style: normal;
+      font-size: 0.9em;
+      
+      &::before {
+        content: "— ";
+      }
+    }
+  }
+  
+  // Progress bar
+  .progress {
+    color: $oeda-primary;
+  }
+  
+  // Navigation controls
+  .controls {
+    color: $oeda-primary;
+    
+    button {
+      color: $oeda-primary !important;
+    }
+  }
+  
+  // Slide numbers
+  .slide-number {
+    background-color: rgba($oeda-primary, 0.8);
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  
+  // Footer styling
+  .footer {
+    background-color: rgba($oeda-secondary, 0.9);
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+// Utility classes for OEDA branding
+.text-primary { color: $oeda-primary !important; }
+.text-secondary { color: $oeda-secondary !important; }
+.text-accent { color: $oeda-accent !important; }
+.text-success { color: $oeda-success !important; }
+.text-warning { color: $oeda-warning !important; }
+.text-danger { color: $oeda-danger !important; }
+
+.bg-primary { background-color: $oeda-primary !important; color: white; }
+.bg-secondary { background-color: $oeda-secondary !important; color: white; }
+.bg-accent { background-color: $oeda-accent !important; }
+.bg-light { background-color: $oeda-light !important; }

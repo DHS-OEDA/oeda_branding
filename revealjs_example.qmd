@@ -1,0 +1,79 @@
+---
+title: "OEDA Sample Presentation"
+subtitle: "Using Branded Reveal.js Theme"
+author: "Your Name"
+date: today
+format:
+  revealjs:
+    theme: [simple, revealjs-unified.scss]
+    logo: "/assets/oeda-icon-light-header.png"
+    footer: "Oregon Enterprise Data Analytics"
+    width: 1920
+    height: 1080
+    margin: 0.1
+    controls: true
+    progress: true
+    hash-type: number
+    transition: slide
+    code-copy: true
+    slide-number: c/t
+    title-slide-attributes:
+      data-background-color: "#2E3192"
+      data-background-image: "/assets/oeda-logo-wide-light-fixed.svg"
+      data-background-size: "200px"
+      data-background-position: "95% 5%"
+      data-background-opacity: "0.1"
+---
+
+# Introduction
+
+Welcome to our OEDA-branded presentation using Reveal.js!
+
+## Key Features
+
+- **Consistent Branding**: Uses OEDA color palette and typography
+- **Professional Layout**: Optimized for presentations
+- **Interactive Elements**: Code copying, navigation controls
+- **Flexible Themes**: Support for light/dark mode switching
+
+## Code Example
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "#2E3192") +  # OEDA primary color
+  labs(title = "Sample Plot with OEDA Branding")
+```
+
+## Color Palette
+
+::: {.text-primary}
+Primary: North Star Indigo (#2E3192)
+:::
+
+::: {.text-success}
+Success: Forest Green (#184E49)
+:::
+
+::: {.text-warning}
+Warning: Harvest Gold (#ECD263)
+:::
+
+::: {.text-danger}
+Danger: Marionberry Red (#A91F50)
+:::
+
+# Section Break {data-background-color="#414042"}
+
+This slide uses a custom background color
+
+## Thank You
+
+Questions?
+
+::: {.footer}
+Oregon Enterprise Data Analytics | [Oregon Enterprise Data Analytics](https://www.oregon.gov/odhs/data/Pages/orrai.aspx)
+:::

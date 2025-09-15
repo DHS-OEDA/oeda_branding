@@ -1,84 +1,18 @@
-# _brand.yml
-# Brand identity for the Oregon Enterprise Data Analytics team.
-# A joint effort of the Oregon Department of Human Services (ODHS) 
-# and the Oregon Health Authority (OHA).
-# Last Updated: August 21, 2025
-
-meta:
-  name: "Oregon Enterprise Data Analytics"
-  address: "500 Summer St NE, Salem, OR 97301"
-  links:
-    home: https://www.oregon.gov/odhs/data/Pages/orrai.aspx
-    github: https://github.com/orgs/DHS-OEDA/
-
-logo:
-  images:
-    logo-color: /assets/oeda-logo-light.svg
-    logo-dark: /assets/oeda-logo-dark.svg
-    wide-color: /assets/oeda-logo-wide-light-fixed.svg
-    wide-dark: /assets/oeda-logo-wide-dark-fixed.svg
-    icon-light: /assets/oeda-icon-light-header.png
-    icon-dark: /assets/oeda-icon-dark-fixed.png
-
-  small: icon-light
-  medium: wide-color
-  large: logo-color
+# _brand.yml - OEDA Branding Configuration
+# Expanded with Reveal.js presentation theming
 
 color:
-  # Palette based on the OEDA brand guide
   palette:
     # Primary Palette
     north-star-indigo: "#2E3192"
     glacial-blue: "#B4DCF5"
     fog-gray: "#F4F2ED"
-    
-    # --- Tints for north-star-indigo ---
-    north-star-indigo-80: "#585AA8"  # 80% of original
-    north-star-indigo-60: "#8283BE"  # 60% of original
-    north-star-indigo-40: "#ACADD3"  # 40% of original
-    north-star-indigo-20: "#D6D6E9"  # 20% of original
-    north-star-indigo-10: "#EBEBF0"  # 10% of original
 
-    # --- Tints for glacial-blue ---
-    glacial-blue-80: "#C3E3F7"
-    glacial-blue-60: "#D1EAF9"
-    glacial-blue-40: "#E0F1FB"
-    glacial-blue-20: "#EFF8FE"
-    glacial-blue-10: "#F7FCFE"
-
-    # --- Tints for fog-gray ---
-    fog-gray-80: "#F6F5F0"
-    fog-gray-60: "#F9F7F4"
-    fog-gray-40: "#FBFAF8"
-    fog-gray-20: "#FDFDFB"
-    fog-gray-10: "#FEFEFD"
-    
-    # Secondary Palette
+    # Secondary Palette  
     forest-green: "#184E49"
     willamette-green: "#86C679"
     mist-grey: "#D8E1E5"
-    
-    # --- Generated Tints for forest-green ---  
-    forest-green-80: "#46716D"
-    forest-green-60: "#749592"
-    forest-green-40: "#A2B8B6"
-    forest-green-20: "#D0DBDA"
-    forest-green-10: "#E8EDEC"
 
-# --- Generated Tints for willamette-green ---
-    willamette-green-80: "#9ED194"
-    willamette-green-60: "#B5DDAE"
-    willamette-green-40: "#CEE8C9"
-    willamette-green-20: "#E7F4E4"
-    willamette-green-10: "#F3FAF1"
-
-# --- Generated Tints for mist-grey ---
-    mist-grey-80: "#DFE7EA"
-    mist-grey-60: "#E7EDEF"
-    mist-grey-40: "#EEF3F5"
-    mist-grey-20: "#F6F9FA"
-    mist-grey-10: "#FBFDFD"
-    
     # Tertiary Palette
     marionberry-red: "#A91F50"
     harvest-gold: "#ECD263"
@@ -86,29 +20,57 @@ color:
     ashland-charcoal: "#414042"
     white: "#FFFFFF"
     black: "#000000"
-    
+
+    # --- Generated Tints for north-star-indigo ---
+    north-star-indigo-80: "#585AA8"
+    north-star-indigo-60: "#8283BE"
+    north-star-indigo-40: "#ACADD3"
+    north-star-indigo-20: "#D6D6E9"
+    north-star-indigo-10: "#EAEAF4"
+
+    # --- Generated Tints for glacial-blue ---
+    glacial-blue-80: "#C3E3F7"
+    glacial-blue-60: "#D1EAF9"
+    glacial-blue-40: "#E0F0FB"
+    glacial-blue-20: "#EFF8FD"
+    glacial-blue-10: "#F7FBFE"
+
+    # --- Generated Tints for forest-green ---
+    forest-green-80: "#466863"
+    forest-green-60: "#749592"
+    forest-green-40: "#A1C1C1"
+    forest-green-20: "#CFEDE0"
+    forest-green-10: "#E7F6F0"
+
+    # --- Generated Tints for willamette-green ---
+    willamette-green-80: "#9BD194"
+    willamette-green-60: "#B0DBAA"
+    willamette-green-40: "#C5E6BF"
+    willamette-green-20: "#DAF0D5"
+    willamette-green-10: "#ECF8EA"
+
     # --- Generated Tints for marionberry-red ---
-    marionberry-red-80: "#BA4773"
+    marionberry-red-80: "#BA4F73"
     marionberry-red-60: "#CB6996"
-    marionberry-red-40: "#DB8EB8"
+    marionberry-red-40: "#DCB3C8"
     marionberry-red-20: "#EBB3DA"
     marionberry-red-10: "#F5D9EC"
 
-# --- Generated Tints for harvest-gold ---
+    # --- Generated Tints for harvest-gold ---
     harvest-gold-80: "#EFDA82"
     harvest-gold-60: "#F3E2A1"
     harvest-gold-40: "#F7EBC0"
     harvest-gold-20: "#FBF3DF"
     harvest-gold-10: "#FDF9EF"
 
-# --- Generated Tints for desert-sand ---
+    # --- Generated Tints for desert-sand ---
     desert-sand-80: "#F0E5DB"
     desert-sand-60: "#F4EBE2"
     desert-sand-40: "#F8F2E9"
     desert-sand-20: "#FCF8F4"
     desert-sand-10: "#FEFCFA"
 
-# --- Generated Tints for ashland-charcoal ---
+    # --- Generated Tints for ashland-charcoal ---
     ashland-charcoal-80: "#676668"
     ashland-charcoal-60: "#8D8C8E"
     ashland-charcoal-40: "#B3B3B4"
@@ -141,26 +103,17 @@ typography:
   headings:
     family: "'Noto Sans', Aptos, sans-serif"
     weight: 700 # Noto Sans Bold for H1
-    # FIX 1: 'letter-spacing' is not a valid property here.
-    # It has been moved to the 'defaults:bootstrap' section below.
 
   link:
     color: primary
-    # FIX 2: 'hover-color' is not a valid property here.
-    # It has been moved to the 'defaults:bootstrap' section below.
 
   monospace:
     family: "'Noto Sans Mono', 'Aptos Mono', monospace"
     size: 0.95em
 
-
 # Default settings for various Quarto and Shiny outputs
 defaults:
   bootstrap:
-    # You can override Bootstrap SASS variables here
-    # FIX 1 ADDED HERE: Set the SASS variable for heading letter-spacing
+    # Override Bootstrap SASS variables
     "$headings-letter-spacing": "-0.02rem"
-    
-    # FIX 2 ADDED HERE: Set the SASS variable for link hover color.
-    # We use '$dark' which refers to the 'dark' color defined in our palette.
     "$link-hover-color": $dark
