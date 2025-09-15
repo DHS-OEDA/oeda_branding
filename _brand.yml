@@ -117,3 +117,4 @@ defaults:
     # Override Bootstrap SASS variables
     "$headings-letter-spacing": "-0.02rem"
     "$link-hover-color": $dark
+
