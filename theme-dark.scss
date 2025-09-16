@@ -22,8 +22,54 @@ $ashland-charcoal-80: #676668;
 $ashland-charcoal-20: #D9D9D9;
 
 
+/*-- scss:defaults --*/
+
+//
+// THEME-DARK.SCSS
+// Oregon Enterprise Data Analytics - Dark Theme Overrides
+//
+
+// Note: We don't redefine the base SASS variables here (e.g., $primary).
+// Instead, we override the final CSS custom properties that Bootstrap uses.
+
+// Define lighter tints for use in the dark theme.
+// You can pull these from your _brand.yml file.
+$north-star-indigo-40: #ACADD3;
+$north-star-indigo-60: #8283BE;
+$forest-green-60: #749592;
+$harvest-gold-60: #F3E2A1;
+$marionberry-red-60: #CB6996;
+$glacial-blue-60: #D1EAF9;
+$fog-gray: #F4F2ED;
+$ashland-charcoal: #414042;
+$ashland-charcoal-80: #676668;
+$ashland-charcoal-20: #D9D9D9;
+
 /*-- scss:rules --*/
 
+// LIGHT/DARK CONTENT VISIBILITY (must be at root level, not inside dark theme block)
+// =====================================================
+
+// Light mode default - show light content, hide dark content
+.light-content {
+  display: block !important;
+}
+
+.dark-content {
+  display: none !important;
+}
+
+// Dark mode overrides - hide light content, show dark content
+[data-bs-theme="dark"] .light-content {
+  display: none !important;
+}
+
+[data-bs-theme="dark"] .dark-content {
+  display: block !important;
+}
+
+// DARK THEME SPECIFIC OVERRIDES
+// =====================================================
 [data-bs-theme="dark"] {
 
   // 1. SEMANTIC COLOR OVERRIDES (DARK THEME)
@@ -55,12 +101,10 @@ $ashland-charcoal-20: #D9D9D9;
   // Background for cards, callouts, etc.
   --bs-tertiary-bg: #{$ashland-charcoal-80};
 
-
-// 2. LOGO SWAPPING (DARK THEME)
-// -----------------------------------------------------
-// Sidebar  
-// Hide the light version
-
+  // 2. LOGO SWAPPING (DARK THEME)
+  // -----------------------------------------------------
+  // Sidebar  
+  // Hide the light version
   .sidebar-logo.light-content,
   img[src*="oeda-logo-primary-fixed.png"].light-content {
     display: none !important;
@@ -86,26 +130,5 @@ $ashland-charcoal-20: #D9D9D9;
     display: inline-block;
     content: url("/assets/oeda-icon-dark-fixed.png");
   }
-
-  // 3. DARK CONTENT SWAPPING
-
-  /* Light mode - show light content, hide dark content */
-.light-content {
-  display: block;
-}
-
-.dark-content {
-  display: none;
-}
-
-/* Dark mode - hide light content, show dark content */
-[data-bs-theme="dark"] .light-content {
-  display: none;
-}
-
-[data-bs-theme="dark"] .dark-content {
-  display: block;
-}
-
 
 }
