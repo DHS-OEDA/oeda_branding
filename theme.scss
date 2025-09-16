@@ -89,6 +89,29 @@ $headings-color: $north-star-indigo;
 }
 
 // =====================================================
+// CONTENT SWITCHING (LIGHT/DARK)
+// =====================================================
+
+// Default behavior for light mode
+.light-content {
+  display: block;
+}
+
+.dark-content {
+  display: none;
+}
+
+// Dark mode overrides (applied when [data-bs-theme="dark"] is active)
+[data-bs-theme="dark"] .light-content {
+  display: none !important;
+}
+
+[data-bs-theme="dark"] .dark-content {
+  display: block !important;
+}
+
+
+// =====================================================
 // DASHBOARDS
 // =====================================================
 
@@ -187,28 +210,6 @@ $headings-color: $north-star-indigo;
 
 [data-bs-theme="dark"] .value-box-card:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-// =====================================================
-// LIGHT/DARK MODE CONTENT VISIBILITY (for HTML content only)
-// =====================================================
-
-// Light mode - show light content, hide dark content
-.light-content {
-  display: block;
-}
-
-.dark-content {
-  display: none;
-}
-
-// Dark mode - hide light content, show dark content
-[data-bs-theme="dark"] .light-content {
-  display: none;
-}
-
-[data-bs-theme="dark"] .dark-content {
-  display: block;
 }
 
 // =====================================================
