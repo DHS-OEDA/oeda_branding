@@ -41,41 +41,41 @@ This section will test if we can embed one of the logos directly into the docume
 
 ## Testing Light and Dark Mode
 
-### Logos
+::: {.callout-note}
+### Hybrid Approach: CSS + Renderings
+
+This document uses a **hybrid approach**:
+- **CSS classes** (`.light-content` and `.dark-content`) for logos and HTML content
+- **`renderings: [light, dark]`** for ggplot2 plots and R graphics
+
+This is necessary because Quarto's `renderings` feature only works for plot outputs, not HTML content.
+:::
+
+### Logos Using CSS Classes
 
 ::: {.light-content}
-This text is semi-dynamic, and changes color based on the mode. It is currently in **light** mode.
 
-![OEDA icon in PNG format](/assets/oeda-icon-fixed.png)
+![OEDA ICON](/assets/oeda-icon-fixed.png)
 
-![OEDA logo](/assets/oeda-logo-wide-light-fixed.svg)
+![OEDA WIDE LOGO](/assets/oeda-logo-wide-light-fixed.svg)
 
-![OEDA Vertical Logo](/assets/oeda-logo-light.svg)
+![OEDA VERTICAL LOGO](/assets/oeda-logo-primary-fixed.svg)
 
 :::
 
 ::: {.dark-content}
-This text is semi-dynamic, and changes color based on the mode. It is currently in **dark** mode.
 
-![OEDA icon in PNG format, dark version](/assets/oeda-icon-dark-fixed.png)
+![OEDA ICON](/assets/oeda-icon-dark-fixed.png)
 
-![OEDA logo, dark version](/assets/oeda-logo-wide-dark-fixed.svg)
+![OEDA WIDE LOGO](/assets/oeda-logo-wide-dark-fixed.svg)
 
-![OEDA Vertical Logo, dark version](/assets/oeda-logo-dark.svg)
+![OEDA DARK LOGO](/assets/oeda-logo-primary-dark-fixed.svg)
 
 :::
 
 ---
 
 ## Testing Color Palettes
-
-::: {.callout-important}
-
-### Custom CSS and Quarto 1.7+
-
-When using Quarto version 1.7 or higher, the `renderings` option replaces all need for custom css when it comes to dark and light mode content. Using custom CSS causes `renderings` to break most of the time. You must choose one approach or the other.
-
-:::
 
 ```{r color-swatches}
 # Complete function to determine text color for contrast
@@ -167,7 +167,6 @@ color_swatch_plot <- ggplot(final_plot_data,
     axis.text.x = element_text(angle = 0, hjust = 0.5),
     plot.title = element_text(hjust = 0.5, face = "bold", margin = margin(b = 10))
   )
-
 ```
 
 ```{r render-swatch-plots}
@@ -178,6 +177,7 @@ color_swatch_plot + theme_oeda_light()
 
 color_swatch_plot + theme_oeda_dark()
 ```
+
 ## Example Plots with Renderings
 
 ```{r scatter-plot}
@@ -192,20 +192,18 @@ scatter_example <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
     color = "Cylinders",
     caption = "Data: Motor Trend Car Road Tests"
   ) +
-  scale_color_oeda_discrete(palette = "warm")
+  scale_color_manual(values = c("#2E3192", "#86C679", "#A91F50"))
 ```
 
 ```{r render-scatter-plot}
 #| fig-cap: "Vehicle efficiency analysis"
 #| renderings: [light, dark]
 
-scatter_example + theme_oeda_light() # for light theme
-scatter_example + theme_oeda_dark() # dark theme
-
+scatter_example + theme_oeda_light()
+scatter_example + theme_oeda_dark()
 ```
+
 ```{r bar-chart}
-
-
 mpg_summary <- mtcars %>%
   group_by(cyl) %>%
   summarise(
@@ -226,18 +224,14 @@ bar_example <- ggplot(mpg_summary, aes(x = factor(cyl), y = avg_mpg, fill = fact
     fill = "Cylinders",
     caption = "Data: Motor Trend Car Road Tests"
   ) +
-  scale_fill_oeda_discrete(palette = "cool") +
+  scale_fill_manual(values = c("#184E49", "#86C679", "#A91F50")) +
   guides(fill = "none")
-
-
 ```
-
 
 ```{r render-bar-plot}
 #| fig-cap: "Average MPG by cylinder count"
 #| renderings: [light, dark]
 
-bar_example + theme_oeda_light() # for light theme
-bar_example + theme_oeda_dark() # for dark theme
-
+bar_example + theme_oeda_light()
+bar_example + theme_oeda_dark()
 ```
