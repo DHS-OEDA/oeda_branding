@@ -44,15 +44,23 @@ This section will test if we can embed one of the logos directly into the docume
 ### Logos
 
 ::: {.light-content}
-Here's some text that should only appear in light mode, and the light wide logo.
+This text is semi-dynamic, and changes color based on the mode. It is currently in **light** mode.
+
+![OEDA icon in PNG format](/assets/oeda-icon-fixed.png)
 
 ![OEDA logo](/assets/oeda-logo-wide-light-fixed.svg)
+
+![OEDA Vertical Logo](/assets/oeda-logo-light.svg)
+
 :::
 
 ::: {.dark-content}
-This is the dark mode text, and the dark wide logo.
+This text is semi-dynamic, and changes color based on the mode. It is currently in **dark** mode.
 
-![OEDA logo](/assets/oeda-logo-wide-dark-fixed.svg)
+![OEDA icon in PNG format, dark version](/assets/oeda-icon-dark-fixed.png)
+
+
+
 :::
 
 ---

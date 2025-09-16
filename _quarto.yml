@@ -35,9 +35,6 @@ website:
             text: Cards
       - href: issues.qmd
         text: Issues and Bugs
-
- 
-
 theme:
   light: [flatly, theme.scss] 
   dark: [darkly, theme-dark.scss]
