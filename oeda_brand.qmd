@@ -59,7 +59,9 @@ This text is semi-dynamic, and changes color based on the mode. It is currently 
 
 ![OEDA icon in PNG format, dark version](/assets/oeda-icon-dark-fixed.png)
 
+![OEDA logo, dark version](/assets/oeda-logo-wide-dark-fixed.svg)
 
+![OEDA Vertical Logo, dark version](/assets/oeda-logo-dark.svg)
 
 :::
 
