@@ -104,6 +104,124 @@ body.quarto-dark {
   .figure-caption {
     color: var(--figcaption-color) !important;
   }
-
-
+  // ENHANCED CALLOUT BACKGROUNDS
+  // -----------------------------------------------------
+  // Create more contrast between callouts and the dark background
+  
+  // Base callout background - lighter than body background for contrast
+  --callout-bg-base: #{lighten($ashland-charcoal, 8%)};        // Slightly lighter than main bg
+  --callout-bg-elevated: #{lighten($ashland-charcoal, 12%)};   // Even lighter for headers
+  --callout-border-base: #{lighten($ashland-charcoal, 15%)};   // Subtle border
+  
+  // Callout type-specific backgrounds (slight tints of brand colors)
+  --callout-bg-note: #{mix($north-star-indigo-40, lighten($ashland-charcoal, 8%), 15%)};
+  --callout-bg-tip: #{mix($forest-green-60, lighten($ashland-charcoal, 8%), 15%)};
+  --callout-bg-warning: #{mix($harvest-gold-60, lighten($ashland-charcoal, 8%), 15%)};
+  --callout-bg-important: #{mix($marionberry-red-60, lighten($ashland-charcoal, 8%), 15%)};
+  --callout-bg-caution: #{mix($harvest-gold-60, lighten($ashland-charcoal, 8%), 15%)};
+  
+  // CALLOUT STYLING OVERRIDES
+  // -----------------------------------------------------
+  
+  // Base callout styling
+  .callout {
+    background-color: var(--callout-bg-base) !important;
+    border: 1px solid var(--callout-border-base);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    
+    // Ensure text is readable
+    color: var(--bs-body-color);
+    
+    // Add subtle transition for interactive elements
+    transition: all 0.2s ease-in-out;
+  }
+  
+  // Callout body styling
+  .callout .callout-body {
+    background-color: transparent;
+    padding: 1rem;
+  }
+  
+  // Enhanced header styling for default style callouts
+  .callout.callout-style-default > .callout-header {
+    background-color: var(--callout-bg-elevated) !important;
+    border-bottom: 1px solid var(--callout-border-base);
+    padding: 0.75rem 1rem;
+  }
+  
+  // Type-specific callout backgrounds
+  .callout-note {
+    background-color: var(--callout-bg-note) !important;
+  }
+  
+  .callout-tip {
+    background-color: var(--callout-bg-tip) !important;
+  }
+  
+  .callout-warning {
+    background-color: var(--callout-bg-warning) !important;
+  }
+  
+  .callout-important {
+    background-color: var(--callout-bg-important) !important;
+  }
+  
+  .callout-caution {
+    background-color: var(--callout-bg-caution) !important;
+  }
+  
+  // Enhance the left border for better visual hierarchy
+  .callout-note {
+    border-left: 4px solid var(--bs-primary);
+  }
+  
+  .callout-tip {
+    border-left: 4px solid var(--bs-success);
+  }
+  
+  .callout-warning {
+    border-left: 4px solid var(--bs-warning);
+  }
+  
+  .callout-important {
+    border-left: 4px solid var(--bs-danger);
+  }
+  
+  .callout-caution {
+    border-left: 4px solid var(--bs-warning);
+  }
+  
+  // Hover effects for interactive callouts
+  .callout:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  // Ensure collapsible callouts work well
+  .callout.callout-collapsible {
+    .callout-header {
+      cursor: pointer;
+      
+      &:hover {
+        background-color: var(--callout-bg-elevated) !important;
+        filter: brightness(1.1);
+      }
+    }
+  }
+  
+  // Make sure callout text has good contrast
+  .callout-title {
+    color: var(--bs-emphasis-color);
+    font-weight: 600;
+  }
+  
+  .callout p {
+    color: var(--bs-body-color);
+    margin-bottom: 0.5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
