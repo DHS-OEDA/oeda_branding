@@ -58,6 +58,42 @@ $headings-color: $north-star-indigo;
 /*-- scss:rules --*/
 
 // =====================================================
+// ROOT CUSTOM PROPERTIES
+// =====================================================
+// This is trying to fix https://github.com/DHS-OEDA/oeda_branding/issues/8
+
+:root {
+  // Figure caption properties for light mode
+  --figcaption-color: #{$ashland-charcoal};
+  --figcaption-bg: transparent;
+  --figcaption-border-color: #{$ashland-charcoal-20};
+}
+
+// =====================================================
+// FIGURE CAPTION STYLING
+// =====================================================
+// Add this section after the :root section
+
+figcaption {
+  color: var(--figcaption-color);
+  background-color: var(--figcaption-bg);
+  
+  // Consistent styling for both modes
+  border-top: 1px solid var(--figcaption-border-color);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+// Target various figcaption contexts
+figure figcaption,
+.figure figcaption,
+.figure-caption {
+  color: var(--figcaption-color);
+}
+
+// =====================================================
 // ENHANCED BUTTON STYLING
 // =====================================================
 
@@ -101,12 +137,12 @@ $headings-color: $north-star-indigo;
   display: none;
 }
 
-// Dark mode overrides (applied when [data-bs-theme="dark"] is active)
-[data-bs-theme="dark"] .light-content {
+// Use body.quarto-dark instead of [data-bs-theme="dark"]
+body.quarto-dark .light-content {
   display: none !important;
 }
 
-[data-bs-theme="dark"] .dark-content {
+body.quarto-dark .dark-content {
   display: block !important;
 }
 
@@ -411,4 +447,9 @@ $headings-color: $north-star-indigo;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--bs-headings-color);
+}
+
+// Sidebar Logo null
+.sidebar-logo {
+  display: none;
 }

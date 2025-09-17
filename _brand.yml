@@ -11,18 +11,7 @@ meta:
     home: https://www.oregon.gov/odhs/data/Pages/orrai.aspx
     github: https://github.com/orgs/DHS-OEDA/
 
-logo:
-  images:
-    logo-color: /assets/oeda-logo-light.svg
-    logo-dark: /assets/oeda-logo-dark.svg
-    wide-color: /assets/oeda-logo-wide-light-fixed.svg
-    wide-dark: /assets/oeda-logo-wide-dark-fixed.svg
-    icon-light: /assets/oeda-icon-light-header.png
-    icon-dark: /assets/oeda-icon-dark-fixed.png
-
-  small: icon-light
-  medium: wide-color
-  large: logo-color
+# note: removing the logo defs here removed the logo from sidebar. Investigate a better way. 
 
 color:
   # Palette based on the OEDA brand guide

@@ -1,6 +1,5 @@
 ---
-title: "OEDA HTML Branding Demo"
-author: "Aaron Cochran"
+title: "Light and Dark Mode"
 date: "today"
 format:
   html:
@@ -17,6 +16,8 @@ knitr:
     fig.width: 8
     fig.height: 6
     dev: "svglite"
+resources:
+  - /assets/*
 ---
 
 ```{r setup}
@@ -31,21 +32,21 @@ source("oeda_themes.R")
 
 # OEDA Branding Tests
 
-## Testing Typography
+## Typography
 
-This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from `_brand.yml` is working as expected.
-
-### This is a Sub-Heading
-
-This section will test if we can embed one of the logos directly into the document body using the same path defined in `_brand.yml`.
+The `_brand.yml` file includes imports for the [Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans) family of fonts from Google Fonts. This enables automatically downloading any missing fonts for proper display on the website. 
 
 ## Testing Light and Dark Mode
+
+The light and dark mode colors are defined in CSS rules in `theme.scss` and `theme-dark.scss`. The OEDA theme currently uses `flatly` and `darkly` as the base theme, and applies ODHS branding on top of the theme.
 
 ::: {.callout-note}
 ### Hybrid Approach: CSS + Renderings
 
 This document uses a **hybrid approach**:
+
 - **CSS classes** (`.light-content` and `.dark-content`) for logos and HTML content
+
 - **`renderings: [light, dark]`** for ggplot2 plots and R graphics
 
 This is necessary because Quarto's `renderings` feature only works for plot outputs, not HTML content.
@@ -53,23 +54,25 @@ This is necessary because Quarto's `renderings` feature only works for plot outp
 
 ### Logos Using CSS Classes
 
+The toggle for dark content and light content with images in Quarto uses the `{.light-content}` and `{.dark-content}` divs, along with `scss rules` set in the `theme.scss` and `theme-dark.scss` files. 
+
 ::: {.light-content}
 
-![OEDA ICON](/assets/oeda-icon-fixed.png)
+![OEDA ICON](/assets/oeda-icon-fixed.png){width=20% fig-align="left"}
 
-![OEDA WIDE LOGO](/assets/oeda-logo-wide-light-fixed.svg)
+![OEDA WIDE LOGO](/assets/oeda-logo-wide-light-fixed.svg){width=40% fig-align="left"}
 
-![OEDA VERTICAL LOGO](/assets/oeda-logo-primary-fixed.svg)
+![OEDA VERTICAL LOGO](/assets/oeda-logo-primary-fixed.svg){width=40% fig-align="left"}
 
 :::
 
 ::: {.dark-content}
 
-![OEDA ICON](/assets/oeda-icon-dark-fixed.png)
+![OEDA ICON](/assets/oeda-icon-dark-fixed.png){width=20% fig-align="left"}
 
-![OEDA WIDE LOGO](/assets/oeda-logo-wide-dark-fixed.svg)
+![OEDA WIDE LOGO](/assets/oeda-logo-wide-dark-fixed.svg){width=40% fig-align="left"}
 
-![OEDA DARK LOGO](/assets/oeda-logo-primary-dark-fixed.svg)
+![OEDA DARK LOGO](/assets/oeda-logo-primary-dark-fixed.svg){width=40% fig-align="left"}
 
 :::
 
