@@ -78,4 +78,32 @@ body.quarto-dark {
     content: url("/assets/oeda-icon-dark-fixed.png");
   }
 
+  // FIGURE CAPTION FIXES
+  // -----------------------------------------------------
+  // Add custom properties for figure captions to ensure readability
+  --figcaption-color: #{$fog-gray};           // Light text for dark mode
+  --figcaption-bg: transparent;               // Optional: background if needed
+  --figcaption-border-color: #{$ashland-charcoal-80}; // Optional: border color
+  
+  // Direct styling for figcaption elements
+  figcaption {
+    color: var(--figcaption-color) !important;
+    background-color: var(--figcaption-bg);
+    
+    // Optional: Add some subtle styling
+    border-top: 1px solid var(--figcaption-border-color);
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+  
+  // Also target any figure captions that might be nested differently
+  figure figcaption,
+  .figure figcaption,
+  .figure-caption {
+    color: var(--figcaption-color) !important;
+  }
+
+
 }

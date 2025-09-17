@@ -8,7 +8,13 @@ website:
   title: "Oregon Enterprise Data Analytics"
   site-url: "https://dhs-oeda.github.io/"
   repo-url: "https://github.com/DHS-OEDA/oeda_branding"
+  repo-actions: [source, issue]
   reader-mode: true
+  page-footer:
+    left: "Oregon Enterprise Data Analytics, 2025"
+    right:
+      - icon: github
+        href: https://github.com/DHS-OEDA/oeda_branding
   navbar:
     logo: /assets/oeda-icon-light-header.png
     search: true
@@ -17,23 +23,26 @@ website:
         text: Home
       - href: oeda_brand.qmd
         text: Branding
-      - href: issues.qmd
-        text: Issues and Bugs
       - icon: github
-        href: https://github.com/DHS-OEDA/oeda_branding
+        menu:
+          - text: Source Code
+            href: https://github.com/DHS-OEDA/oeda_branding
+          - text: Report a Bug
+            href: https://github.com/DHS-OEDA/oeda_branding/issues/new
+
   sidebar:
     search: true
+    background: none
     contents:
       - href: index.qmd
         text: Home
       - section: "Website"
         contents:
           - href: oeda_brand.qmd
-            text: Brand Demo
+            text: Light and Dark Mode
           - href: buttons.qmd
             text: Buttons
-          - href: cards.qmd
-            text: Cards
+      - section: "Dashboard"
       - href: issues.qmd
         text: Issues and Bugs
 
