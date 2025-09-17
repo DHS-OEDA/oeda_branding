@@ -8,6 +8,7 @@ website:
   title: "Oregon Enterprise Data Analytics"
   site-url: "https://dhs-oeda.github.io/"
   repo-url: "https://github.com/DHS-OEDA/oeda_branding"
+  reader-mode: true
   navbar:
     logo: /assets/oeda-icon-light-header.png
     search: true
@@ -35,7 +36,7 @@ website:
             text: Cards
       - href: issues.qmd
         text: Issues and Bugs
-        
+
 theme:
   light: [flatly, theme.scss] 
   dark: [darkly, theme-dark.scss]
