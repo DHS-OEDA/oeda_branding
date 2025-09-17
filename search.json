@@ -11,7 +11,10 @@
     "href": "index.html",
     "title": "OEDA Standards Guide",
     "section": "",
-    "text": "Website Under Construction"
+    "text": "Website Under Construction",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "clean_renderings_test.html",
@@ -63,45 +66,266 @@
     "text": "Debugging Information:\nToggle between light and dark modes using the theme switcher. If you see:\n\nBoth plots showing: renderings isn’t working at all\nNo plots showing: There’s a CSS conflict hiding everything\n\nSame plot in both modes: renderings is working but not switching\nCorrect behavior: renderings is working perfectly!"
   },
   {
+    "objectID": "buttons.html",
+    "href": "buttons.html",
+    "title": "Buttons",
+    "section": "",
+    "text": "This page demonstrates how to implement consistent button styling across your projects using OEDA brand colors and design patterns.\n\n\nUse primary buttons for the main action on a page or section.\n\n\n\nPrimary Action\n\n\nDisabled Primary\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-primary\"&gt;Primary Action&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-primary\" disabled&gt;Disabled Primary&lt;/button&gt;\n\n\n\n/*-- scss:rules --*/\n\n.btn-primary {\n  background-color: var(--bs-primary);\n  border-color: var(--bs-primary);\n  color: white;\n}\n\n.btn-primary:hover {\n  background-color: var(--bs-secondary);\n  border-color: var(--bs-secondary);\n}\n\n.btn-primary:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}\n\n\n\n\nUse secondary buttons for supporting actions or when you need multiple buttons in close proximity.\n\n\n\nSecondary Action\n\n\nOutlined Button\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-secondary\"&gt;Secondary Action&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-outline-primary\"&gt;Outlined Button&lt;/button&gt;\n\n\n\n\nDifferent button sizes for various contexts.\n\n\n\nLarge Button\n\n\nRegular Button\n\n\nSmall Button\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-primary btn-lg\"&gt;Large Button&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-primary\"&gt;Regular Button&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-primary btn-sm\"&gt;Small Button&lt;/button&gt;\n\n\n\n\nSpecialized buttons for common actions in data analytics contexts.\n\n\n\n Download Report\n\n\n View Chart\n\n\n Alert\n\n\n Delete\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-success\"&gt;\n  &lt;i class=\"bi bi-download\"&gt;&lt;/i&gt; Download Report\n&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-info\"&gt;\n  &lt;i class=\"bi bi-bar-chart\"&gt;&lt;/i&gt; View Chart\n&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-warning\"&gt;\n  &lt;i class=\"bi bi-exclamation-triangle\"&gt;&lt;/i&gt; Alert\n&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-danger\"&gt;\n  &lt;i class=\"bi bi-trash\"&gt;&lt;/i&gt; Delete\n&lt;/button&gt;\n\n\n\n\nGroup related buttons together for cleaner interfaces.\n\n\n\nTable Chart Export\n\n\n\n\n&lt;div class=\"btn-group\" role=\"group\" aria-label=\"Data view options\"&gt;\n  &lt;button type=\"button\" class=\"btn btn-outline-primary active\"&gt;Table&lt;/button&gt;\n  &lt;button type=\"button\" class=\"btn btn-outline-primary\"&gt;Chart&lt;/button&gt;\n  &lt;button type=\"button\" class=\"btn btn-outline-primary\"&gt;Export&lt;/button&gt;\n&lt;/div&gt;\n\n\n\n\n\n\n\nPrimary: Use for the main action users should take (Submit, Save, Continue)\nSecondary: Use for secondary actions (Cancel, Back, Reset)\n\nOutlined: Use when you need a button that’s less prominent than secondary\nAction buttons: Use semantic colors for specific actions (Success for downloads, Warning for alerts, etc.)\n\n\n\n\n\nLimit to one primary button per section\nUse consistent spacing between buttons\nAlways include descriptive text, not just icons\nEnsure sufficient color contrast for accessibility\nTest button interactions in both light and dark modes\n\n\n\n\n\nAll buttons include proper ARIA labels\nColor is not the only way to convey information\nFocus states are clearly visible\nDisabled states are properly indicated to screen readers\n\n\n\n\n\nAdd this to the /*-- scss:rules --*/ section of your theme.scss file:\n/*-- scss:rules --*/\n\n// Custom button styling\n.demo-section {\n  padding: 1rem;\n  border: 1px solid var(--bs-border-color);\n  border-radius: 0.375rem;\n  margin: 1rem 0;\n  background-color: var(--bs-body-bg);\n}\n\n.demo-section h3 {\n  margin-top: 0;\n  margin-bottom: 1rem;\n  color: var(--bs-headings-color);\n}\n\n// Enhanced button hover effects\n.btn {\n  transition: all 0.15s ease-in-out;\n}\n\n.btn:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n// Button group spacing\n.btn-group .btn {\n  margin-right: 0;\n}\n\n.btn + .btn {\n  margin-left: 0.5rem;\n}\n\n.btn-group .btn + .btn {\n  margin-left: 0;\n}",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "buttons.html#primary-buttons",
+    "href": "buttons.html#primary-buttons",
+    "title": "Buttons",
+    "section": "",
+    "text": "Use primary buttons for the main action on a page or section.\n\n\n\nPrimary Action\n\n\nDisabled Primary\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-primary\"&gt;Primary Action&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-primary\" disabled&gt;Disabled Primary&lt;/button&gt;\n\n\n\n/*-- scss:rules --*/\n\n.btn-primary {\n  background-color: var(--bs-primary);\n  border-color: var(--bs-primary);\n  color: white;\n}\n\n.btn-primary:hover {\n  background-color: var(--bs-secondary);\n  border-color: var(--bs-secondary);\n}\n\n.btn-primary:disabled {\n  opacity: 0.6;\n  cursor: not-allowed;\n}",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "buttons.html#secondary-buttons",
+    "href": "buttons.html#secondary-buttons",
+    "title": "Buttons",
+    "section": "",
+    "text": "Use secondary buttons for supporting actions or when you need multiple buttons in close proximity.\n\n\n\nSecondary Action\n\n\nOutlined Button\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-secondary\"&gt;Secondary Action&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-outline-primary\"&gt;Outlined Button&lt;/button&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "buttons.html#button-sizes",
+    "href": "buttons.html#button-sizes",
+    "title": "Buttons",
+    "section": "",
+    "text": "Different button sizes for various contexts.\n\n\n\nLarge Button\n\n\nRegular Button\n\n\nSmall Button\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-primary btn-lg\"&gt;Large Button&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-primary\"&gt;Regular Button&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-primary btn-sm\"&gt;Small Button&lt;/button&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "buttons.html#action-buttons",
+    "href": "buttons.html#action-buttons",
+    "title": "Buttons",
+    "section": "",
+    "text": "Specialized buttons for common actions in data analytics contexts.\n\n\n\n Download Report\n\n\n View Chart\n\n\n Alert\n\n\n Delete\n\n\n\n\n&lt;button type=\"button\" class=\"btn btn-success\"&gt;\n  &lt;i class=\"bi bi-download\"&gt;&lt;/i&gt; Download Report\n&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-info\"&gt;\n  &lt;i class=\"bi bi-bar-chart\"&gt;&lt;/i&gt; View Chart\n&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-warning\"&gt;\n  &lt;i class=\"bi bi-exclamation-triangle\"&gt;&lt;/i&gt; Alert\n&lt;/button&gt;\n&lt;button type=\"button\" class=\"btn btn-danger\"&gt;\n  &lt;i class=\"bi bi-trash\"&gt;&lt;/i&gt; Delete\n&lt;/button&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "buttons.html#button-groups",
+    "href": "buttons.html#button-groups",
+    "title": "Buttons",
+    "section": "",
+    "text": "Group related buttons together for cleaner interfaces.\n\n\n\nTable Chart Export\n\n\n\n\n&lt;div class=\"btn-group\" role=\"group\" aria-label=\"Data view options\"&gt;\n  &lt;button type=\"button\" class=\"btn btn-outline-primary active\"&gt;Table&lt;/button&gt;\n  &lt;button type=\"button\" class=\"btn btn-outline-primary\"&gt;Chart&lt;/button&gt;\n  &lt;button type=\"button\" class=\"btn btn-outline-primary\"&gt;Export&lt;/button&gt;\n&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "buttons.html#usage-guidelines",
+    "href": "buttons.html#usage-guidelines",
+    "title": "Buttons",
+    "section": "",
+    "text": "Primary: Use for the main action users should take (Submit, Save, Continue)\nSecondary: Use for secondary actions (Cancel, Back, Reset)\n\nOutlined: Use when you need a button that’s less prominent than secondary\nAction buttons: Use semantic colors for specific actions (Success for downloads, Warning for alerts, etc.)\n\n\n\n\n\nLimit to one primary button per section\nUse consistent spacing between buttons\nAlways include descriptive text, not just icons\nEnsure sufficient color contrast for accessibility\nTest button interactions in both light and dark modes\n\n\n\n\n\nAll buttons include proper ARIA labels\nColor is not the only way to convey information\nFocus states are clearly visible\nDisabled states are properly indicated to screen readers",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "buttons.html#custom-scss-for-theme.scss",
+    "href": "buttons.html#custom-scss-for-theme.scss",
+    "title": "Buttons",
+    "section": "",
+    "text": "Add this to the /*-- scss:rules --*/ section of your theme.scss file:\n/*-- scss:rules --*/\n\n// Custom button styling\n.demo-section {\n  padding: 1rem;\n  border: 1px solid var(--bs-border-color);\n  border-radius: 0.375rem;\n  margin: 1rem 0;\n  background-color: var(--bs-body-bg);\n}\n\n.demo-section h3 {\n  margin-top: 0;\n  margin-bottom: 1rem;\n  color: var(--bs-headings-color);\n}\n\n// Enhanced button hover effects\n.btn {\n  transition: all 0.15s ease-in-out;\n}\n\n.btn:hover {\n  transform: translateY(-1px);\n  box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n}\n\n// Button group spacing\n.btn-group .btn {\n  margin-right: 0;\n}\n\n.btn + .btn {\n  margin-left: 0.5rem;\n}\n\n.btn-group .btn + .btn {\n  margin-left: 0;\n}",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Buttons"
+    ]
+  },
+  {
+    "objectID": "cards.html",
+    "href": "cards.html",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "Since Quarto value boxes only work in Dashboard format, this page shows how to create value box-style components using Bootstrap cards that work in regular Quarto websites while maintaining the same visual design and functionality.\n\n\nThese cards replicate the look and feel of Quarto Dashboard value boxes but work in: - ✅ Quarto Websites (like this site) - ✅ Regular HTML pages - ✅ R Markdown documents - ✅ Any Bootstrap-based project\n\n\n\n\n\n&lt;div class=\"value-box-icon\"&gt;\n  &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n&lt;/div&gt;\n&lt;div class=\"value-box-content\"&gt;\n  &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n  &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n  &lt;div class=\"value-box-subtitle\"&gt;Q4 2024 Total&lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n\n&lt;div class=\"card value-box-card\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Q4 2024 Total&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n&lt;div class=\"card value-box-card\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Q4 2024 Total&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\nThe key feature your team wanted - showing positive/negative changes with appropriate colors.\n\n\n\n\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +12.5% vs last quarter\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-people\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Active Users&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;847&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-down\"&gt;&lt;/i&gt; -3.2% vs last week\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-info\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-bar-chart\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Conversion Rate&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;4.2%&lt;/div&gt;\n      &lt;div class=\"value-box-change neutral\"&gt;\n        &lt;i class=\"bi bi-dash\"&gt;&lt;/i&gt; No change vs target\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n&lt;!-- Positive Change --&gt;\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +12.5% vs last quarter\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- Negative Change --&gt;\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-people\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Active Users&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;847&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-down\"&gt;&lt;/i&gt; -3.2% vs last week\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\nDifferent background colors to match the semantic meaning of your metrics.\n\n\n\n\n&lt;div class=\"card value-box-card value-box-primary\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-graph-up\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Growth&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;15.7%&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Primary Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-check-circle\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Success&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;98.5%&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Success Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-warning\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-exclamation-triangle\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Warnings&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;3&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Warning Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-x-circle\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Errors&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;0&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Danger Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n&lt;!-- Primary (Blue) --&gt;\n&lt;div class=\"card value-box-card value-box-primary\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;\n\n&lt;!-- Success (Green) --&gt;\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;\n\n&lt;!-- Warning (Yellow) --&gt;\n&lt;div class=\"card value-box-card value-box-warning\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;\n\n&lt;!-- Danger (Red) --&gt;\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;\n\n\n\n\nHow to arrange multiple value box cards in a dashboard-style layout.\n\n\n\n\n&lt;div class=\"card value-box-card value-box-primary\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Total Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +12.5%\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-info\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-people\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Active Users&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;1,247&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-down\"&gt;&lt;/i&gt; -3.2%\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-graph-up\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Conversion&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;4.2%&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +0.8%\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-warning\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-clock\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Response Time&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;124ms&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +15ms\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n\n\n\n\nvalue-box-primary - Main KPIs, revenue, primary metrics\nvalue-box-success - Positive trends, goals achieved, systems healthy\nvalue-box-danger - Negative trends, errors, alerts, problems\nvalue-box-warning - Caution states, approaching limits, maintenance\nvalue-box-info - Neutral information, general metrics, informational data\n\n\n\n\n\nAlways include direction: Use arrows (↑↓) or icons (bi-arrow-up/down)\nProvide context: “vs last quarter”, “vs target”, “vs last week”\nUse consistent formatting: Same decimal places, same comparison periods\nColor coding: Green for positive, red for negative, gray for neutral\n\n\n\n\n\nMobile-first: Use responsive grid classes (col-sm-6 col-lg-3)\nConsistent spacing: Add margin-bottom (mb-3) for proper spacing\nGroup related metrics: Place similar metrics together\nLogical order: Most important metrics first (left to right, top to bottom)\n\n\n\n\n\nAdd this comprehensive styling to the /*-- scss:rules --*/ section of your theme.scss file:\n/*-- scss:rules --*/\n\n// =====================================================\n// VALUE BOX CARDS\n// =====================================================\n\n.value-box-card {\n  border: none;\n  box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  height: 100%;\n}\n\n.value-box-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0,0,0,0.15);\n}\n\n.value-box-card .card-body {\n  padding: 1.5rem;\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.value-box-icon {\n  font-size: 2.5rem;\n  opacity: 0.8;\n  flex-shrink: 0;\n  width: 60px;\n  text-align: center;\n}\n\n.value-box-content {\n  flex: 1;\n  min-width: 0;\n}\n\n.value-box-title {\n  font-size: 0.85rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  opacity: 0.8;\n  margin-bottom: 0.25rem;\n}\n\n.value-box-value {\n  font-size: 1.75rem;\n  font-weight: 700;\n  line-height: 1.2;\n  margin-bottom: 0.25rem;\n}\n\n.value-box-subtitle {\n  font-size: 0.8rem;\n  opacity: 0.7;\n  margin: 0;\n}\n\n.value-box-change {\n  font-size: 0.8rem;\n  font-weight: 600;\n  margin: 0;\n}\n\n.value-box-change.positive {\n  color: var(--bs-success);\n}\n\n.value-box-change.negative {\n  color: var(--bs-danger);\n}\n\n.value-box-change.neutral {\n  color: var(--bs-secondary);\n}\n\n// Color variants\n.value-box-primary {\n  background: linear-gradient(135deg, var(--bs-primary) 0%, rgba(var(--bs-primary-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-success {\n  background: linear-gradient(135deg, var(--bs-success) 0%, rgba(var(--bs-success-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-danger {\n  background: linear-gradient(135deg, var(--bs-danger) 0%, rgba(var(--bs-danger-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-warning {\n  background: linear-gradient(135deg, var(--bs-warning) 0%, rgba(var(--bs-warning-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-info {\n  background: linear-gradient(135deg, var(--bs-info) 0%, rgba(var(--bs-info-rgb), 0.8) 100%);\n  color: white;\n}\n\n// Dark mode adjustments\n[data-bs-theme=\"dark\"] .value-box-card {\n  box-shadow: 0 2px 4px rgba(0,0,0,0.3);\n}\n\n[data-bs-theme=\"dark\"] .value-box-card:hover {\n  box-shadow: 0 4px 12px rgba(0,0,0,0.4);\n}\nThis approach gives you all the visual appeal and functionality of Quarto Dashboard value boxes, but works perfectly in your Quarto website!",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
+    "objectID": "cards.html#why-use-value-box-style-cards",
+    "href": "cards.html#why-use-value-box-style-cards",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "These cards replicate the look and feel of Quarto Dashboard value boxes but work in: - ✅ Quarto Websites (like this site) - ✅ Regular HTML pages - ✅ R Markdown documents - ✅ Any Bootstrap-based project",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
+    "objectID": "cards.html#basic-value-box-card",
+    "href": "cards.html#basic-value-box-card",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "&lt;div class=\"value-box-icon\"&gt;\n  &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n&lt;/div&gt;\n&lt;div class=\"value-box-content\"&gt;\n  &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n  &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n  &lt;div class=\"value-box-subtitle\"&gt;Q4 2024 Total&lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n\n&lt;div class=\"card value-box-card\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Q4 2024 Total&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n&lt;div class=\"card value-box-card\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Q4 2024 Total&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
+    "objectID": "cards.html#value-box-cards-with-change-indicators",
+    "href": "cards.html#value-box-cards-with-change-indicators",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "The key feature your team wanted - showing positive/negative changes with appropriate colors.\n\n\n\n\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +12.5% vs last quarter\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-people\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Active Users&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;847&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-down\"&gt;&lt;/i&gt; -3.2% vs last week\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-info\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-bar-chart\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Conversion Rate&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;4.2%&lt;/div&gt;\n      &lt;div class=\"value-box-change neutral\"&gt;\n        &lt;i class=\"bi bi-dash\"&gt;&lt;/i&gt; No change vs target\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n&lt;!-- Positive Change --&gt;\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +12.5% vs last quarter\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n&lt;!-- Negative Change --&gt;\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-people\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Active Users&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;847&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-down\"&gt;&lt;/i&gt; -3.2% vs last week\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
+    "objectID": "cards.html#color-variants",
+    "href": "cards.html#color-variants",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "Different background colors to match the semantic meaning of your metrics.\n\n\n\n\n&lt;div class=\"card value-box-card value-box-primary\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-graph-up\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Growth&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;15.7%&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Primary Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-check-circle\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Success&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;98.5%&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Success Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-warning\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-exclamation-triangle\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Warnings&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;3&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Warning Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-x-circle\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Errors&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;0&lt;/div&gt;\n      &lt;div class=\"value-box-subtitle\"&gt;Danger Theme&lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n\n\n\n&lt;!-- Primary (Blue) --&gt;\n&lt;div class=\"card value-box-card value-box-primary\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;\n\n&lt;!-- Success (Green) --&gt;\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;\n\n&lt;!-- Warning (Yellow) --&gt;\n&lt;div class=\"card value-box-card value-box-warning\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;\n\n&lt;!-- Danger (Red) --&gt;\n&lt;div class=\"card value-box-card value-box-danger\"&gt;\n  &lt;!-- content --&gt;\n&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
+    "objectID": "cards.html#dashboard-layout-example",
+    "href": "cards.html#dashboard-layout-example",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "How to arrange multiple value box cards in a dashboard-style layout.\n\n\n\n\n&lt;div class=\"card value-box-card value-box-primary\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-currency-dollar\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Total Revenue&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;$2.4M&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +12.5%\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-info\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-people\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Active Users&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;1,247&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-down\"&gt;&lt;/i&gt; -3.2%\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-success\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-graph-up\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Conversion&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;4.2%&lt;/div&gt;\n      &lt;div class=\"value-box-change positive\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +0.8%\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n\n\n&lt;div class=\"card value-box-card value-box-warning\"&gt;\n  &lt;div class=\"card-body\"&gt;\n    &lt;div class=\"value-box-icon\"&gt;\n      &lt;i class=\"bi bi-clock\"&gt;&lt;/i&gt;\n    &lt;/div&gt;\n    &lt;div class=\"value-box-content\"&gt;\n      &lt;div class=\"value-box-title\"&gt;Response Time&lt;/div&gt;\n      &lt;div class=\"value-box-value\"&gt;124ms&lt;/div&gt;\n      &lt;div class=\"value-box-change negative\"&gt;\n        &lt;i class=\"bi bi-arrow-up\"&gt;&lt;/i&gt; +15ms\n      &lt;/div&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
+    "objectID": "cards.html#usage-guidelines",
+    "href": "cards.html#usage-guidelines",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "value-box-primary - Main KPIs, revenue, primary metrics\nvalue-box-success - Positive trends, goals achieved, systems healthy\nvalue-box-danger - Negative trends, errors, alerts, problems\nvalue-box-warning - Caution states, approaching limits, maintenance\nvalue-box-info - Neutral information, general metrics, informational data\n\n\n\n\n\nAlways include direction: Use arrows (↑↓) or icons (bi-arrow-up/down)\nProvide context: “vs last quarter”, “vs target”, “vs last week”\nUse consistent formatting: Same decimal places, same comparison periods\nColor coding: Green for positive, red for negative, gray for neutral\n\n\n\n\n\nMobile-first: Use responsive grid classes (col-sm-6 col-lg-3)\nConsistent spacing: Add margin-bottom (mb-3) for proper spacing\nGroup related metrics: Place similar metrics together\nLogical order: Most important metrics first (left to right, top to bottom)",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
+    "objectID": "cards.html#add-to-your-theme.scss",
+    "href": "cards.html#add-to-your-theme.scss",
+    "title": "Value Box Cards",
+    "section": "",
+    "text": "Add this comprehensive styling to the /*-- scss:rules --*/ section of your theme.scss file:\n/*-- scss:rules --*/\n\n// =====================================================\n// VALUE BOX CARDS\n// =====================================================\n\n.value-box-card {\n  border: none;\n  box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\n  height: 100%;\n}\n\n.value-box-card:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 4px 12px rgba(0,0,0,0.15);\n}\n\n.value-box-card .card-body {\n  padding: 1.5rem;\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n\n.value-box-icon {\n  font-size: 2.5rem;\n  opacity: 0.8;\n  flex-shrink: 0;\n  width: 60px;\n  text-align: center;\n}\n\n.value-box-content {\n  flex: 1;\n  min-width: 0;\n}\n\n.value-box-title {\n  font-size: 0.85rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  opacity: 0.8;\n  margin-bottom: 0.25rem;\n}\n\n.value-box-value {\n  font-size: 1.75rem;\n  font-weight: 700;\n  line-height: 1.2;\n  margin-bottom: 0.25rem;\n}\n\n.value-box-subtitle {\n  font-size: 0.8rem;\n  opacity: 0.7;\n  margin: 0;\n}\n\n.value-box-change {\n  font-size: 0.8rem;\n  font-weight: 600;\n  margin: 0;\n}\n\n.value-box-change.positive {\n  color: var(--bs-success);\n}\n\n.value-box-change.negative {\n  color: var(--bs-danger);\n}\n\n.value-box-change.neutral {\n  color: var(--bs-secondary);\n}\n\n// Color variants\n.value-box-primary {\n  background: linear-gradient(135deg, var(--bs-primary) 0%, rgba(var(--bs-primary-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-success {\n  background: linear-gradient(135deg, var(--bs-success) 0%, rgba(var(--bs-success-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-danger {\n  background: linear-gradient(135deg, var(--bs-danger) 0%, rgba(var(--bs-danger-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-warning {\n  background: linear-gradient(135deg, var(--bs-warning) 0%, rgba(var(--bs-warning-rgb), 0.8) 100%);\n  color: white;\n}\n\n.value-box-info {\n  background: linear-gradient(135deg, var(--bs-info) 0%, rgba(var(--bs-info-rgb), 0.8) 100%);\n  color: white;\n}\n\n// Dark mode adjustments\n[data-bs-theme=\"dark\"] .value-box-card {\n  box-shadow: 0 2px 4px rgba(0,0,0,0.3);\n}\n\n[data-bs-theme=\"dark\"] .value-box-card:hover {\n  box-shadow: 0 4px 12px rgba(0,0,0,0.4);\n}\nThis approach gives you all the visual appeal and functionality of Quarto Dashboard value boxes, but works perfectly in your Quarto website!",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Cards"
+    ]
+  },
+  {
     "objectID": "issues.html",
     "href": "issues.html",
     "title": "Issues and Bugs to Fix",
     "section": "",
-    "text": "Dark mode caption text color not updating with rest of text. This is done with #| fig-cap: \"Title\" chunk option.\nIcon colors for light mode need lightening.\nThe oeda-logo-wide-light.svg needs to have whitespace removed from .svg file\nFont matching from primary and wide logos need to be done. Fix in Affinity.\nNew icon files failing. Investigate. No icon in navbar."
+    "text": "Dark mode caption text color not updating with rest of text. This is done with #| fig-cap: \"Title\" chunk option.\nIcon colors for light mode need lightening.\nThe oeda-logo-wide-light.svg needs to have whitespace removed from .svg file\nFont matching from primary and wide logos need to be done. Fix in Affinity.\nNew icon files failing. Investigate. No icon in navbar.\ncards page has non-working value box cards.",
+    "crumbs": [
+      "Home",
+      "Issues and Bugs"
+    ]
   },
   {
     "objectID": "oeda_brand.html",
     "href": "oeda_brand.html",
     "title": "OEDA HTML Branding Demo",
     "section": "",
-    "text": "This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from _brand.yml is working as expected.\n\n\nThis section will test if we can embed one of the logos directly into the document body using the same path defined in _brand.yml.\n\n\n\n\n\n\n\nHere’s some text that should only appear in light mode, and the light wide logo.\n\n\n\nOEDA logo\n\n\n\n\nThis is the dark mode text, and the dark wide logo.\n\n\n\nOEDA logo\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nImportantCustom CSS and Quarto 1.7+\n\n\n\nWhen using Quarto version 1.7 or higher, the renderings option replaces all need for custom css when it comes to dark and light mode content. Using custom CSS causes renderings to break most of the time. You must choose one approach or the other.\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\n\n\nAverage MPG by cylinder count\n\n\n\n\n\n\n\nAverage MPG by cylinder count"
+    "text": "This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from _brand.yml is working as expected.\n\n\nThis section will test if we can embed one of the logos directly into the document body using the same path defined in _brand.yml.\n\n\n\n\n\n\n\n\n\n\nNoteHybrid Approach: CSS + Renderings\n\n\n\nThis document uses a hybrid approach: - CSS classes (.light-content and .dark-content) for logos and HTML content - renderings: [light, dark] for ggplot2 plots and R graphics\nThis is necessary because Quarto’s renderings feature only works for plot outputs, not HTML content.\n\n\n\n\n\n\n\n\nOEDA ICON\n\n\n\n\n\nOEDA WIDE LOGO\n\n\n\n\n\nOEDA VERTICAL LOGO\n\n\n\n\n\n\n\nOEDA ICON\n\n\n\n\n\nOEDA WIDE LOGO\n\n\n\n\n\nOEDA DARK LOGO\n\n\n\n\n\n\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\n\n\nAverage MPG by cylinder count\n\n\n\n\n\n\n\nAverage MPG by cylinder count",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Brand Demo"
+    ]
   },
   {
     "objectID": "oeda_brand.html#testing-typography",
     "href": "oeda_brand.html#testing-typography",
     "title": "OEDA HTML Branding Demo",
     "section": "",
-    "text": "This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from _brand.yml is working as expected.\n\n\nThis section will test if we can embed one of the logos directly into the document body using the same path defined in _brand.yml."
+    "text": "This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from _brand.yml is working as expected.\n\n\nThis section will test if we can embed one of the logos directly into the document body using the same path defined in _brand.yml.",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Brand Demo"
+    ]
   },
   {
     "objectID": "oeda_brand.html#testing-light-and-dark-mode",
     "href": "oeda_brand.html#testing-light-and-dark-mode",
     "title": "OEDA HTML Branding Demo",
     "section": "",
-    "text": "Here’s some text that should only appear in light mode, and the light wide logo.\n\n\n\nOEDA logo\n\n\n\n\nThis is the dark mode text, and the dark wide logo.\n\n\n\nOEDA logo"
+    "text": "NoteHybrid Approach: CSS + Renderings\n\n\n\nThis document uses a hybrid approach: - CSS classes (.light-content and .dark-content) for logos and HTML content - renderings: [light, dark] for ggplot2 plots and R graphics\nThis is necessary because Quarto’s renderings feature only works for plot outputs, not HTML content.\n\n\n\n\n\n\n\n\nOEDA ICON\n\n\n\n\n\nOEDA WIDE LOGO\n\n\n\n\n\nOEDA VERTICAL LOGO\n\n\n\n\n\n\n\nOEDA ICON\n\n\n\n\n\nOEDA WIDE LOGO\n\n\n\n\n\nOEDA DARK LOGO",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Brand Demo"
+    ]
   },
   {
     "objectID": "oeda_brand.html#testing-color-palettes",
     "href": "oeda_brand.html#testing-color-palettes",
     "title": "OEDA HTML Branding Demo",
     "section": "",
-    "text": "ImportantCustom CSS and Quarto 1.7+\n\n\n\nWhen using Quarto version 1.7 or higher, the renderings option replaces all need for custom css when it comes to dark and light mode content. Using custom CSS causes renderings to break most of the time. You must choose one approach or the other.\n\n\n\n\n\n\n\nBrand Color Swatches and Tints\n\n\n\n\n\n\n\nBrand Color Swatches and Tints"
+    "text": "Brand Color Swatches and Tints\n\n\n\n\n\n\n\nBrand Color Swatches and Tints",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Brand Demo"
+    ]
   },
   {
     "objectID": "oeda_brand.html#example-plots-with-renderings",
     "href": "oeda_brand.html#example-plots-with-renderings",
     "title": "OEDA HTML Branding Demo",
     "section": "",
-    "text": "Vehicle efficiency analysis\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\n\n\nAverage MPG by cylinder count\n\n\n\n\n\n\n\nAverage MPG by cylinder count"
+    "text": "Vehicle efficiency analysis\n\n\n\n\n\n\n\nVehicle efficiency analysis\n\n\n\n\n\n\n\n\n\nAverage MPG by cylinder count\n\n\n\n\n\n\n\nAverage MPG by cylinder count",
+    "crumbs": [
+      "Home",
+      "Website",
+      "Brand Demo"
+    ]
   }
 ]

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Aaron Cochran">
-<meta name="dcterms.date" content="2025-09-16">
 
-<title>OEDA HTML Branding Demo – Oregon Enterprise Data Analytics</title>
+<title>Buttons – Oregon Enterprise Data Analytics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -296,7 +329,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oeda_brand.html">Website</a></li><li class="breadcrumb-item"><a href="./oeda_brand.html">Brand Demo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oeda_brand.html">Website</a></li><li class="breadcrumb-item"><a href="./buttons.html">Buttons</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -339,13 +372,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./oeda_brand.html" class="sidebar-item-text sidebar-link active">
+  <a href="./oeda_brand.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Brand Demo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./buttons.html" class="sidebar-item-text sidebar-link">
+  <a href="./buttons.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Buttons</span></a>
   </div>
 </li>
@@ -373,12 +406,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#oeda-branding-tests" id="toc-oeda-branding-tests" class="nav-link active" data-scroll-target="#oeda-branding-tests">OEDA Branding Tests</a>
+  <li><a href="#button-components" id="toc-button-components" class="nav-link active" data-scroll-target="#button-components">Button Components</a>
   <ul class="collapse">
-  <li><a href="#testing-typography" id="toc-testing-typography" class="nav-link" data-scroll-target="#testing-typography">Testing Typography</a></li>
-  <li><a href="#testing-light-and-dark-mode" id="toc-testing-light-and-dark-mode" class="nav-link" data-scroll-target="#testing-light-and-dark-mode">Testing Light and Dark Mode</a></li>
-  <li><a href="#testing-color-palettes" id="toc-testing-color-palettes" class="nav-link" data-scroll-target="#testing-color-palettes">Testing Color Palettes</a></li>
-  <li><a href="#example-plots-with-renderings" id="toc-example-plots-with-renderings" class="nav-link" data-scroll-target="#example-plots-with-renderings">Example Plots with Renderings</a></li>
+  <li><a href="#primary-buttons" id="toc-primary-buttons" class="nav-link" data-scroll-target="#primary-buttons">Primary Buttons</a></li>
+  <li><a href="#secondary-buttons" id="toc-secondary-buttons" class="nav-link" data-scroll-target="#secondary-buttons">Secondary Buttons</a></li>
+  <li><a href="#button-sizes" id="toc-button-sizes" class="nav-link" data-scroll-target="#button-sizes">Button Sizes</a></li>
+  <li><a href="#action-buttons" id="toc-action-buttons" class="nav-link" data-scroll-target="#action-buttons">Action Buttons</a></li>
+  <li><a href="#button-groups" id="toc-button-groups" class="nav-link" data-scroll-target="#button-groups">Button Groups</a></li>
+  <li><a href="#usage-guidelines" id="toc-usage-guidelines" class="nav-link" data-scroll-target="#usage-guidelines">Usage Guidelines</a></li>
+  <li><a href="#custom-scss-for-theme.scss" id="toc-custom-scss-for-theme.scss" class="nav-link" data-scroll-target="#custom-scss-for-theme.scss">Custom SCSS for theme.scss</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -387,28 +423,17 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oeda_brand.html">Website</a></li><li class="breadcrumb-item"><a href="./oeda_brand.html">Brand Demo</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./oeda_brand.html">Website</a></li><li class="breadcrumb-item"><a href="./buttons.html">Buttons</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">OEDA HTML Branding Demo</h1>
+<h1 class="title">Buttons</h1>
+<p class="subtitle lead">Interactive button components with OEDA branding</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Aaron Cochran </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 16, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -418,136 +443,223 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="oeda-branding-tests" class="level1">
-<h1>OEDA Branding Tests</h1>
-<section id="testing-typography" class="level2">
-<h2 class="anchored" data-anchor-id="testing-typography">Testing Typography</h2>
-<p>This is a paragraph using the base font (Noto Sans Regular). If this text and the headings look correct, then the typography from <code>_brand.yml</code> is working as expected.</p>
-<section id="this-is-a-sub-heading" class="level3">
-<h3 class="anchored" data-anchor-id="this-is-a-sub-heading">This is a Sub-Heading</h3>
-<p>This section will test if we can embed one of the logos directly into the document body using the same path defined in <code>_brand.yml</code>.</p>
+<section id="button-components" class="level1">
+<h1>Button Components</h1>
+<p>This page demonstrates how to implement consistent button styling across your projects using OEDA brand colors and design patterns.</p>
+<section id="primary-buttons" class="level2">
+<h2 class="anchored" data-anchor-id="primary-buttons">Primary Buttons</h2>
+<p>Use primary buttons for the main action on a page or section.</p>
+<div class="demo-section">
+<h3 class="anchored">
+Live Example
+</h3>
+<button type="button" class="btn btn-primary">
+Primary Action
+</button>
+<button type="button" class="btn btn-primary" disabled="">
+Disabled Primary
+</button>
+</div>
+<section id="html-code" class="level3">
+<h3 class="anchored" data-anchor-id="html-code">HTML Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-primary"</span><span class="dt">&gt;</span>Primary Action<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-primary"</span><span class="ot"> disabled</span><span class="dt">&gt;</span>Disabled Primary<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="css-add-to-your-theme.scss-file" class="level3">
+<h3 class="anchored" data-anchor-id="css-add-to-your-theme.scss-file">CSS (Add to your theme.scss file)</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn-primary</span> {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--bs-primary</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--bs-primary</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">white</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn-primary</span><span class="in">:hover</span> {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--bs-secondary</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-color</span><span class="ch">:</span> <span class="fu">var(</span><span class="va">--bs-secondary</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn-primary</span><span class="in">:disabled</span> {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">opacity</span><span class="ch">:</span> <span class="dv">0.6</span><span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">cursor</span><span class="ch">:</span> <span class="dv">not-allowed</span><span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="testing-light-and-dark-mode" class="level2">
-<h2 class="anchored" data-anchor-id="testing-light-and-dark-mode">Testing Light and Dark Mode</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="secondary-buttons" class="level2">
+<h2 class="anchored" data-anchor-id="secondary-buttons">Secondary Buttons</h2>
+<p>Use secondary buttons for supporting actions or when you need multiple buttons in close proximity.</p>
+<div class="demo-section">
+<h3 class="anchored">
+Live Example
+</h3>
+<button type="button" class="btn btn-secondary">
+Secondary Action
+</button>
+<button type="button" class="btn btn-outline-primary">
+Outlined Button
+</button>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Hybrid Approach: CSS + Renderings
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This document uses a <strong>hybrid approach</strong>: - <strong>CSS classes</strong> (<code>.light-content</code> and <code>.dark-content</code>) for logos and HTML content - <strong><code>renderings: [light, dark]</code></strong> for ggplot2 plots and R graphics</p>
-<p>This is necessary because Quarto’s <code>renderings</code> feature only works for plot outputs, not HTML content.</p>
-</div>
-</div>
-<section id="logos-using-css-classes" class="level3">
-<h3 class="anchored" data-anchor-id="logos-using-css-classes">Logos Using CSS Classes</h3>
-<div class="light-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".\assets/oeda-icon-fixed.png" class="img-fluid figure-img"></p>
-<figcaption>OEDA ICON</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".\assets/oeda-logo-wide-light-fixed.svg" class="img-fluid figure-img"></p>
-<figcaption>OEDA WIDE LOGO</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".\assets/oeda-logo-primary-fixed.svg" class="img-fluid figure-img"></p>
-<figcaption>OEDA VERTICAL LOGO</figcaption>
-</figure>
-</div>
-</div>
-<div class="dark-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".\assets/oeda-icon-dark-fixed.png" class="img-fluid figure-img"></p>
-<figcaption>OEDA ICON</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".\assets/oeda-logo-wide-dark-fixed.svg" class="img-fluid figure-img"></p>
-<figcaption>OEDA WIDE LOGO</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src=".\assets/oeda-logo-primary-dark-fixed.svg" class="img-fluid figure-img"></p>
-<figcaption>OEDA DARK LOGO</figcaption>
-</figure>
-</div>
-</div>
-<hr>
+<section id="html-code-1" class="level3">
+<h3 class="anchored" data-anchor-id="html-code-1">HTML Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-secondary"</span><span class="dt">&gt;</span>Secondary Action<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-outline-primary"</span><span class="dt">&gt;</span>Outlined Button<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="testing-color-palettes" class="level2">
-<h2 class="anchored" data-anchor-id="testing-color-palettes">Testing Color Palettes</h2>
-<div class="cell" data-renderings="[&quot;light&quot;,&quot;dark&quot;]">
-<div class="light-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="oeda_brand_files/figure-html/render-swatch-plots-1.svg" class="img-fluid figure-img" width="768"></p>
-<figcaption>Brand Color Swatches and Tints</figcaption>
-</figure>
+<section id="button-sizes" class="level2">
+<h2 class="anchored" data-anchor-id="button-sizes">Button Sizes</h2>
+<p>Different button sizes for various contexts.</p>
+<div class="demo-section">
+<h3 class="anchored">
+Live Example
+</h3>
+<button type="button" class="btn btn-primary btn-lg">
+Large Button
+</button>
+<button type="button" class="btn btn-primary">
+Regular Button
+</button>
+<button type="button" class="btn btn-primary btn-sm">
+Small Button
+</button>
 </div>
-</div>
-<div class="dark-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="oeda_brand_files/figure-html/render-swatch-plots-2.svg" class="img-fluid figure-img" width="768"></p>
-<figcaption>Brand Color Swatches and Tints</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<section id="html-code-2" class="level3">
+<h3 class="anchored" data-anchor-id="html-code-2">HTML Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-primary btn-lg"</span><span class="dt">&gt;</span>Large Button<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-primary"</span><span class="dt">&gt;</span>Regular Button<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-primary btn-sm"</span><span class="dt">&gt;</span>Small Button<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="example-plots-with-renderings" class="level2">
-<h2 class="anchored" data-anchor-id="example-plots-with-renderings">Example Plots with Renderings</h2>
-<div class="cell" data-renderings="[&quot;light&quot;,&quot;dark&quot;]">
-<div class="light-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="oeda_brand_files/figure-html/render-scatter-plot-1.svg" class="img-fluid figure-img" width="768"></p>
-<figcaption>Vehicle efficiency analysis</figcaption>
-</figure>
+</section>
+<section id="action-buttons" class="level2">
+<h2 class="anchored" data-anchor-id="action-buttons">Action Buttons</h2>
+<p>Specialized buttons for common actions in data analytics contexts.</p>
+<div class="demo-section">
+<h3 class="anchored">
+Live Example
+</h3>
+<button type="button" class="btn btn-success">
+<i class="bi bi-download"></i> Download Report
+</button>
+<button type="button" class="btn btn-info">
+<i class="bi bi-bar-chart"></i> View Chart
+</button>
+<button type="button" class="btn btn-warning">
+<i class="bi bi-exclamation-triangle"></i> Alert
+</button>
+<button type="button" class="btn btn-danger">
+<i class="bi bi-trash"></i> Delete
+</button>
+</div>
+<section id="html-code-3" class="level3">
+<h3 class="anchored" data-anchor-id="html-code-3">HTML Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-success"</span><span class="dt">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-download"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Download Report</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-info"</span><span class="dt">&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-bar-chart"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> View Chart</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-warning"</span><span class="dt">&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-exclamation-triangle"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Alert</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-danger"</span><span class="dt">&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">i</span><span class="ot"> class</span><span class="op">=</span><span class="st">"bi bi-trash"</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span> Delete</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="button-groups" class="level2">
+<h2 class="anchored" data-anchor-id="button-groups">Button Groups</h2>
+<p>Group related buttons together for cleaner interfaces.</p>
+<div class="demo-section">
+<h3 class="anchored">
+Live Example
+</h3>
+<div class="btn-group" role="group" aria-label="Data view options">
+<p><button type="button" class="btn btn-outline-primary active">Table</button> <button type="button" class="btn btn-outline-primary">Chart</button> <button type="button" class="btn btn-outline-primary">Export</button></p>
 </div>
 </div>
-<div class="dark-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="oeda_brand_files/figure-html/render-scatter-plot-2.svg" class="img-fluid figure-img" width="768"></p>
-<figcaption>Vehicle efficiency analysis</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell" data-renderings="[&quot;light&quot;,&quot;dark&quot;]">
-<div class="light-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="oeda_brand_files/figure-html/render-bar-plot-1.svg" class="img-fluid figure-img" width="768"></p>
-<figcaption>Average MPG by cylinder count</figcaption>
-</figure>
-</div>
-</div>
-<div class="dark-content">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="oeda_brand_files/figure-html/render-bar-plot-2.svg" class="img-fluid figure-img" width="768"></p>
-<figcaption>Average MPG by cylinder count</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<section id="html-code-4" class="level3">
+<h3 class="anchored" data-anchor-id="html-code-4">HTML Code</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn-group"</span><span class="ot"> role</span><span class="op">=</span><span class="st">"group"</span><span class="ot"> aria-label</span><span class="op">=</span><span class="st">"Data view options"</span><span class="dt">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-outline-primary active"</span><span class="dt">&gt;</span>Table<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-outline-primary"</span><span class="dt">&gt;</span>Chart<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn btn-outline-primary"</span><span class="dt">&gt;</span>Export<span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="usage-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="usage-guidelines">Usage Guidelines</h2>
+<section id="when-to-use-each-type" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-each-type">When to Use Each Type</h3>
+<ul>
+<li><strong>Primary</strong>: Use for the main action users should take (Submit, Save, Continue)</li>
+<li><strong>Secondary</strong>: Use for secondary actions (Cancel, Back, Reset)<br>
+</li>
+<li><strong>Outlined</strong>: Use when you need a button that’s less prominent than secondary</li>
+<li><strong>Action buttons</strong>: Use semantic colors for specific actions (Success for downloads, Warning for alerts, etc.)</li>
+</ul>
+</section>
+<section id="best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices">Best Practices</h3>
+<ul>
+<li>Limit to one primary button per section</li>
+<li>Use consistent spacing between buttons</li>
+<li>Always include descriptive text, not just icons</li>
+<li>Ensure sufficient color contrast for accessibility</li>
+<li>Test button interactions in both light and dark modes</li>
+</ul>
+</section>
+<section id="accessibility-notes" class="level3">
+<h3 class="anchored" data-anchor-id="accessibility-notes">Accessibility Notes</h3>
+<ul>
+<li>All buttons include proper ARIA labels</li>
+<li>Color is not the only way to convey information</li>
+<li>Focus states are clearly visible</li>
+<li>Disabled states are properly indicated to screen readers</li>
+</ul>
+</section>
+</section>
+<section id="custom-scss-for-theme.scss" class="level2">
+<h2 class="anchored" data-anchor-id="custom-scss-for-theme.scss">Custom SCSS for theme.scss</h2>
+<p>Add this to the <code>/*-- scss:rules --*/</code> section of your <code>theme.scss</code> file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode scss code-with-copy"><code class="sourceCode scss"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*-- scss:rules --*/</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Custom button styling</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">.demo-section</span> {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span>: <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border</span>: <span class="dv">1</span><span class="dt">px</span> <span class="dv">solid</span> <span class="fu">var(</span><span class="va">--bs-border-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-radius</span>: <span class="dv">0.375</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin</span>: <span class="dv">1</span><span class="dt">rem</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span>: <span class="fu">var(</span><span class="va">--bs-body-bg</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">.demo-section</span> h3 {</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-top</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-bottom</span>: <span class="dv">1</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--bs-headings-color</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Enhanced button hover effects</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn</span> {</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transition</span>: <span class="dv">all</span> <span class="dv">0.15</span><span class="dt">s</span> <span class="dv">ease-in-out</span><span class="op">;</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn</span><span class="in">:hover</span> {</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">transform</span>: translateY(<span class="op">-</span><span class="dv">1</span><span class="dt">px</span>)<span class="op">;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">box-shadow</span>: <span class="dv">0</span> <span class="dv">2</span><span class="dt">px</span> <span class="dv">4</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span><span class="dv">0.1</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">// Button group spacing</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn-group</span> <span class="fu">.btn</span> {</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-right</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn</span> <span class="op">+</span> <span class="fu">.btn</span> {</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-left</span>: <span class="dv">0.5</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="fu">.btn-group</span> <span class="fu">.btn</span> <span class="op">+</span> <span class="fu">.btn</span> {</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-left</span>: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
 </section>
