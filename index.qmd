@@ -1,6 +1,6 @@
 ---
 title: "OEDA Standards Guide"
-
+sidebar: false
 ---
 
 ![Website Under Construction](assets/under-construction-website.gif)
