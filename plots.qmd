@@ -1,0 +1,338 @@
+---
+title: "Plots and Figures"
+date: "today"
+format:
+  html:
+    theme:
+      light: [flatly, theme.scss]
+      dark: [darkly, theme-dark.scss]
+    toc: true
+    code-fold: true
+knitr: 
+  opts_chunk: 
+    echo: true
+    warning: false
+    message: false
+    fig.width: 8
+    fig.height: 6
+    dev: "svglite"
+resources:
+  - /assets/*
+---
+
+```{r setup}
+#| include: false
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(svglite)
+library(yaml)
+source("oeda_themes.R")
+source("oeda_plotly_themes.R")
+```
+
+
+# Static Plots
+
+## ggplot
+
+Themes are found in the `oeda_themes.R` file contained in this repository. Using a themes file allows us to make multiple plot themes and apply them consistently in a given situation. In this plot, the color values have been manually applied based on the `_brand.yml` colors.
+
+::: callout-note
+### SVG Rendering
+
+This approach uses the `svglite` package to take the generated ggplots and convert them to scalable vector graphics (SVGs). This makes it possible to resize the screen and have the ggplots dynamically respond.
+:::
+
+```{r scatter-plot}
+#| echo: true
+
+scatter_example <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1) +
+  labs(
+    title = "Vehicle Fuel Efficiency Analysis",
+    subtitle = "Weight vs MPG colored by cylinder count",
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon", 
+    color = "Cylinders",
+    caption = "Data: Motor Trend Car Road Tests"
+  ) +
+  scale_color_manual(values = c("#2E3192", "#86C679", "#A91F50"))
+```
+
+```{r render-scatter-plot}
+#| fig-cap: "Fig. 1: Vehicle efficiency analysis"
+#| renderings: [light, dark]
+
+scatter_example + theme_oeda_light()
+scatter_example + theme_oeda_dark()
+```
+
+# Interactive Plots
+
+## Plotly
+
+Plotly is the recommended choice for generating html interactive plots. 
+
+
+```{r prepare-plotly-data}
+# Prepare the mtcars data
+cars_data <- mtcars %>%
+  mutate(
+    car_name = rownames(mtcars),
+    cyl_factor = factor(cyl, levels = c(4, 6, 8),
+                        labels = c("4 cylinders", "6 cylinders", "8 cylinders"))
+  )
+```
+
+::: {.panel-tabset}
+
+### Fuel Efficiency
+
+```{r plotly-scatterplot}
+#| renderings: [light, dark]
+# Create an interactive scatter plot
+plot_ly(
+  data = cars_data,
+  x = ~wt,
+  y = ~mpg,
+  color = ~cyl_factor,
+  colors = oeda_colors_cool[1:3],
+  type = "scatter",
+  mode = "markers",
+  marker = list(size = 10, opacity = 0.8),
+  text = ~paste0(
+    "<b>", car_name, "</b><br>",
+    "Weight: ", round(wt, 2), " (1000 lbs)<br>",
+    "MPG: ", mpg, "<br>",
+    "Cylinders: ", cyl, "<br>",
+    "Horsepower: ", hp
+  ),
+  hovertemplate = "%{text}<extra></extra>"
+) %>%
+  layout_oeda_light(
+    title = "Vehicle Fuel Efficiency Analysis",
+    subtitle = "Weight vs MPG by Engine Type"
+  ) %>%
+  layout(
+    xaxis = list(title = "Weight (1000 lbs)"),
+    yaxis = list(title = "Miles per Gallon"),
+    legend = list(
+      title = list(text = "Engine Type"),
+      orientation = "v",
+      x = 1.02,
+      xanchor = "left",
+      y = 1,
+      yanchor = "top"
+    )
+  ) %>%
+  config_oeda()
+
+plot_ly(
+  data = cars_data,
+  x = ~wt,
+  y = ~mpg,
+  color = ~cyl_factor,
+  colors = oeda_colors_cool[1:3],
+  type = "scatter",
+  mode = "markers",
+  marker = list(size = 10, opacity = 0.8),
+  text = ~paste0(
+    "<b>", car_name, "</b><br>",
+    "Weight: ", round(wt, 2), " (1000 lbs)<br>",
+    "MPG: ", mpg, "<br>",
+    "Cylinders: ", cyl, "<br>",
+    "Horsepower: ", hp
+  ),
+  hovertemplate = "%{text}<extra></extra>"
+) %>%
+  layout_oeda_dark(
+    title = "Vehicle Fuel Efficiency Analysis",
+    subtitle = "Weight vs MPG by Engine Type"
+  ) %>%
+  layout(
+    xaxis = list(title = "Weight (1000 lbs)"),
+    yaxis = list(title = "Miles per Gallon"),
+    legend = list(
+      title = list(text = "Engine Type"),
+      orientation = "v",
+      x = 1.02,
+      xanchor = "left",
+      y = 1,
+      yanchor = "top"
+    )
+  ) %>%
+  config_oeda()
+```
+
+### Average by Cylinder
+```{r plotly-barchart}
+#| renderings: [light, dark]
+# Calculate averages
+avg_mpg <- cars_data %>%
+  group_by(cyl_factor) %>%
+  summarise(
+    avg_mpg = mean(mpg),
+    se = sd(mpg) / sqrt(n()),
+    count = n(),
+    .groups = "drop"
+  )
+
+# Create bar chart
+plot_ly(
+  data = avg_mpg,
+  x = ~cyl_factor,
+  y = ~avg_mpg,
+  type = "bar",
+  marker = list(
+    color = oeda_colors_warm[1:3],
+    line = list(color = "rgba(0,0,0,0.2)", width = 1)
+  ),
+  error_y = list(
+    type = "data",
+    array = ~se,
+    color = "rgba(0,0,0,0.5)"
+  ),
+  text = ~paste0(round(avg_mpg, 1), " mpg<br>(n=", count, ")"),
+  textposition = "outside",
+  hovertemplate = paste0(
+    "<b>%{x}</b><br>",
+    "Average MPG: %{y:.1f}<br>",
+    "Sample size: %{customdata}<br>",
+    "Standard error: ±%{error_y.array:.2f}",
+    "<extra></extra>"
+  ),
+  customdata = ~count
+) %>%
+  layout_oeda_light(
+    title = "Average Fuel Efficiency by Engine Type",
+    subtitle = "Error bars show standard error"
+  ) %>%
+  layout(
+    xaxis = list(title = "Engine Type"),
+    yaxis = list(title = "Average Miles per Gallon"),
+    showlegend = FALSE
+  ) %>%
+  config_oeda()
+
+plot_ly(
+  data = avg_mpg,
+  x = ~cyl_factor,
+  y = ~avg_mpg,
+  type = "bar",
+  marker = list(
+    color = oeda_colors_warm[1:3],
+    line = list(color = "rgba(0,0,0,0.2)", width = 1)
+  ),
+  error_y = list(
+    type = "data",
+    array = ~se,
+    color = "rgba(0,0,0,0.5)"
+  ),
+  text = ~paste0(round(avg_mpg, 1), " mpg<br>(n=", count, ")"),
+  textposition = "outside",
+  hovertemplate = paste0(
+    "<b>%{x}</b><br>",
+    "Average MPG: %{y:.1f}<br>",
+    "Sample size: %{customdata}<br>",
+    "Standard error: ±%{error_y.array:.2f}",
+    "<extra></extra>"
+  ),
+  customdata = ~count
+) %>%
+  layout_oeda_dark(
+    title = "Average Fuel Efficiency by Engine Type",
+    subtitle = "Error bars show standard error"
+  ) %>%
+  layout(
+    xaxis = list(title = "Engine Type"),
+    yaxis = list(title = "Average Miles per Gallon"),
+    showlegend = FALSE
+  ) %>%
+  config_oeda()
+```
+
+### Horsepower Trends
+```{r plotly-trend}
+#| renderings: [light, dark]
+# Create trend plot with LOESS smoothing
+plot_ly(
+  data = cars_data,
+  x = ~hp,
+  y = ~mpg,
+  color = ~cyl_factor,
+  colors = oeda_colors_primary[1:3],
+  type = "scatter",
+  mode = "markers",
+  marker = list(size = 10, opacity = 0.7),
+  text = ~paste0("<b>", car_name, "</b><br>HP: ", hp, "<br>MPG: ", mpg),
+  hovertemplate = "%{text}<extra></extra>"
+) %>%
+  add_lines(
+    data = cars_data,
+    x = ~hp,
+    y = ~fitted(loess(mpg ~ hp)),
+    color = ~cyl_factor,
+    colors = oeda_colors_primary[1:3],
+    line = list(width = 2),
+    showlegend = FALSE,
+    hoverinfo = "skip"
+  ) %>%
+  layout_oeda_light(
+    title = "Horsepower vs Fuel Efficiency",
+    subtitle = "Trend lines show LOESS smoothing by cylinder count"
+  ) %>%
+  layout(
+    xaxis = list(title = "Horsepower"),
+    yaxis = list(title = "Miles per Gallon"),
+    legend = list(
+      title = list(text = "Engine Type"),
+      x = 0.98,
+      xanchor = "right",
+      y = 0.98,
+      yanchor = "top"
+    )
+  ) %>%
+  config_oeda()
+
+plot_ly(
+  data = cars_data,
+  x = ~hp,
+  y = ~mpg,
+  color = ~cyl_factor,
+  colors = oeda_colors_primary[1:3],
+  type = "scatter",
+  mode = "markers",
+  marker = list(size = 10, opacity = 0.7),
+  text = ~paste0("<b>", car_name, "</b><br>HP: ", hp, "<br>MPG: ", mpg),
+  hovertemplate = "%{text}<extra></extra>"
+) %>%
+  add_lines(
+    data = cars_data,
+    x = ~hp,
+    y = ~fitted(loess(mpg ~ hp)),
+    color = ~cyl_factor,
+    colors = oeda_colors_primary[1:3],
+    line = list(width = 2),
+    showlegend = FALSE,
+    hoverinfo = "skip"
+  ) %>%
+  layout_oeda_dark(
+    title = "Horsepower vs Fuel Efficiency",
+    subtitle = "Trend lines show LOESS smoothing by cylinder count"
+  ) %>%
+  layout(
+    xaxis = list(title = "Horsepower"),
+    yaxis = list(title = "Miles per Gallon"),
+    legend = list(
+      title = list(text = "Engine Type"),
+      x = 0.98,
+      xanchor = "right",
+      y = 0.98,
+      yanchor = "top"
+    )
+  ) %>%
+  config_oeda()
+```
+:::
