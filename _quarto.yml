@@ -21,8 +21,6 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - href: oeda_brand.qmd
-        text: Branding
       - icon: github
         menu:
           - text: Source Code
@@ -40,6 +38,8 @@ website:
         contents:
           - href: oeda_brand.qmd
             text: Light and Dark Mode
+          - href: plots.qmd
+            text: Plots and Figures
           - href: buttons.qmd
             text: Buttons
       - section: "Dashboard"
