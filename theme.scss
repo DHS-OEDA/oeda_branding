@@ -53,7 +53,7 @@ $text-muted:    $ashland-charcoal-80;
 
 // Component colors
 $border-color:  $ashland-charcoal-20;
-$headings-color: $north-star-indigo;
+$headings-color: $ashland-charcoal;
 
 /*-- scss:rules --*/
 
@@ -67,6 +67,24 @@ $headings-color: $north-star-indigo;
   --figcaption-color: #{$ashland-charcoal};
   --figcaption-bg: transparent;
   --figcaption-border-color: #{$ashland-charcoal-20};
+}
+
+// =====================================================
+// NAVBAR STYLING
+// =====================================================
+
+.navbar {
+  background-color: $ashland-charcoal !important;
+  
+  // Ensure text/links are visible on the dark background
+  .navbar-brand,
+  .nav-link {
+    color: $fog-gray !important;
+  }
+  
+  .nav-link:hover {
+    color: $glacial-blue !important;
+  }
 }
 
 // =====================================================
